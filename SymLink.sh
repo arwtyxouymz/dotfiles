@@ -9,6 +9,7 @@ ln -sf ${DOT_DIRECTORY}/Brewfile ${HOME}/Brewfile
 for f in .??*
 do
     [[ "$f" == ".git" ]] && continue
+    [[ "$f" == ".gitignore" ]] && continue
     [[ "$f" == ".DS_Store" ]] && continue
     ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
 done
