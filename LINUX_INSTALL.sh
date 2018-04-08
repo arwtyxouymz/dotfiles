@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Updating and Upgrading apt................"
 sudo apt update && sudo apt upgrade -y
 

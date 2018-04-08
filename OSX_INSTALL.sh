@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Installing the CommandLineTools"
 xcode-select --install
 
