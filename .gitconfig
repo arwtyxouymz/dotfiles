@@ -1,0 +1,11 @@
+[user]
+	name = Ryutaro Matsumoto
+	email = taross0524.ss@gmail.com
+[core]
+	editor = vim -c \"set fenc=utf-8\"
+	precomposeunicode = true
+	quotepath = false
+[color]
+	diff = auto
+	status = auto
+	branch = auto
