@@ -17,7 +17,7 @@ elif type curl > /dev/null 2>&1 || type wget > /dev/null 2>&1; then
 
     elif type wget > /dev/null 2>&1; then
         wget -O - "$tarball"
-    fi | tar xv -
+    fi | tar xvzf -
 
     # 解凍したら，DOTPATH に置く
     mv -f dotfiles-master "$DOTPATH"
