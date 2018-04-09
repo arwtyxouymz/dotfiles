@@ -26,7 +26,7 @@ else
     exit 1
 fi
 
-cd ~/.dotfiles
+cd $DOTPATH
 
 # OS 判別
 if [ "$(uname)" == 'Darwin' ]; then
