@@ -1,1 +1,3 @@
 nvim/dein/*
+nvim/*
+.ssh/*
