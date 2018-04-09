@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e
+
 DOTPATH=~/dotfiles
 GITHUB_URL=https://github.com/arwtyxouymz/dotfiles
 
@@ -29,13 +33,13 @@ cd ~/.dotfiles
 
 # OS 判別
 if [ "$(uname)" == 'Darwin' ]; then
-  OS='Mac'
-  sh ./OSX_INSTALL.sh
-elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-  OS='Linux'
-  sh ./LINUX_INSTALL.sh
+    OS='Mac'
+    sh ./OSX_INSTALL.sh
+elif [ "$(uname)" == 'Linux' ]; then
+    OS='Linux'
+    sh ./LINUX_INSTALL.sh
 else
-  echo "Your platform ($(uname -a)) is not supported."
-  exit 1
+    echo "Your platform ($(uname -a)) is not supported."
+    exit 1
 fi
 
