@@ -29,12 +29,12 @@ fi
 cd $DOTPATH
 
 # OS 判別
-if [ "$(uname)" == 'Darwin' ]; then
+if [ "$(uname)" = 'Darwin' ]; then
     OS='Mac'
-    sh ./OSX_INSTALL.sh
-elif [ "$(uname)" == 'Linux' ]; then
+    sh $DOTPATH/OSX_INSTALL.sh
+elif [ "$(uname)" = 'Linux' ]; then
     OS='Linux'
-    sh ./LINUX_INSTALL.sh
+    sh $DOTPATH/LINUX_INSTALL.sh
 else
     echo "Your platform ($(uname -a)) is not supported."
     exit 1
