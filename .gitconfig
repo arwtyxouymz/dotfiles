@@ -5,7 +5,16 @@
 	editor = vim -c \"set fenc=utf-8\"
 	precomposeunicode = true
 	quotepath = false
+	excludesfile = /Users/ryutaro/.gitignore_global
 [color]
 	diff = auto
 	status = auto
 	branch = auto
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/ryutaro/.stCommitMsg
