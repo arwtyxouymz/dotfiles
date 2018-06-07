@@ -1,0 +1,5 @@
+# 補完
+[[plugins]]
+repo = 'carlitux/deoplete-ternjs'
+on_ft = ['js']
+depends = ['deoplete.nvim']
