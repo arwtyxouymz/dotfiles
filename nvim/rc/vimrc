@@ -25,8 +25,6 @@ endfunction
 
 augroup MyAutoCmd
   autocmd!
-  autocmd FileType,Syntax,BufNewFile,BufNew,BufRead *?
-        \ call vimrc#on_filetype()
   autocmd CursorHold *.toml syntax sync minlines=300
   autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -42,6 +40,10 @@ augroup END
 
 if has('vim_starting')
     call s:source_rc('init.rc.vim')
+endif
+
+if has('nvim')
+  call s:source_rc('neovim.rc.vim')
 endif
 
 call s:source_rc('dein.rc.vim')
@@ -63,10 +65,6 @@ endif
 call s:source_rc('options.rc.vim')
 
 call s:source_rc('mappings.rc.vim')
-
-if has('nvim')
-  call s:source_rc('neovim.rc.vim')
-endif
 
 "---------------------------------------------------------------------------
 

@@ -2,10 +2,6 @@
 " For neovim:
 "
 
-if has('vim_starting') && empty(argv())
-  syntax off
-endif
-
 " Need to change path of python2 by &filetype
 " let g:python_host_prog = '/usr/bin/python2.7'
 let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'

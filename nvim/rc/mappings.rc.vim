@@ -1,8 +1,5 @@
 " key mappings
 
-" <Leader> is , 
-let g:mapleader = ','
-
 " help command
 nnoremap <Space>t :<C-u>tab help<Space>
 nnoremap <Space>v :<C-u>vertical belowright help<Space>
