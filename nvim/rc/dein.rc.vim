@@ -49,6 +49,9 @@ if dein#load_state(s:dein_dir)
   " Required:
   call dein#end()
   call dein#save_state()
+
+  filetype plugin indent on
+  syntax enable
 endif
 
 " If you want to install not installed plugins on startup.
