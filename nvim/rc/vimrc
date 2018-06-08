@@ -1,12 +1,7 @@
-" viとの互換性 => 多分もういらない
-if &compatible
-    set nocompatible
-endif
 
 function! s:source_rc(path, ...) abort
-    " 謎!!!!!!!
     let use_global = get(a:000, 0, !has('vim_starting'))
-    " シンボリックリンクを辿る
+    " Symbolic links
     let abspath = resolve(expand('~/.config/nvim/rc/' . a:path))
     if !use_global
         execute 'source' fnameescape(abspath)
@@ -65,8 +60,6 @@ endif
 
 "---------------------------------------------------------------------------
 
-call s:source_rc('encoding.rc.vim')
-
 call s:source_rc('options.rc.vim')
 
 call s:source_rc('mappings.rc.vim')
@@ -75,11 +68,6 @@ if has('nvim')
   call s:source_rc('neovim.rc.vim')
 endif
 
-if IsWindows()
-  call s:source_rc('windows.rc.vim')
-else
-  call s:source_rc('unix.rc.vim')
-endif
 "---------------------------------------------------------------------------
 
 set secure

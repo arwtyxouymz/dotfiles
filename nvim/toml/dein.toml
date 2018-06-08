@@ -118,14 +118,21 @@ repo = 'autozimu/LanguageClient-neovim'
 build = ['./install.sh']
 hook_add = '''
     let g:LanguageClient_serverCommands = {
+        \ 'c': ['clangd', '-compile-commands-dir=' . getcwd() . '/build'],
+        \ 'cpp': ['clangd', '-compile-commands-dir=' . getcwd() . '/build'],
         \ 'vue': ['vls'],
         \ 'html': [],
         \ 'css': [],
         \ 'javascript': [],
-        " \ 'cpp': ['clangd']
     \ }
     " not stop completion $ & /
     set hidden
+
+    nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+    " Or map each action separately
+    nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+    nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+    nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 '''
 
 [[plugins]]

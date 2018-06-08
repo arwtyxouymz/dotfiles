@@ -54,4 +54,5 @@ set splitright
 " K でカーソル下のヘルプを開く
 set keywordprg=:help
 
+" Reload init.vim
 command! Reload source ~/.config/nvim/init.vim

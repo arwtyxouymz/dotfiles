@@ -1,21 +1,15 @@
 # 補完
-[[plugins]]
-repo = 'zchee/deoplete-clang'
-on_ft = ['c', 'cpp', 'cmake']
-hook_source = '''
-    autocmd FileType cmake setlocal completeopt-=preview
-    let g:deoplete#sources#clang#libclang_path = system("llvm-config --prefix")[:-2] . '/lib/libclang.dylib'
-    let g:deoplete#sources#clang#clang_header = system("llvm-config --prefix")[:-2] . '/lib/clang'
-    g:deoplete#sources#clang#sort_algo = 'priority'
-    let g:deoplete#sources#clang#clang_complete_database="./build/"
-'''
-depends = ['deoplete.nvim']
-
-# rtagsを用いた補完
-[[plugins]]
-repo = 'rzaluska/deoplete-rtags'
-on_ft = ['c', 'cpp']
-depends = ['deoplete.nvim']
+# [[plugins]]
+# repo = 'zchee/deoplete-clang'
+# on_ft = ['c', 'cpp', 'cmake']
+# hook_source = '''
+#     autocmd FileType cmake setlocal completeopt-=preview
+#     let g:deoplete#sources#clang#libclang_path = system("llvm-config --prefix")[:-2] . '/lib/libclang.dylib'
+#     let g:deoplete#sources#clang#clang_header = system("llvm-config --prefix")[:-2] . '/lib/clang'
+#     g:deoplete#sources#clang#sort_algo = 'priority'
+#     let g:deoplete#sources#clang#clang_complete_database="./build/"
+# '''
+# depends = ['deoplete.nvim']
 
 # Debug
 # [[plugins]]
