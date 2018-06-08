@@ -22,3 +22,4 @@ for d in * ; do
     ln -snfv ${DOT_DIRECTORY}/config/${d} ${HOME}/.config/${d}
     echo "hogehoge"
 done
+
