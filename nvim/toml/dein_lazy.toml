@@ -1,39 +1,10 @@
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-on_i = 1
+depends = 'context_filetype.vim'
+on_event = 'InsertEnter'
 hook_source = '''
-    " 起動時に有効にする
-    " hogehoge
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#auto_complete_delay = 0
-    let g:deoplete#auto_complete_start_length = 1
-    let g:deoplete#enable_camel_case = 0
-    let g:deoplete#enable_ignore_case = 0
-    let g:deoplete#enable_refresh_always = 0
-    let g:deoplete#enable_smart_case = 1
-    let g:deoplete#file#enable_buffer_path = 1
-    let g:deoplete#max_list = 10000
-
-    " <TAB>: completion
-    inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ deoplete#manual_complete()
-    function! s:check_back_space() abort
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1] =~ '\s'
-    endfunction
-
-    " <S-TAB> completion back
-    inoremap <expr><S-TAB> pumvisible() ?  "\<C-p>" : "\<C-h>"
-
-    " <BS>: close popup and delete backword char.
-    inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
-    
-    " <CR>: close popup and save indent.
-    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-    function! s:my_cr_function() abort
-        return deoplete#cancel_popup() . "\<CR>"
-    endfunction
+    call deoplete#enable()
+    source $XDG_CONFIG_HOME/nvim/rc/plugins/deoplete.rc.vim
 '''
 
 [[plugins]]
@@ -64,6 +35,14 @@ hook_post_source = '''
 '''
 
 [[plugins]]
+repo = 'Shougo/echodoc.vim'
+on_event = 'CompleteDone'
+hook_source = '''
+    let g:echodoc#type = 'signature'
+    call echodoc#enable()
+'''
+
+[[plugins]]
 repo = 'Shougo/neoyank.vim'
 on_source = 'denite.nvim'
 
@@ -84,6 +63,7 @@ hook_source = '''
     let g:neosnippet#enable_snipmate_compatibility = 1
     let g:neosnippet#enable_completed_snippet = 1
     let g:neosnippet#expand_word_boundary = 1
+    let g:neosnippet#enable_completed_snippet = 1
 '''
 hook_add = '''
     let g:neosnippet#snippets_directory = "$XDG_CONFIG_HOME/nvim/autoload/snippets/"
@@ -175,9 +155,9 @@ hook_add = '''
     nmap ga <Plug>(EasyAlign)
 '''
 
-[[plugins]]
-repo = 'cohama/lexima.vim'
-on_i = 1
+# [[plugins]]
+# repo = 'cohama/lexima.vim'
+# on_i = 1
 
 # [[plugins]]
 # repo = 'osyo-manga/vim-precious'

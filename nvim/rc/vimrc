@@ -46,11 +46,12 @@ if has('nvim')
   call s:source_rc('neovim.rc.vim')
 endif
 
-call s:source_rc('options.rc.vim')
 
-call s:source_rc('mappings.rc.vim')
 
 call s:source_rc('dein.rc.vim')
+
+call s:source_rc('mappings.rc.vim')
+call s:source_rc('options.rc.vim')
 
 if !has('vim_starting')
   call dein#call_hook('source')
