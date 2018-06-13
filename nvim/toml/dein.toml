@@ -85,10 +85,13 @@ repo = 'tpope/vim-fugitive'
 hook_add = '''
     nmap [figitive] <nop>
     map <leader>g [figitive]
-    nmap <silent> [figitive]s :<c-u>Gstatus<cr>
-    nmap <silent> [figitive]d :<c-u>Gdiff<cr>
-    nmap <silent> [figitive]b :<c-u>Gblame<cr>
-    nmap <silent> [figitive]l :<c-u>Glog<cr>
+    noremap <silent> [figitive]s :<c-u>Gstatus<cr>
+    noremap <silent> [figitive]d :<c-u>Gdiff<cr>
+    noremap <silent> [figitive]r :<c-u>Gread<cr>
+    noremap <silent> [figitive]b :<c-u>Gblame<cr>
+    noremap <silent> [figitive]l :<c-u>Glog<cr>
+    noremap [figitive]c :Gcommit -m 
+    noremap [figitive]p :GPush origin 
 '''
 
 [[plugins]]
