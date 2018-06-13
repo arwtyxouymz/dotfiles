@@ -48,15 +48,6 @@ hook_add = '''
     nmap <silent> <leader>av :AV<CR>
 '''
 
-# c/c++ ide
-# [[plugins]]
-# repo = 'WolfgangMehner/c-support'
-# on_ft = ['c', 'cpp']
-# hook_add = '''
-#     let g:C_UseTool_cmake    = 'yes'
-#     let g:C_UseTool_doxygen  = 'yes'
-# '''
-
 # rtags
 [[plugins]]
 repo = 'marxin/neo-rtags'
