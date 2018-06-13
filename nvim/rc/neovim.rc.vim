@@ -2,9 +2,9 @@
 " For neovim:
 "
 
-" Need to change path of python2 by &filetype
-" let g:python_host_prog = '/usr/bin/python2.7'
 let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
+" let g:python_host_prog = '/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python'
+" let g:python_host_prog = '/usr/bin/python2.7'
 let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
 
 if exists('&inccommand')

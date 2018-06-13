@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
-on_event = 'InsertEnter'
+on_i = 1
 hook_source = '''
     call deoplete#enable()
     source $XDG_CONFIG_HOME/nvim/rc/plugins/deoplete.rc.vim
@@ -98,7 +98,7 @@ hook_add = '''
   " don't show header
   let g:previm_show_header = 0
   " デフォルトのCSSに加えて独自のCSSも適用する
-  let g:previm_custom_css_path = '/Users/ryutaro/.config/nvim/dein/repos/github.com/kannokanno/previm/preview/css/icon.css'
+  " let g:previm_custom_css_path = '/Users/ryutaro/.config/nvim/dein/repos/github.com/kannokanno/previm/preview/css/icon.css'
 '''
 
 [[plugins]]
@@ -155,9 +155,9 @@ hook_add = '''
     nmap ga <Plug>(EasyAlign)
 '''
 
-# [[plugins]]
-# repo = 'cohama/lexima.vim'
-# on_i = 1
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_i = 1
 
 # [[plugins]]
 # repo = 'osyo-manga/vim-precious'
