@@ -91,7 +91,7 @@ hook_add = '''
     noremap <silent> [figitive]b :<c-u>Gblame<cr>
     noremap <silent> [figitive]l :<c-u>Glog<cr>
     noremap [figitive]c :Gcommit -m 
-    noremap [figitive]p :GPush origin 
+    noremap [figitive]p :Gpush origin 
 '''
 
 [[plugins]]
