@@ -163,9 +163,6 @@ hook_add = '''
     " エラー行にカーソルをあわせた際に表示されるメッセージフォーマット
     let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
     let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-    " エラーの移動
-    nmap <silent> <c-m> <plug>(ale_previous_wrap)
-    nmap <silent> <c-e> <plug>(ale_next_wrap)
 
     let g:ale_linters = {
         \   'php' : ['phpcs'],
