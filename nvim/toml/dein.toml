@@ -85,10 +85,16 @@ repo = 'tpope/vim-fugitive'
 hook_add = '''
     nmap [figitive] <nop>
     map <leader>g [figitive]
-    nmap <silent> [figitive]s :<c-u>gstatus<cr>
-    nmap <silent> [figitive]d :<c-u>gdiff<cr>
-    nmap <silent> [figitive]b :<c-u>gblame<cr>
-    nmap <silent> [figitive]l :<c-u>glog<cr>
+    nmap <silent> [figitive]s :<c-u>Gstatus<cr>
+    nmap <silent> [figitive]d :<c-u>Gdiff<cr>
+    nmap <silent> [figitive]b :<c-u>Gblame<cr>
+    nmap <silent> [figitive]l :<c-u>Glog<cr>
+'''
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+    set updatetime=100
 '''
 
 [[plugins]]
@@ -171,7 +177,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'thinca/vim-template'
-    hook_add = '''
+hook_add = '''
     let g:template_basedir = '~/.config/nvim/autoload'
     let g:template_free_pattern = 'template'
     " テンプレート中に含まれる文字を置き換える
