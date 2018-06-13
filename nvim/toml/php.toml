@@ -25,32 +25,33 @@ hook_add = '''
     let g:vim_php_refactoring_phpdoc = "pdv#DocumentCurrentLine"
     " デフォルトのキーマッピングを削除
     let g:vim_php_refactoring_use_default_mapping = 0
+'''
+hook_source = '''
     """" キーマッピング """"
     " ,rlv でローカル変数名の変更
-    nnoremap <leader>rlv :call PhpRenameLocalVariable()<CR>
+    noremap <leader>rlv :call PhpRenameLocalVariable()<CR>
     " ,rcv でクラス変数名の変更
-    nnoremap <leader>rcv :call PhpRenameClassVariable()<CR>
+    noremap <leader>rcv :call PhpRenameClassVariable()<CR>
     " ,rrmでメソッド名の変更
-    nnoremap <leader>rrm :call PhpRenameMethod()<CR>
+    noremap <leader>rrm :call PhpRenameMethod()<CR>
     " ,eu でuse文に抽出
-    nnoremap <leader>eu :call PhpExtractUse()<CR>
+    noremap <leader>eu :call PhpExtractUse()<CR>
     " ,ec でconstに抽出
     vnoremap <leader>ec :call PhpExtractConst()<CR>
     " ,ecp で変数をクラスプロパティに変更
-    nnoremap <leader>ecp :call PhpExtractClassProperty()<CR>
+    noremap <leader>ecp :call PhpExtractClassProperty()<CR>
     " ,em でvモードで選択した範囲をメソッド抽出
     vnoremap <leader>em :call PhpExtractMethod()<CR>
     " ,cp で新しいプロパティを作成
-    nnoremap <leader>cp :call PhpCreateProperty()<CR>
+    noremap <leader>cp :call PhpCreateProperty()<CR>
     " ,du で使用していないuse文を見つける
-    nnoremap <leader>du :call PhpDetectUnusedUseStatements()<CR>
-    " ,== で選択範囲を整列
-    vnoremap <leader>== :call PhpAlignAssigns()<CR>
+    noremap <leader>du :call PhpDetectUnusedUseStatements()<CR>
     " ,csg でセッターとゲッターを自動生成
-    nnoremap <leader>csg :call PhpCreateSettersAndGetters()<CR>
+    noremap <leader>csg :call PhpCreateSettersAndGetters()<CR>
     " ,cog でゲッターのみ生成
-    nnoremap <leader>cog :call PhpCreateGetters()<CR>
+    noremap <leader>cog :call PhpCreateGetters()<CR>
 '''
+
 # Move Class and Directory with updating references, and automatically create properties from constructor arguments
 [[plugins]]
 repo = 'phpactor/phpactor'
