@@ -174,3 +174,8 @@ on_i = 1
 #     let g:multi_cursor_skip_key='<C-x>'
 #     let g:multi_cursor_quit_key='<Esc>'
 # '''
+
+[[plugins]]
+repo = 'wellle/tmux-complete.vim'
+on_ft = 'tmux'
+hook_add = 'let g:tmuxcomplete#trigger = ""'
