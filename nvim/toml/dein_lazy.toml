@@ -178,4 +178,6 @@ on_i = 1
 [[plugins]]
 repo = 'wellle/tmux-complete.vim'
 on_ft = 'tmux'
-hook_add = 'let g:tmuxcomplete#trigger = ""'
+hook_add = '''
+    let g:tmuxcomplete#trigger = ""
+'''
