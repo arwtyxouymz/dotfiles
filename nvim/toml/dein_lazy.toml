@@ -159,10 +159,10 @@ hook_add = '''
 repo = 'cohama/lexima.vim'
 on_i = 1
 
-# [[plugins]]
-# repo = 'osyo-manga/vim-precious'
-# on_ft = ['html', 'toml', 'md']
-# depends = ['context_filetype.vim']
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+on_ft = ['toml', 'md']
+depends = ['context_filetype.vim']
 
 # [[plugins]]
 # repo = 'terryma/vim-multiple-cursors'
