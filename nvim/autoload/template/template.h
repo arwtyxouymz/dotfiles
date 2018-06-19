@@ -1,8 +1,8 @@
 /**
- * @file <+FILENAME+>
- * @brief <+CURSOR+>
+ * @file   <+FILENAME+>
+ * @brief  <+CURSOR+>
  * @author arwtyxouymz
- * @date <+DATE+>
+ * @date   <+DATE+>
  */
 
 #ifndef _<+FILENAME+>_H
