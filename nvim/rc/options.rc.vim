@@ -10,8 +10,6 @@ set virtualedit=onemore
 set backspace=indent,eol,start
 " 対応括弧に<と>を入れる
 set matchpairs& matchpairs+=<:>
-" 160文字目に線を入れる
-set colorcolumn=160
 " 自動的に改行が入るのを阻止
 set textwidth=0
 " 検索文字列が小文字の場合は大文字小文字を区別なく検索する

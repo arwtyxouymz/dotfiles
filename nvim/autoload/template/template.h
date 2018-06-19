@@ -1,7 +1,9 @@
-//
-// FileName:       <+FILENAME+>
-// CreatedDate:    <+DATE+>
-//
+/**
+ * @file <+FILENAME+>
+ * @brief <+CURSOR+>
+ * @author arwtyxouymz
+ * @date <+DATE+>
+ */
 
 #ifndef _<+FILENAME+>_H
 #define _<+FILENAME+>_H
@@ -14,7 +16,7 @@ public:
     <+FILENAME+>& operator=(const <+FILENAME+>& other);
 
 private:
-    <+CURSOR+>
+
 };
 
 #endif // _<+FILENAME+>_H
