@@ -21,11 +21,9 @@ if status is-interactive; and not set -q TMUX
     end
 end
 
-set -gx LANG ja_JP.UTF-8
-
-if not test -f $HOME/.config/fish/functions/fisher.fish
+if not test -f $XDG_CONFIG_HOME/fish/functions/fisher.fish
   echo "Installing fisherman for the first time"
-  curl -sLo $HOME/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+  curl -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish --create-dirs git.io/fisher
   fisher
 end
 
@@ -45,26 +43,19 @@ end
 set -g theme_display_git yes
 set -g theme_display_git_untracked yes
 set -g theme_display_git_master_branch yes
+set -g theme_title_use_abbreviated_path no
+set -g fish_prompt_pwd_dir_length 0
+set -g theme_project_dir_length 0
+set -g theme_newline_cursor yes
 
-alias vi '/usr/local/bin/nvim'
-alias vim '/usr/local/bin/nvim'
-alias dc '/usr/local/bin/docker-compose'
 
-# .config/の場所
-set -gx XDG_CONFIG_HOME $HOME/.config/
 
-# phpbrewの設定
-source ~/.phpbrew/phpbrew.fish
+alias vi nvim
+alias vim nvim
+alias dc docker-compose
 
-# pyenv
-set -gx PYENV_ROOT $HOME/.pyenv/
-status --is-interactive; and source (pyenv init -|psub)
-# pyenv-virtualenv
-set -gx VIRTUALENV_ROOT /usr/local/Cellar/pyenv-virtualenv/1.1.1/
-status --is-interactive; and source (pyenv virtualenv-init -|psub)
-
-set -xg PYTHONPATH /Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python
-set -xg PYTHONPATH $PYTHONPATH $HOME/.pyenv/versions/2.7.14/envs/neovim2/lib/python2.7/site-packages
+# set -xg PYTHONPATH /Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python
+# set -xg PYTHONPATH $PYTHONPATH $HOME/.pyenv/versions/2.7.14/envs/neovim2/lib/python2.7/site-packages
 
 # composerのupdate Laravel 5.5
 function LaravelInitialize5
@@ -93,24 +84,6 @@ function LaravelInitialize5
     composer update
 end
 
-# composerのupdate Laravel 5.2
-function LaravelInitialize2
-    composer require --dev barryvdh/laravel-ide-helper
-    sed -i -e "26d" ./app/Providers/AppServiceProvider.php
-    sed -i -e "25a\ \ \ \ \ \ \ \ if (\$this->app->environment() !== 'production') {" ./app/Providers/AppServiceProvider.php
-    sed -i -e "26a\ \ \ \ \ \ \ \ \ \ \ \ \$this->app->register(\\\\Barryvdh\\\\LaravelIdeHelper\\\\IdeHelperServiceProvider::class);" ./app/Providers/AppServiceProvider.php
-    sed -i -e "27a\ \ \ \ \ \ \ \ }" ./app/Providers/AppServiceProvider.php
-    composer require --dev doctrine/dbal
-    composer update
-    cp $XDG_CONFIG_HOME/nvim/autoload/laravel/autoload.php ./.autoload.php
-    cp $XDG_CONFIG_HOME/nvim/autoload/laravel/phpcd.vim ./.phpcd.vim
-    echo ./.autoload.php >> .gitignore
-    echo ./.phpcd.vim >> .gitignore
-    php artisan ide-helper:generate
-    sed -i -e "45a\ \ \ \ \ \ \ \ \ \ \ \ \"php artisan ide-helper:generate\"," ./composer.json
-    composer update
-end
-
 # cmakeプロジェクトの初期化
 function CppInitialize
     mkdir -p ./build/
@@ -119,4 +92,3 @@ function CppInitialize
 end
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-
