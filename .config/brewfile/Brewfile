@@ -1,0 +1,124 @@
+
+# tap repositories and their packages
+
+tap homebrew/core
+brew autoconf
+brew automake
+brew cmake
+brew composer
+brew ctags
+brew curl
+brew emacs
+brew exif
+brew fish
+brew fontconfig
+brew freetype
+brew gawk
+brew gd
+brew gdbm
+brew gettext
+brew ghq
+brew git
+brew gmp
+brew gnu-sed --with-default-names
+brew gnutls
+brew icu4c
+brew imagemagick
+brew jemalloc
+brew jpeg
+brew libevent
+brew libexif
+brew libffi
+brew libpng
+brew libtasn1
+brew libtermkey
+brew libtiff
+brew libtool
+brew libunistring
+brew libuv
+brew libvterm
+brew libxml2
+brew llvm --with-toolchain --with-lldb --with-python@2
+brew luajit
+brew mas
+brew mcrypt
+brew mhash
+brew mpfr
+brew msgpack
+brew mysql
+brew neovim
+brew nettle
+brew node
+brew openssl
+brew p11-kit
+brew pcre
+brew pcre2
+brew peco
+brew phantomjs
+brew pkg-config
+brew popt
+brew pyenv
+brew pyenv-virtualenv
+brew python@2
+brew readline
+brew rtags
+brew sqlite
+brew swig
+brew the_silver_searcher
+brew tmux
+brew tmux-mem-cpu-load
+brew tree
+brew unibilium
+brew webp
+brew xz
+
+tap homebrew/services
+
+tap homebrew/versions
+
+tap homebrew/cask
+cask alfred
+cask arduino
+cask evernote
+cask google-backup-and-sync
+cask gyazo
+cask iterm2
+cask kindle
+cask postman
+cask realm-browser
+cask shiftit
+cask skype
+cask sourcetree
+cask teamviewer
+cask visual-studio-code
+
+tap argon/mas
+
+tap rcmdnk/file
+brew brew-file
+
+# Other Homebrew packages
+brew ricty --with-powerline
+
+# Other Cask applications
+cask adobe-acrobat
+cask appcleaner
+cask clion
+cask gimp
+cask google-chrome
+cask hyperswitch
+cask java
+cask licecap
+cask mendeley-desktop
+cask pycharm
+cask sequel-pro
+cask skitch
+cask slack
+cask sublime-text
+cask the-unarchiver
+
+# App Store applications
+appstore 884952790 iTranslate (1.4.7)
+appstore 409183694 Keynote (8.1)
+appstore 539883307 LINE (5.8.0)
+appstore 497799835 Xcode (9.4.1)

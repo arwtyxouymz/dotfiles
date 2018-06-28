@@ -1,8 +1,0 @@
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_ft = ['python']
-hook_add = '''
-    let g:deoplete#sources#jedi#debug_server = 1
-    autocmd FileType python setlocal completeopt-=preview
-'''
-

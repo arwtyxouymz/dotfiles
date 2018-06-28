@@ -68,6 +68,8 @@ hook_add = '''
     let g:airline_inactive_collapse = 0
     " tagbarの表示
     let g:airline#extensions#tagbar#enabled = 1
+    " virtualenvを有効
+    let g:airline#extensions#virtualenv#enabled = 1
 '''
 depends = ['vim-airline_themes']
 
@@ -139,6 +141,7 @@ hook_add = '''
     \ }
     " not stop completion $ & /
     set hidden
+    let g:LanguageClient_hoverPreview = "Never"
     nnoremap <F5> :call LanguageClient_contextMenu()<CR>
     " Or map each action separately
     nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
@@ -167,7 +170,8 @@ hook_add = '''
     let g:ale_linters = {
         \   'php' : ['phpcs'],
         \   'javascript': ['eslint'],
-        \   'cpp' : []
+        \   'python': ['flake8'],
+        \   'cpp' : [],
     \}
     let g:ale_php_phpcs_executable = '/Users/ryutaro/.config/composer/vendor/bin/phpcs'
     let g:ale_php_phpcs_standard = 'PSR2'

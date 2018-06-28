@@ -14,8 +14,6 @@ export PATH="/usr/local/Cellar/mysql/5.7.22/bin:$PATH"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 source $HOME/.phpbrew/bashrc
 exec fish

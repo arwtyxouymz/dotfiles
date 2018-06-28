@@ -65,4 +65,4 @@ endif
 
 set secure
 colorscheme yaflandia
-let g:airline_theme = 'dark'
+let g:airline_theme = 'badwolf'

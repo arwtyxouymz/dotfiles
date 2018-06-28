@@ -30,7 +30,7 @@ set -e
 #####################################
 echo "Create Symbolic Links .............."
 DOT_DIRECTORY="${HOME}/dotfiles"
-CONFIG_DIRECTORY="${DOT_DIRECTORY}/config"
+CONFIG_DIRECTORY="${DOT_DIRECTORY}/.config"
 XDG_CONFIG_HOME="${HOME}/.config"
 
 # $HOME/.configがなければ作る
@@ -80,9 +80,9 @@ __config_link() {
 
 for f in * .*; do
     basename=$(basename "$f")
-    if [ ${basename} = "." ] || [ ${basename} = ".." ] || [ ${basename##*.} = "sh" ] || [ ${basename##*.} = "md" ] || [ ${basename} = ".git" ] || [ ${basename} = ".gitignore" ]; then
+    if [ ${basename} = "." ] || [ ${basename} = ".." ] || [ ${basename##*.} = "sh" ] || [ ${basename##*.} = "md" ] || [ ${basename} = ".git" ] || [ ${basename} = ".gitignore" ] || [ ${basename} = "com.googlecode.iterm2.plist" ]; then
         :
-    elif [ ${basename} = "config" ]; then
+    elif [ ${basename} = ".config" ]; then
         __config_link
     else
         __dot_link ${basename}
