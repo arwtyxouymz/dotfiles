@@ -13,6 +13,15 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+    set background=dark
+'''
+
+[[plugins]]
+repo = 'sheerun/vim-wombat-scheme'
+
+[[plugins]]
 repo = 'sheerun/vim-polyglot'
 hook_add = '''
     let g:polyglot_disabled = ['jsx']

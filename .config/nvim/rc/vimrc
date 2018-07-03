@@ -64,5 +64,5 @@ endif
 "---------------------------------------------------------------------------
 
 set secure
-colorscheme yaflandia
+colorscheme wombat
 let g:airline_theme = 'badwolf'
