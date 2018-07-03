@@ -24,7 +24,7 @@ hook_add = '''
     nmap <silent> [deniteProject]f :<C-u>Denite file_rec<CR>
     nmap <silent> [deniteProject]d :<C-u>Denite directory_rec<CR>
 '''
-hook_post_source = '''
+hook_source = '''
     call denite#custom#var('file_rec', 'command', ['ag', '-U', '-p /Users/ryutaro/.agignore', '-S', '--hidden', '--follow', '--nocolor', '--nogroup', '-g', ''])
     call denite#custom#var('grep', 'command', ['ag'])
     call denite#custom#var('grep', 'recursive_opts', [])
