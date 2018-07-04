@@ -206,3 +206,23 @@ hook_add = '''
     \ |   silent! execute 'normal! "_da>'
     \ | endif
 '''
+
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+
+[[plugins]]
+repo = 'vim-scripts/DirDiff.vim'
+hook_add = '''
+    let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,*.svn,*.o,*.a,*.git"
+'''
+
+[[plugins]]
+repo = 'AndrewRadev/linediff.vim'
+hook_add = '''
+    let g:linediff_first_buffer_command = 'new'
+    let g:linediff_second_buffer_command = 'vertical new'
+    autocmd User LinediffBufferReady nnoremap <buffer> q :LinediffReset<CR>
+    command! -range Ld  call linediff#Linediff(<line1>, <line2>, {})
+    command! -bang  Ldr call linediff#LinediffReset(<q-bang>, {})
+'''
+

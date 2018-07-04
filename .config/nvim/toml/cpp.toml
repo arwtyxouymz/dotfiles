@@ -29,6 +29,10 @@ depends = ['deoplete.nvim']
 #     vnoremap <F9> :<C-U>LL print <C-R>=lldb#util#get_selection()<CR><CR>
 # '''
 
+[[plugins]]
+repo = 'phcerdan/Conque-GDB'
+on_ft = ['c', 'cpp']
+
 # cpp syntax
 [[plugins]]
 repo = 'vim-jp/cpp-vim'

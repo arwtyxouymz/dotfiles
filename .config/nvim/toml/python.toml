@@ -50,3 +50,7 @@ hook_add = '''
 [[plugins]]
 repo = 'aliev/vim-compiler-python'
 on_ft = ['python']
+
+[[plugins]]
+repo = 'szymonmaszke/vimpyter'
+on_ft = ['ipynb']
