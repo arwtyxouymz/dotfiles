@@ -7,11 +7,6 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" reset augroup
-augroup MyAutoCmd
-    autocmd!
-augroup END
-
 let s:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
 let s:nvim_home = s:config_home . '/nvim'
 
