@@ -1,4 +1,6 @@
 #!/bin/bash
+
+SECONDS=0
 export PYTHON3=3.6.5
 export PYTHON2=2.7.15
 export PHP=7.1.11
@@ -27,3 +29,6 @@ fi
 if [ "$ITKVTK_FLAG" = 1 ]; then
     source ./bin/itkvtk.sh
 fi
+
+time=$SECONDS
+echo "Finished in $time seconds"

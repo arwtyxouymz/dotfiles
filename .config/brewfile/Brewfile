@@ -61,10 +61,11 @@ brew pyenv
 brew pyenv-virtualenv
 brew python@2
 brew readline
+brew reattach-to-user-namespace
+brew ripgrep
 brew rtags
 brew sqlite
 brew swig
-brew the_silver_searcher
 brew tmux
 brew tmux-mem-cpu-load
 brew tree
@@ -84,13 +85,10 @@ cask google-backup-and-sync
 cask gyazo
 cask iterm2
 cask kindle
-cask postman
-cask realm-browser
+cask pycharm
 cask shiftit
 cask skype
 cask sourcetree
-cask teamviewer
-cask visual-studio-code
 
 tap argon/mas
 
@@ -110,12 +108,10 @@ cask hyperswitch
 cask java
 cask licecap
 cask mendeley-desktop
-cask pycharm
 cask sequel-pro
 cask skitch
 cask slack
-cask sublime-text
-cask the-unarchiver
+cask teamviewer
 
 # App Store applications
 appstore 884952790 iTranslate (1.4.7)
