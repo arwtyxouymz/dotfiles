@@ -14,5 +14,7 @@ export PATH="/usr/local/Cellar/mysql/5.7.22/bin:$PATH"
 
 export PYENV_ROOT="$HOME/.pyenv"
 
-source $HOME/.phpbrew/bashrc
+if command -v phpbrew 1>/dev/null 2>&1; then
+  source $HOME/.phpbrew/bashrc
+fi
 # exec fish

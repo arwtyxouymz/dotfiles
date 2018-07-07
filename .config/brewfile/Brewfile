@@ -75,20 +75,11 @@ brew xz
 
 tap homebrew/services
 
-tap homebrew/versions
-
 tap homebrew/cask
 cask alfred
-cask arduino
-cask evernote
 cask google-backup-and-sync
-cask gyazo
 cask iterm2
-cask kindle
-cask pycharm
 cask shiftit
-cask skype
-cask sourcetree
 
 tap argon/mas
 
@@ -99,22 +90,7 @@ brew brew-file
 brew ricty --with-powerline
 
 # Other Cask applications
-cask adobe-acrobat
-cask appcleaner
-cask clion
-cask gimp
 cask google-chrome
 cask hyperswitch
 cask java
-cask licecap
-cask mendeley-desktop
-cask sequel-pro
-cask skitch
 cask slack
-cask teamviewer
-
-# App Store applications
-appstore 884952790 iTranslate (1.4.7)
-appstore 409183694 Keynote (8.1)
-appstore 539883307 LINE (5.8.0)
-appstore 497799835 Xcode (9.4.1)
