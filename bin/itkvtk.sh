@@ -2,7 +2,7 @@
 # ITK + VTK
 ############################################
 echo $'\e[32mGetting VTK .............\e[0m'
-ghq get git@github.com/InsightSoftwareConsortium/ITK.git
+ghq get https://github.com/InsightSoftwareConsortium/ITK.git
 echo $'\e[32mGetting ITK .............\e[0m'
 ghq get https://gitlab.kitware.com/vtk/vtk.git
 
