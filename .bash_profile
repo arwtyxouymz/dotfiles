@@ -13,7 +13,6 @@ export PATH="/usr/local/Cellar/llvm/6.0.0/bin:$PATH"
 export PATH="/usr/local/Cellar/mysql/5.7.22/bin:$PATH"
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 
 source $HOME/.phpbrew/bashrc
-exec fish
+# exec fish
