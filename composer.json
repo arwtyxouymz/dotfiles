@@ -1,0 +1,9 @@
+{
+    "minimum-stability" : "dev",
+    "require": {
+        "laravel/installer": "~1.1",
+        "squizlabs/php_codesniffer": "*",
+        "phpmd/phpmd": "dev-master",
+        "friendsofphp/php-cs-fixer": "2.9.*"
+    }
+}

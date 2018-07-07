@@ -1,8 +1,6 @@
 #!/bin/bash
 
-set -e
-
-DOTPATH=~/dotfiles
+DOTPATH=${HOME}/dotfiles
 GITHUB_URL=https://github.com/arwtyxouymz/dotfiles
 
 # git が使えるなら git
@@ -26,17 +24,4 @@ else
     exit 1
 fi
 
-cd $DOTPATH
-
-# OS 判別
-if [ "$(uname)" = 'Darwin' ]; then
-    OS='Mac'
-    sh $DOTPATH/OSX_INSTALL.sh
-elif [ "$(uname)" = 'Linux' ]; then
-    OS='Linux'
-    sh $DOTPATH/LINUX_INSTALL.sh
-else
-    echo "Your platform ($(uname -a)) is not supported."
-    exit 1
-fi
-
+cd ${DOTPATH}
