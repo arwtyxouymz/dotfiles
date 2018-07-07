@@ -32,5 +32,12 @@ pip install --upgrade pip
 pip3 install compdb
 pyenv deactivate
 
+pyenv virtualenv --system-site-packages system neovim2_system
+pyenv activate neovim2_system
+pip install --upgrade pip
+pip2 install neovim
+pip2 install flake8
+pyenv deactivate
+
 pyenv global ${PYTHON3} ${PYTHON2}
 

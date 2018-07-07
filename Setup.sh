@@ -11,6 +11,9 @@ check_arguments $@
 source ./bin/password.sh
 get_password
 
+# 標準pythonにpip
+sudo easy_install pip
+
 source ./bin/homebrew.sh
 source ./bin/symbolic.sh
 source $HOME/.bash_profile
