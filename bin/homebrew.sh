@@ -1,9 +1,6 @@
 ############################################
 # HomeBrew setup
 ############################################
-echo $'\e[32mInstalling the CommandLineTools\e[0m'
-xcode-select --install
-
 echo $'\e[32mInstalling homebrew ............\e[0m'
 which brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
