@@ -12,6 +12,14 @@ $ wget -L raw.github.com/arwtyxouymz/dotfiles/master/install.sh | bash
 then
 
 ```sh
+$ open code-signing.webarchive
+```
+and follow the instructions.
+
+
+after that
+
+```sh
 $ chmod +x $HOME/dotfiles/Setup.sh
 $ sh $HOME/dotfiles//Setup.sh
 ```

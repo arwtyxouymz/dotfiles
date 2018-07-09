@@ -13,7 +13,7 @@ source ${DOT_DIRECTORY}/bin/password.sh
 get_password
 
 # 標準pythonにpip
-sudo easy_install pip
+echo $PASSWORD | sudo -S easy_install pip
 
 source ${DOT_DIRECTORY}/bin/symbolic.sh
 source ${DOT_DIRECTORY}/bin/homebrew.sh
