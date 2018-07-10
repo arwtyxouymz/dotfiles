@@ -11,7 +11,7 @@ echo $'\e[32mRunning brew update ............\e[0m'
 which brew >/dev/null 2>&1 && brew update
 
 echo $'\e[32mOK, Running brew upgrade .............\e[0m'
-brew upgrade --all
+brew upgrade
 
 ############################################
 # HomeBrew file

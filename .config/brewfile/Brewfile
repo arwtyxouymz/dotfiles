@@ -38,7 +38,7 @@ brew libunistring
 brew libuv
 brew libvterm
 brew libxml2
-brew llvm --with-toolchain --with-lldb --with-python@2
+brew llvm --with-toolchain --with-lldb --with-python@2 --with-polly-gpgpu
 brew luajit
 brew mas
 brew mcrypt
