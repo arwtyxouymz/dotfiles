@@ -19,6 +19,9 @@ brew upgrade
 echo $'\e[32mGetting the packages .............\e[0m'
 brew install argon/mas/mas
 brew install rcmdnk/file/brew-file
+XCODE=`mas search xcode | cut -d' ' -f1 | xargs | cut -d' ' -f1`
+mas install ${XCODE}
+sudo xcodebuild -license accept
 brew file install
 # これ以降にhomebrewのパッケージを追加
 
