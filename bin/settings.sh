@@ -17,3 +17,9 @@ ghq get https://github.com/mbadolato/iTerm2-Color-Schemes.git # Darkside
 echo $'\e[32mGet tmux powerline and plugins\e[0m'
 ghq get https://github.com/erikw/tmux-powerline.git
 ghq get https://github.com/tmux-plugins/tpm.git
+
+############################################
+# Finder preferences
+############################################
+defaults write com.apple.finder AppleShowAllFiles TRUE
+killall Finder
