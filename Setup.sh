@@ -19,6 +19,7 @@ source ${DOT_DIRECTORY}/bin/symbolic.sh
 source ${DOT_DIRECTORY}/bin/homebrew.sh
 source $HOME/.bash_profile
 source ${DOT_DIRECTORY}/bin/settings.sh
+source ${DOT_DIRECTORY}/bin/pyenv.sh
 
 if [ "$ALL_FLAG" = 1 ]; then
     source ${DOT_DIRECTORY}/bin/web.sh

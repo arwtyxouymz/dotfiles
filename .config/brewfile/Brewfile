@@ -4,6 +4,7 @@
 tap homebrew/core
 brew autoconf
 brew automake
+brew cairo
 brew cmake
 brew composer
 brew ctags
@@ -12,16 +13,21 @@ brew emacs
 brew exif
 brew fish
 brew fontconfig
+brew fontforge
 brew freetype
+brew fribidi
 brew gawk
 brew gd
 brew gdbm
 brew gettext
 brew ghq
 brew git
+brew glib
 brew gmp
 brew gnu-sed --with-default-names
 brew gnutls
+brew graphite2
+brew harfbuzz
 brew icu4c
 brew imagemagick
 brew jemalloc
@@ -51,10 +57,12 @@ brew nettle
 brew node
 brew openssl
 brew p11-kit
+brew pango
 brew pcre
 brew pcre2
 brew peco
 brew phantomjs
+brew pixman
 brew pkg-config
 brew popt
 brew pyenv
@@ -77,7 +85,7 @@ tap homebrew/services
 
 tap homebrew/cask
 cask alfred
-cask google-backup-and-sync
+cask google-chrome
 cask iterm2
 cask shiftit
 
@@ -86,11 +94,14 @@ tap argon/mas
 tap rcmdnk/file
 brew brew-file
 
-# Other Homebrew packages
+tap sanemat/font
 brew ricty --with-powerline
 
 # Other Cask applications
-cask google-chrome
+cask google-backup-and-sync
 cask hyperswitch
 cask java
 cask slack
+
+# App Store applications
+appstore 497799835 Xcode (9.4.1)

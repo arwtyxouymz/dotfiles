@@ -65,7 +65,7 @@ __config_link() {
 
 for f in * .*; do
     basename=$(basename "$f")
-    if [ ${basename} = "." ] || [ ${basename} = ".." ] || [ ${basename##*.} = "sh" ] || [ ${basename##*.} = "md" ] || [ ${basename} = ".git" ] || [ ${basename} = ".gitignore" ] || [ ${basename} = "com.googlecode.iterm2.plist" ] || [ ${basename} = "bin" ]; then
+    if [ ${basename} = "." ] || [ ${basename} = ".." ] || [ ${basename##*.} = "sh" ] || [ ${basename##*.} = "md" ] || [ ${basename} = ".git" ] || [ ${basename} = ".gitignore" ] || [ ${basename} = "com.googlecode.iterm2.plist" ] || [ ${basename} = "bin" ] || [ ${basename} = "code-signing.webarchive" ]; then
         :
     elif [ ${basename} = ".config" ]; then
         __config_link
