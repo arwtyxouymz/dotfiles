@@ -25,10 +25,6 @@ defaults write com.apple.finder AppleShowAllFiles TRUE
 killall Finder
 
 ############################################
-# Install pip to system python
+# Install neovim to system python
 ############################################
-cd $HOME
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-/usr/bin/python2.7 $HOME/get-pip.py --user
-rm $HOME/get-pip.py
-$HOME/Library/Python/2.7/bin/pip2.7 install neovim --user
+sudo /System/Library/Frameworks/Python.framework/Versions/2.7/bin/python -m easy_install neovim

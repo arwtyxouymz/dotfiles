@@ -32,7 +32,7 @@ $ ssh-keygen -t rsa
 $ pbcopy < ~/.ssh/id_rsa.pub
 ```
 
-## To install library to system python
+## upgrade neovim module of system python
 ```sh
-$ ~/Library/Python/2.7/bin/pip2.7 install --user
+$ sudo /System/Library/Frameworks/Python.framework/Versions/2.7/bin/python -m easy_install -U neovim
 ```

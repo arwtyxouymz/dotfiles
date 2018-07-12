@@ -2,8 +2,7 @@
 " For neovim:
 "
 
-" let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
-let g:python_host_prog = '/usr/bin/python2.7'
+let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
 
 if exists('&inccommand')

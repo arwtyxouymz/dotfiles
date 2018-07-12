@@ -8,27 +8,12 @@ hook_source = '''
     autocmd FileType cpp setlocal completeopt-=preview
     " let g:deoplete#sources#clang#libclang_path = system("llvm-config --prefix")[:-2] . '/lib/libclang.dylib'
     " let g:deoplete#sources#clang#clang_header = system("llvm-config --prefix")[:-2] . '/lib/clang'
-    let g:deoplete#sources#clang#sort_algo = 'priority'
     " let g:deoplete#sources#clang#clang_complete_database="./build/"
+    let g:deoplete#sources#clang#sort_algo = 'priority'
 '''
 depends = ['deoplete.nvim']
 
 # Debug
-[[plugins]]
-repo = 'dbgx/lldb.nvim'
-on_ft = ['c', 'cpp']
-hook_add = '''
-    nmap <M-b> <Plug>LLBreakSwitch
-    vmap <F2> <Plug>LLStdInSelected
-    nnoremap <F4> :LLstdin<CR>
-    nnoremap <F5> :LLmode debug<CR>
-    nnoremap <S-F5> :LLmode code<CR>
-    nnoremap <F8> :LL continue<CR>
-    nnoremap <S-F8> :LL process interrupt<CR>
-    nnoremap <F9> :LL print <C-R>=expand('<cword>')<CR>
-    vnoremap <F9> :<C-U>LL print <C-R>=lldb#util#get_selection()<CR><CR>
-'''
-
 [[plugins]]
 repo = 'huawenyu/neogdb.vim'
 on_ft = ['c', 'cpp']
@@ -48,7 +33,7 @@ depends = ['deoplete.nvim']
 [[plugins]]
 repo = 'vim-scripts/a.vim'
 on_ft = ['c', 'cpp']
-hook_add = '''
+hook_source = '''
     nmap <silent> <leader>aa :A<CR>
     nmap <silent> <leader>at :AT<CR>
     nmap <silent> <leader>av :AV<CR>
@@ -60,7 +45,6 @@ repo = 'lyuts/vim-rtags'
 on_ft = ['c', 'cpp']
 hook_add = '''
     let g:rtagsUseDefaultMappings = 0
-    " let g:rtagsRcCmd = "rc -J ."
     let g:rtagsAutoLaunchRdm = 1
 '''
 hook_source = '''
@@ -90,48 +74,6 @@ hook_source = '''
 repo = 'vhdirk/vim-cmake'
 on_ft = ['c', 'cpp', 'cmake']
 hook_source = '''
-    function! CdBuildDir() abort
-        let l:maxCount = 5
-        let l:i = 0
-        let l:root_path = 'Not Found'
-        while l:i < l:maxCount
-            if isdirectory('./build')
-                cd ./build
-                let l:root_path = getcwd()
-                break
-            endif
-            cd ../
-            let i = l:i + 1
-        endwhile
-        return l:root_path
-    endfunction
-
-    function! CMake(...) abort
-        let l:root_path = CdBuildDir()
-        let s:args = a:000
-        execute ":CMake {s:args}"
-        call system('rc -J ./')
-        cd ../
-        execute ":make"
-    endfunction
-
-    " QuickFixに出力
-    function! Execute() abort
-        let l:root_path = CdBuildDir()
-        let l:execute_file_list = filter(glob('*', 1, 1), '!isdirectory(v:val) && v:val !=# "Makefile" && fnamemodify(v:val, ":e") ==# ""')
-        if len(l:execute_file_list) > 0
-            let l:project_name = l:execute_file_list[0]
-            cd ../
-            " return l:root_path . '/' . l:project_name
-            echo system(l:root_path . '/' . l:project_name)
-        else
-            echo '実行ファイルが見つかりませんでした'
-        endif
-    endfunction
-
-    nmap <leader>b :call CMake()<CR>
-    nmap <leader>r :call Execute()<CR>
-
 '''
 
 # Doxygen
