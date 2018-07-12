@@ -94,7 +94,6 @@ end
 
 # build
 function build
-    mkdir -p ./build; and cd build > /dev/null
     if test -x (command -v clang)
         cmake .. -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
         if test -x (command -v compdb)
@@ -106,7 +105,6 @@ function build
         cmake ..
         echo "\e[33mWarning: clang is not installed, using default compiler"
     end
-    cd ../ > /dev/null
 end
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
