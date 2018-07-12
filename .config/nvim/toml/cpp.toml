@@ -6,16 +6,22 @@ hook_source = '''
     autocmd FileType cmake setlocal completeopt-=preview
     autocmd FileType c setlocal completeopt-=preview
     autocmd FileType cpp setlocal completeopt-=preview
-    " let g:deoplete#sources#clang#libclang_path = system("llvm-config --prefix")[:-2] . '/lib/libclang.dylib'
-    " let g:deoplete#sources#clang#clang_header = system("llvm-config --prefix")[:-2] . '/lib/clang'
-    " let g:deoplete#sources#clang#clang_complete_database="./build/"
     let g:deoplete#sources#clang#sort_algo = 'priority'
+    let g:deoplete#sources#clang#libclang_path = system("llvm-config --prefix")[:-2] . '/lib/libclang.dylib'
+    let g:deoplete#sources#clang#clang_header = system("llvm-config --prefix")[:-2] . '/lib/clang'
+    " let g:deoplete#sources#clang#clang_complete_database="./build/"
 '''
 depends = ['deoplete.nvim']
 
-# Debug
+# Debugger
+# [[plugins]]
+# repo = 'huawenyu/neogdb.vim'
+# on_ft = ['c', 'cpp']
+# [[plugins]]
+# repo = 'sakhnik/nvim-gdb'
+# on_ft = ['c', 'cpp']
 [[plugins]]
-repo = 'huawenyu/neogdb.vim'
+repo = 'dbgx/lldb.nvim'
 on_ft = ['c', 'cpp']
 
 # cpp syntax
