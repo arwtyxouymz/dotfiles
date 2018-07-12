@@ -8,7 +8,7 @@ hook_source = '''
     autocmd FileType cpp setlocal completeopt-=preview
     " let g:deoplete#sources#clang#libclang_path = system("llvm-config --prefix")[:-2] . '/lib/libclang.dylib'
     " let g:deoplete#sources#clang#clang_header = system("llvm-config --prefix")[:-2] . '/lib/clang'
-    g:deoplete#sources#clang#sort_algo = 'priority'
+    let g:deoplete#sources#clang#sort_algo = 'priority'
     " let g:deoplete#sources#clang#clang_complete_database="./build/"
 '''
 depends = ['deoplete.nvim']
@@ -60,6 +60,8 @@ repo = 'lyuts/vim-rtags'
 on_ft = ['c', 'cpp']
 hook_add = '''
     let g:rtagsUseDefaultMappings = 0
+    " let g:rtagsRcCmd = "rc -J ."
+    let g:rtagsAutoLaunchRdm = 1
 '''
 hook_source = '''
     noremap <leader>ri :call rtags#SymbolInfo()<CR>

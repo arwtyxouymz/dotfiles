@@ -17,4 +17,4 @@ export PYENV_ROOT="$HOME/.pyenv"
 if command -v phpbrew 1>/dev/null 2>&1; then
   source $HOME/.phpbrew/bashrc
 fi
-exec fish
+# exec fish
