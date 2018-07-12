@@ -12,9 +12,6 @@ check_arguments $@
 source ${DOT_DIRECTORY}/bin/password.sh
 get_password
 
-# 標準pythonにpip
-echo $PASSWORD | sudo -S easy_install pip
-
 source ${DOT_DIRECTORY}/bin/symbolic.sh
 source ${DOT_DIRECTORY}/bin/homebrew.sh
 source $HOME/.bash_profile
