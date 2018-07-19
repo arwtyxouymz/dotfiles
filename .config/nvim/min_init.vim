@@ -28,15 +28,10 @@ let &runtimepath = s:dein_repo_dir . ',' . &runtimepath
 " Required:
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
-
-  call dein#add('Shougo/deoplete.nvim', {
-              \ 'on_i' : 1,
-              \ 'hook_source': 'call deoplete#enable()'
-              \ })
+  " call dein#add('w0rp/ale')
   call dein#add('autozimu/LanguageClient-neovim', {
-              \ 'build' : './install.sh',
+              \ 'build': './install.sh'
               \ })
-
   " Required:
   call dein#end()
   call dein#save_state()
@@ -52,12 +47,19 @@ endif
 filetype plugin indent on
 syntax enable
 
-
-let g:LanguageClient_serverCommands = {
-    \ 'c': ['clangd', '-compile-commands-dir=' . getcwd() . '/build'],
-    \ 'cpp': ['clangd', '-compile-commands-dir=' . getcwd() . '/build'],
-    \ }
-" not stop completion $ & /
-set hidden
 set signcolumn=yes
-let g:LanguageClient_hoverPreview = "Never"
+
+" let g:ale_sign_column_always = 1
+" let g:ale_completion_enabled = 1
+" let g:ale_sign_error = '⨉'
+" let g:ale_sign_warning = '⚠'
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+" let g:ale_linters = {
+"     \   'c' : ['clang'],
+"     \   'cpp' : ['clang'],
+" \}
+let g:LanguageClient_serverCommands = {
+    " \ 'c': ['clangd', '-compile-commands-dir=' . getcwd()],
+    " \ 'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
+\ }
