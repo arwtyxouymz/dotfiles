@@ -13,13 +13,18 @@ hook_source = 'source $XDG_CONFIG_HOME/nvim/rc/plugins/denite.rc.vim'
 hook_add = '''
     nmap <Space> [denite]
     nmap <Space>p [deniteProject]
+
     nmap <silent> [denite]b :<C-u>Denite buffer<CR>
+    nmap <silent> [denite]n :<C-u>Denite file<CR>
     nmap <silent> [denite]g :<C-u>Denite grep<CR>
+    nmap <silent> [denite]l :<C-u>Denite line<CR>
     nmap <silent> [denite]m :<C-u>Denite file_mru<CR> <silent> <C-u><C-y> :<C-u>Denite neoyank<CR>
     nmap <silent> [denite]f :<C-u>Denite file/rec<CR>
     nmap <silent> [denite]d :<C-u>Denite directory_rec<CR>
+    nmap <silent> [denite]h :<C-u>Denite help -default-action=tabopen<CR>
 
     nmap <silent> [deniteProject]b :<C-u>DeniteProject buffer<CR>
+    nmap <silent> [deniteProject]n :<C-u>DeniteProject file<CR>
     nmap <silent> [deniteProject]g :<C-u>DeniteProject grep<CR>
     nmap <silent> [deniteProject]m :<C-u>DeniteProject file_mru<CR> <silent> <C-u><C-y> :<C-u>Denite neoyank<CR>
     nmap <silent> [deniteProject]f :<C-u>DeniteProject file/rec<CR>
