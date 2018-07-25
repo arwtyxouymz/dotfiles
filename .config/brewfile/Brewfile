@@ -113,5 +113,4 @@ cask shiftit
 cask visual-studio-code
 
 # App Store applications
-appstore 539883307 LINE (5.8.0)
 appstore 497799835 Xcode (9.4.1)
