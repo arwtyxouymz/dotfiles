@@ -17,6 +17,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 if command -v phpbrew 1>/dev/null 2>&1; then
   source $HOME/.phpbrew/bashrc
 fi
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 export PYTHONPATH="/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python"
 

@@ -48,15 +48,20 @@ set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 0
 set -g theme_newline_cursor yes
 
-status --is-interactive; and source (pyenv init -|psub)
-status --is-interactive; and source (pyenv virtualenv-init -|psub)
-
 alias vi nvim
 alias vim nvim
 alias dc docker-compose
 
-# set -xg PYTHONPATH /Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python
-# set -xg PYTHONPATH $PYTHONPATH $HOME/.pyenv/versions/2.7.14/envs/neovim2/lib/python2.7/site-packages
+# brew コマンド上書き
+function brew
+    set -l pyenv_index (contains -i $HOME/.pyenv/shims $PATH)
+    set -l php_index (contains -i $HOME/.phpbrew/php/php-7.1.11/bin $PATH)
+    set PATH[$pyenv_index] /bin
+    set PATH[$php_index] /bin
+    command brew $argv
+    set PATH[$pyenv_index] $HOME/.pyenv/shims
+    set PATH[$php_index] $HOME/.phpbrew/php/php-7.1.11/bin
+end
 
 # composerのupdate Laravel 5.5
 function LaravelInitialize5

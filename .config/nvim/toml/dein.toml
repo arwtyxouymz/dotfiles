@@ -165,21 +165,7 @@ hook_add = '''
 repo = 'autozimu/LanguageClient-neovim'
 build = ['./install.sh']
 hook_add = '''
-    let s:node = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
-    let g:LanguageClient_serverCommands = {
-        \ 'c': ['clangd', '-compile-commands-dir=' . getcwd()],
-        \ 'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
-        \ 'vue': ['vls'],
-        \ 'html': [],
-        \ 'css': [],
-        \ 'javascript': [],
-        \ 'bash': ['bash-language-server', 'start'],
-        \ 'sh': ['bash-language-server', 'start'],
-    \ }
-    " not stop completion $ & /
-    set hidden
-    set signcolumn=yes
-    let g:LanguageClient_hoverPreview = "Never"
+    source $XDG_CONFIG_HOME/nvim/rc/plugins/LanguageClient-neovim.rc.vim
     nnoremap <F5> :call LanguageClient_contextMenu()<CR>
     " Or map each action separately
     nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
