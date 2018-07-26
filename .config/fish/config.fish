@@ -39,6 +39,9 @@ function cd
   ls -a
 end
 
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
+
 # theme設定
 set -g theme_display_git yes
 set -g theme_display_git_untracked yes
@@ -53,15 +56,15 @@ alias vim nvim
 alias dc docker-compose
 
 # brew コマンド上書き
-function brew
-    set -l pyenv_index (contains -i $HOME/.pyenv/shims $PATH)
-    set -l php_index (contains -i $HOME/.phpbrew/php/php-7.1.11/bin $PATH)
-    set PATH[$pyenv_index] /bin
-    set PATH[$php_index] /bin
-    command brew $argv
-    set PATH[$pyenv_index] $HOME/.pyenv/shims
-    set PATH[$php_index] $HOME/.phpbrew/php/php-7.1.11/bin
-end
+# function brew
+#     set -l pyenv_index (contains -i $HOME/.pyenv/shims $PATH)
+#     set -l php_index (contains -i $HOME/.phpbrew/php/php-7.1.11/bin $PATH)
+#     set PATH[$pyenv_index] /bin
+#     set PATH[$php_index] /bin
+#     command brew $argv
+#     set PATH[$pyenv_index] $HOME/.pyenv/shims
+#     set PATH[$php_index] $HOME/.phpbrew/php/php-7.1.11/bin
+# end
 
 # composerのupdate Laravel 5.5
 function LaravelInitialize5

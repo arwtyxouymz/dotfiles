@@ -1,6 +1,7 @@
 let g:LanguageClient_serverCommands = {
     \ 'c': ['clangd', '-compile-commands-dir=' . getcwd()],
     \ 'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
+    \ 'python': ['pyls'],
     \ 'vue': ['vls'],
     \ 'html': [],
     \ 'css': [],
