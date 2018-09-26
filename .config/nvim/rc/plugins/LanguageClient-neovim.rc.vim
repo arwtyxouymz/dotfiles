@@ -34,6 +34,8 @@ let g:LanguageClient_diagnosticsDisplay = {
     \         "signTexthl": "ALEInfoSign",
     \     },
 \ }
+let g:LanguageClient_loadSettings = 1
+let g:LanguageClient_settingsPath = '$XDG_CONFIG_HOME/nvim/autoload/settings.json'
 " not stop completion $ & /
 set hidden
 set signcolumn=yes

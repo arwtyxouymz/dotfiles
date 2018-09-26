@@ -48,9 +48,13 @@ set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 0
 set -g theme_newline_cursor yes
 
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
+
 alias vi nvim
 alias vim nvim
 alias dc docker-compose
+alias enter-gpd='docker run -it --privileged --volume="/Users/ryutaro/work/ros/nvim:/home/ryutaro/.config/nvim" --volume="/Users/ryutaro/work/ros/catkin_ws/:/opt/workspace/" --name="ros_gpd"'
 
 # brew コマンド上書き
 function brew

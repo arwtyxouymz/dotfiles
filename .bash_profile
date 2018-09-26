@@ -24,4 +24,4 @@ fi
 
 export PYTHONPATH="/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python"
 
-# exec fish
+exec fish
