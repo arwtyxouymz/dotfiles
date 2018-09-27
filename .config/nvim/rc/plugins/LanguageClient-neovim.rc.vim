@@ -1,6 +1,6 @@
 let g:LanguageClient_serverCommands = {
-    \ 'c': ['clangd', '-compile-commands-dir=' . getcwd()],
-    \ 'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
+    \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'python': ['pyls'],
     \ 'vue': ['vls'],
     \ 'html': [],
@@ -36,7 +36,7 @@ let g:LanguageClient_diagnosticsDisplay = {
     \     },
 \ }
 let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_settingsPath = '$XDG_CONFIG_HOME/nvim/autoload/settings.json'
+let g:LanguageClient_settingsPath = $XDG_CONFIG_HOME . "/nvim/autoload/settings.json"
 " not stop completion $ & /
 set hidden
 set signcolumn=yes
