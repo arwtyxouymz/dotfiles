@@ -43009,8 +43009,6 @@
 	<true/>
 	<key>MaxVertically</key>
 	<true/>
-	<key>NSFontPanelAttributes</key>
-	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/dotfiles</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
@@ -43046,25 +43044,10 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
-	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
-	<dict>
-		<key>TB Is Shown</key>
-		<integer>1</integer>
-	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>563 89 672 189 0 0 1440 878 </string>
-	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 381 620 392 0 0 1440 900 </string>
-	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 141 606 456 0 0 1440 878 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>305 252 796 473 0 0 1440 878 </string>
-	<key>NSWindow Frame UKCrashReporter</key>
-	<string>99 294 592 584 0 0 1440 878 </string>
+	<string>248 327 796 473 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1440 900 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>176 70 650 452 0 0 1440 878 </string>
 	<key>NeverWarnAboutShortLivedSessions_BC5B00E8-4E06-4845-8823-B1996052E39C</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_BC5B00E8-4E06-4845-8823-B1996052E39C_selection</key>
@@ -43725,21 +43708,15 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/ryutaro</string>
+			<string>/Users/arwtyxouymz</string>
 		</dict>
 	</array>
-	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
-	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>31911096-B7C2-4EB8-8820-5C86E32AC3CB</string>
-	<key>NoSyncPermissionToShowTip</key>
-	<false/>
+	<string>9D5F29CD-DD68-4D13-A0C9-2AE34FABB557</string>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>510402061.24065697</real>
-	<key>NoSyncTurnOffBracketedPasteOnHostChange</key>
-	<true/>
+	<real>554198730.02797496</real>
 	<key>OpenArrangementAtStartup</key>
 	<true/>
 	<key>OpenNoWindowsAtStartup</key>
@@ -43780,7 +43757,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/ryutaro/dotfiles</string>
+	<string>/Users/arwtyxouymz/dotfiles</string>
 	<key>RememberWindowPositions</key>
 	<false/>
 	<key>SUEnableAutomaticChecks</key>
@@ -43788,11 +43765,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=60</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=37</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-06-26T02:33:28Z</date>
+	<date>2018-07-25T08:07:11Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -43811,8 +43788,6 @@
 	<integer>1</integer>
 	<key>TmuxDashboardLimit</key>
 	<integer>10</integer>
-	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1514264576</real>
 	<key>UseLionStyleFullscreen</key>
 	<false/>
 	<key>Window Arrangements</key>
@@ -45355,7 +45330,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.1.6</string>
+	<string>3.1.7</string>
 	<key>kCPFavoritesUserDefaultsKey</key>
 	<array>
 		<data>

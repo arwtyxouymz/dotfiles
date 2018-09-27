@@ -39,6 +39,9 @@ function cd
   ls -a
 end
 
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
+
 # theme設定
 set -g theme_display_git yes
 set -g theme_display_git_untracked yes
