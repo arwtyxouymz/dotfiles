@@ -17,7 +17,8 @@ set ignorecase
 " 検索文字列に大文字が含まれている場合は区別して検索する
 set smartcase
 " OSのクリップボードをレジスタ指定なしでYank,Putできるようにする
-set clipboard=unnamed
+set clipboard&
+set clipboard^=unnamedplus
 " マウスの入力を受け付ける
 set mouse=a
 " swapファイルを作らない
