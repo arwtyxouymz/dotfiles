@@ -38,27 +38,27 @@ hook_add = '''
     vmap <Leader>c<leader> <Plug>(caw:hatpos:comment)
 '''
 
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = '''
-    " 隠しファイルを設定する
-    let NERDTreeShowHidden = 1
-'''
-
-[[plugins]]
-repo = 'jistr/vim-nerdtree-tabs'
-hook_add = '''
-    " トグル設定
-    map <C-e> <plug>NERDTreeTabsToggle<CR>
-    " 起動時有効
-    let g:nerdtree_tabs_open_on_console_startup=1
-    " 起動時にファイルにカーソルを合わせる
-    function! s:MoveCursorAtStart()
-        call feedkeys("\<C-l>")
-    endfunction
-    autocmd VimEnter * NERDTree | call s:MoveCursorAtStart()
-'''
-depends = ['nerdtree']
+# [[plugins]]
+# repo = 'scrooloose/nerdtree'
+# hook_add = '''
+#     " 隠しファイルを設定する
+#     let NERDTreeShowHidden = 1
+# '''
+#
+# [[plugins]]
+# repo = 'jistr/vim-nerdtree-tabs'
+# hook_add = '''
+#     " トグル設定
+#     map <C-e> <plug>NERDTreeTabsToggle<CR>
+#     " 起動時有効
+#     let g:nerdtree_tabs_open_on_console_startup=1
+#     " 起動時にファイルにカーソルを合わせる
+#     function! s:MoveCursorAtStart()
+#         call feedkeys("\<C-l>")
+#     endfunction
+#     autocmd VimEnter * NERDTree | call s:MoveCursorAtStart()
+# '''
+# depends = ['nerdtree']
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
