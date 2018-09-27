@@ -3,9 +3,11 @@
 DOTPATH=${HOME}/dotfiles
 GITHUB_URL=https://github.com/arwtyxouymz/dotfiles
 
-# Command Line Tools のインストール
-echo $'\e[32mInstalling the CommandLineTools\e[0m'
-xcode-select --install
+if [ $(uname) = "Darwin" ]; then
+    # Command Line Tools のインストール
+    echo $'\e[32mInstalling the CommandLineTools\e[0m'
+    xcode-select --install
+fi
 
 # git が使えるなら git
 if type git > /dev/null 2>&1; then
