@@ -164,6 +164,7 @@ hook_add = '''
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 build = ['./install.sh']
+rev = 'next'
 hook_add = '''
     source $XDG_CONFIG_HOME/nvim/rc/plugins/LanguageClient-neovim.rc.vim
     nnoremap <F5> :call LanguageClient_contextMenu()<CR>
