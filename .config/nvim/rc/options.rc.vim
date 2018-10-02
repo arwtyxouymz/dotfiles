@@ -52,6 +52,8 @@ hi Pmenu guifg=white guibg=grey
 set splitright
 " K でカーソル下のヘルプを開く
 set keywordprg=:help
+" terminalモードでfishを起動
+set sh=fish
 
 " Reload init.vim
 command! Reload source ~/.config/nvim/init.vim

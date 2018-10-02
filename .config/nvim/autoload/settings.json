@@ -1,5 +1,8 @@
 {
     "initializationOptions": {
-        "cacheDirectory": "/tmp/ccls"
+        "cacheDirectory": "/tmp/ccls",
+        "clang": {
+            "pathMappings": ["/container:/host"]
+        }
     }
 }

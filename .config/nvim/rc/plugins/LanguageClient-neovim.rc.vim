@@ -1,7 +1,6 @@
 let g:LanguageClient_serverCommands = {
     \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
-    \ 'python': ['pyls'],
     \ 'vue': ['vls'],
     \ 'html': [],
     \ 'css': [],
