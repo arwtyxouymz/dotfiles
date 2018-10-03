@@ -2,7 +2,7 @@
     "initializationOptions": {
         "cacheDirectory": "/tmp/ccls",
         "clang": {
-            "pathMappings": ["/container:/host"]
+            "pathMappings": ["/catkin_ws:/Users/ryutaro/work/ros/catkin_ws/"]
         }
     }
 }

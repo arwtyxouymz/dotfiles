@@ -1,17 +1,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-
-[[plugins]]
-repo = 'JBakamovic/yaflandia'
-hook_add = '''
-    if (has("termguicolors"))
-        set termguicolors
-    endif
-    set t_Co=256
-    set background=dark
-'''
-
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
 hook_add = '''
@@ -37,28 +26,6 @@ hook_add = '''
     nmap <Leader>c<leader> <Plug>(caw:hatpos:comment)
     vmap <Leader>c<leader> <Plug>(caw:hatpos:comment)
 '''
-
-# [[plugins]]
-# repo = 'scrooloose/nerdtree'
-# hook_add = '''
-#     " 隠しファイルを設定する
-#     let NERDTreeShowHidden = 1
-# '''
-#
-# [[plugins]]
-# repo = 'jistr/vim-nerdtree-tabs'
-# hook_add = '''
-#     " トグル設定
-#     map <C-e> <plug>NERDTreeTabsToggle<CR>
-#     " 起動時有効
-#     let g:nerdtree_tabs_open_on_console_startup=1
-#     " 起動時にファイルにカーソルを合わせる
-#     function! s:MoveCursorAtStart()
-#         call feedkeys("\<C-l>")
-#     endfunction
-#     autocmd VimEnter * NERDTree | call s:MoveCursorAtStart()
-# '''
-# depends = ['nerdtree']
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -86,9 +53,6 @@ depends = ['vim-airline_themes']
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
-repo = 'honza/vim-snippets'
-
-[[plugins]]
 repo = 'shougo/neosnippet-snippets'
 
 [[plugins]]
@@ -110,19 +74,6 @@ repo = 'airblade/vim-gitgutter'
 hook_add = '''
     set updatetime=100
 '''
-
-[[plugins]]
-repo = 'mattn/gist-vim'
-hook_add = '''
-    let g:gist_clip_command = 'pbcopy'
-    let g:gist_detect_filetype = 1
-    let g:github_user = 'arwtyxouymz'
-    let g:github_token = '52c580960406f1b7bba60ee427326903999e0ee3'
-'''
-depends = ['webapi-vim']
-
-[[plugins]]
-repo = 'mattn/webapi-vim'
 
 [[plugins]]
 repo = 'shougo/context_filetype.vim'
@@ -173,8 +124,6 @@ hook_add = '''
     nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
     nnoremap <silent> <leader>rw :call LanguageClient#textDocument_rename()<CR>
 '''
-hook_source = '''
-'''
 
 [[plugins]]
 repo = 'thinca/vim-template'
@@ -193,23 +142,3 @@ hook_add = '''
     \ |   silent! execute 'normal! "_da>'
     \ | endif
 '''
-
-[[plugins]]
-repo = 'christoomey/vim-tmux-navigator'
-
-[[plugins]]
-repo = 'vim-scripts/DirDiff.vim'
-hook_add = '''
-    let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,*.svn,*.o,*.a,*.git"
-'''
-
-[[plugins]]
-repo = 'AndrewRadev/linediff.vim'
-hook_add = '''
-    let g:linediff_first_buffer_command = 'new'
-    let g:linediff_second_buffer_command = 'vertical new'
-    autocmd User LinediffBufferReady nnoremap <buffer> q :LinediffReset<CR>
-    command! -range Ld  call linediff#Linediff(<line1>, <line2>, {})
-    command! -bang  Ldr call linediff#LinediffReset(<q-bang>, {})
-'''
-

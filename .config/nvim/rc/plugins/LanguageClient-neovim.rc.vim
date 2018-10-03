@@ -1,6 +1,6 @@
 let g:LanguageClient_serverCommands = {
-    \ 'c': ['docker', 'run', '-i', '--rm', '--volume=/tmp/ccls/:/tmp/ccls/', 'cpp:latest', 'ccls'],
-    \ 'cpp': ['docker', 'run', '-i', '--rm', '--volume=/tmp/ccls/:/tmp/ccls/', 'cpp:latest', 'ccls'],
+    \ 'c': ['docker', 'run', '-i', '--rm', '--volume=/tmp/ccls/:/tmp/ccls/', 'arwtyxouymz/ccls-docker:latest', 'ccls'],
+    \ 'cpp': ['docker', 'run', '-i', '--rm', '--volume=/tmp/ccls/:/tmp/ccls/', 'arwtyxouymz/ccls-docker:latest', 'ccls'],
     \ 'vue': ['vls'],
     \ 'html': [],
     \ 'css': [],
