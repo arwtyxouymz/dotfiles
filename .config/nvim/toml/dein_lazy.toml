@@ -249,3 +249,7 @@ on_ft = 'tmux'
 hook_add = '''
     let g:tmuxcomplete#trigger = ""
 '''
+
+[[plugins]]
+repo = 'taketwo/vim-ros'
+on_ft = ['cpp', 'python']
