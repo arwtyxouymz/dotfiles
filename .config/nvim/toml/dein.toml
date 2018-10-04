@@ -103,7 +103,7 @@ hook_add = '''
     let g:ale_linters = {
         \   'php' : ['phpcs'],
         \   'javascript': ['eslint'],
-        \   'python': ['pyls'],
+        \   'python': ['flake8'],
         \   'c' : [],
         \   'cpp' : [],
     \}
