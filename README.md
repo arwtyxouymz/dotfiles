@@ -36,3 +36,13 @@ $ pbcopy < ~/.ssh/id_rsa.pub
 ```sh
 $ sudo /System/Library/Frameworks/Python.framework/Versions/2.7/bin/python -m easy_install -U neovim
 ```
+
+## Install cuDNN
+
+Access [cuDNN download page](https://developer.nvidia.com/rdp/form/cudnn-download-survey).
+Then Download
+- cuDNN Runtime Library
+- cuDNN Developer Library
+- cuDNN Code Samples and User Guide
+
+After that, install these `.deb` packages via `dpkg` command.

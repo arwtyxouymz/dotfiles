@@ -7,9 +7,6 @@ usage() {
   echo 
   echo "オプション:"
   echo "  -h, --help"
-  echo "  -a, --all  [任意]"
-  echo "  -w, --web  [任意]"
-  echo "  -i, --itkvtk  [任意]"
   echo
   exit
 }
@@ -24,24 +21,6 @@ check_arguments() {
         '-h'|'--help' )
           usage
           exit
-          ;;
-        # オプション-a、--all
-        '-a'|'--all' )
-          ALL_FLAG=1
-          export ALL_FLAG
-          shift 1
-          ;;
-        # オプション-w、--web
-        '-w'|'--web' )
-          WEB_FLAG=1
-          export WEB_FLAG
-          shift 1
-          ;;
-        # オプション-i、--itkvtk
-        '-i'|'--itkvtk' )
-          ITKVTK_FLAG=1
-          export ITKVTK_FLAG
-          shift 1
           ;;
         *)
           # コマンド引数（オプション以外のパラメータ）

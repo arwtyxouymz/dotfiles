@@ -7,7 +7,7 @@ get_password() {
     read -s PASSWORD_CONFIRM
     echo
     if [ "$PASSWORD" != "$PASSWORD_CONFIRM" ]; then
-        echo $"\e[31mPassword is not same.\e[0m"
+        echo -e "\e[31mPassword is not same.\e[0m"
         exit 1
     fi
     export $PASSWORD
