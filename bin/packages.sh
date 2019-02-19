@@ -115,3 +115,17 @@ make install
 # powerline-shell
 ############################################
 pip install powerline-shell
+
+
+############################################
+# Mendeley & Latex
+############################################
+wget https://www.mendeley.com/repositories/ubuntu/stable/amd64/mendeleydesktop-latest -P $HOME/Applications
+file=$(find ./)
+echo $PASSWORD | sudo -S dpkg -i $(find $HOME/Applications -name *mendeley*)
+echo $PASSWORD | sudo -S apt update && sudo apt install -y \
+    texlive-full \
+    texlive-lang-japanese \
+    texlive-lang-cjk \
+    texlive-fonts-recommended \
+    texlive-fonts-extra
