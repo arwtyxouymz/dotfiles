@@ -20,5 +20,5 @@ hook_source = '''
 repo = 'vim-scripts/DoxygenToolkit.vim'
 on_ft = ['c', 'cpp']
 hook_source = '''
-    nmap <leader>dox :Dox<CR>
+    nmap <C-_> :Dox<CR>
 '''
