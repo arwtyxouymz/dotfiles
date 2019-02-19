@@ -11,6 +11,10 @@ check_arguments $@
 source ${DOT_DIRECTORY}/bin/password.sh
 get_password
 
+mkdir -p $HOME/Applications/
+mkdir -p $HOME/Drivers/
+mkdir -p $HOME/Tools/
+
 source ${DOT_DIRECTORY}/bin/packages.sh
 source ${DOT_DIRECTORY}/bin/symbolic.sh
 source ${DOT_DIRECTORY}/bin/homebrew.sh

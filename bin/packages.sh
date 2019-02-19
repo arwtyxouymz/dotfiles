@@ -69,7 +69,7 @@ echo $PASSWORD | sudo rosdep init && rosdep update
 # ccls
 ############################################
 # CMake >= 3.9 install
-mkdir -p $HOME/tools/cmake/
+mkdir -p $HOME/Tools/cmake/
 # TODO: このcmakeだとビルド済みではない
 wget -qO- https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4.tar.gz | tar -zxvf - -C $HOME/Drivers/cmake/ --strip-components 1
 # LLVM
@@ -100,10 +100,10 @@ echo $PASSWORD | sudo -S apt install -y g++-7
 echo $PASSWORD | sudo -S update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7 
 echo $PASSWORD | sudo -S update-alternatives --config gcc
 # ccls
-cd $HOME/tools
+cd $HOME/Tools
 git clone --depth=1 --recursive https://github.com/MaskRay/ccls && cd ccls
 git submodule update --init
-$HOME/tools/cmake/bin/cmake -H. -BRelease -DCMAKE_CXX_COMPILER=/usr/lib/llvm-6.0/bin/clang++ -DSYSTEM_CLANG=ON -DCLANG_USE_BUNDLED_LIBC++=on -DCMAKE_PREFIX_PATH=/usr/lib/llvm-6.0/
-$HOME/tools/cmake/bin/cmake --build Release
+$HOME/Tools/cmake/bin/cmake -H. -BRelease -DCMAKE_CXX_COMPILER=/usr/lib/llvm-6.0/bin/clang++ -DSYSTEM_CLANG=ON -DCLANG_USE_BUNDLED_LIBC++=on -DCMAKE_PREFIX_PATH=/usr/lib/llvm-6.0/
+$HOME/Tools/cmake/bin/cmake --build Release
 cd Release
 make install
