@@ -72,7 +72,7 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
-    nnoremap <silent><leader>f :Defx<CR>
+    nnoremap <silent><leader>f :Defx -show-ignored-files<CR>
     autocmd FileType defx call s:defx_my_settings()
     function! s:defx_my_settings() abort
         " Define mappings
