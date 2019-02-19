@@ -1,0 +1,71 @@
+
+function! s:source_rc(path, ...) abort
+    let use_global = get(a:000, 0, !has('vim_starting'))
+    " Symbolic links
+    let abspath = resolve(expand('~/.config/nvim/rc/' . a:path))
+    if !use_global
+        execute 'source' fnameescape(abspath)
+        return
+    endif
+
+    " substitute all 'set' to 'setglobal'
+    let content = map(readfile(abspath),
+                \'substitute(v:val, "^\\W*\\zsset\\ze\\W", "setglobal", "")')
+    " create tempfile and source the tempfile
+    let tempfile = tempname()
+    try
+        call writefile(content, tempfile)
+        execute 'source' fnameescape(tempfile)
+    finally
+        if filereadable(tempfile)
+            call delete(tempfile)
+        endif
+    endtry
+endfunction
+
+augroup MyAutoCmd
+  autocmd!
+  autocmd CursorHold *.toml syntax sync minlines=300
+  autocmd BufNewFile,BufRead *.launch set filetype=xml
+  autocmd BufNewFile,BufRead *.xacro set filetype=xml
+  autocmd FileType vue syntax sync fromstart
+  autocmd BufWritePost *.php silent! eval '[ -f ".git/hooks/ctags" ]; and .git/hooks/ctags'
+  " autocmd FileType help,git-status,git-log nnoremap <buffer> q <C-w>c
+augroup END
+
+augroup Template
+    autocmd!
+    autocmd BufNewFile main.c 0r $XDG_CONFIG_HOME/nvim/autoload/template/main.c
+    autocmd BufNewFile main.cpp 0r $XDG_CONFIG_HOME/nvim/autoload/template/main.cpp
+augroup END
+
+
+if has('vim_starting')
+    call s:source_rc('init.rc.vim')
+endif
+
+if has('nvim')
+    call s:source_rc('neovim.rc.vim')
+endif
+
+
+
+call s:source_rc('dein.rc.vim')
+
+call s:source_rc('mappings.rc.vim')
+call s:source_rc('options.rc.vim')
+
+if !has('vim_starting')
+    call dein#call_hook('source')
+    call dein#call_hook('post_source')
+endif
+
+call s:source_rc('filetype.rc.vim')
+
+"---------------------------------------------------------------------------
+
+"---------------------------------------------------------------------------
+
+set secure
+colorscheme wombat
+let g:airline_theme = 'badwolf'

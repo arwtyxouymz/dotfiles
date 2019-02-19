@@ -1,0 +1,24 @@
+# moving header and source
+[[plugins]]
+repo = 'vim-scripts/a.vim'
+on_ft = ['c', 'cpp']
+hook_source = '''
+    nmap <silent> <leader>aa :A<CR>
+    nmap <silent> <leader>at :AT<CR>
+    nmap <silent> <leader>av :AV<CR>
+'''
+
+# cmake plugin
+[[plugins]]
+repo = 'vhdirk/vim-cmake'
+on_ft = ['c', 'cpp', 'cmake']
+hook_source = '''
+'''
+
+# Doxygen
+[[plugins]]
+repo = 'vim-scripts/DoxygenToolkit.vim'
+on_ft = ['c', 'cpp']
+hook_source = '''
+    nmap <leader>dox :Dox<CR>
+'''

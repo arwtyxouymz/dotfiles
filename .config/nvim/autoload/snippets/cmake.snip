@@ -1,0 +1,13 @@
+snippet		cmake_header
+abbr		CMakeLists.txt Template
+options		head
+    cmake_minimum_required(VERSION ${1:2.8})
+
+    PROJECT(${2:Name})
+
+    set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+    add_executable($2
+        main.cpp
+    )
+    target_link_libraries($2 ${3})

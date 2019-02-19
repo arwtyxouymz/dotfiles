@@ -1,0 +1,146 @@
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+on_i = 1
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+hook_source = '''
+    source $XDG_CONFIG_HOME/nvim/rc/plugins/deoplete.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/echodoc.vim'
+on_event = 'CompleteDone'
+hook_source = '''
+    let g:echodoc#type = 'virtual'
+    call echodoc#enable()
+'''
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/rc/plugins/denite.rc.vim'
+hook_add = '''
+    nmap <Space> [denite]
+    nmap <Space>p [deniteProject]
+
+    nmap <silent> [denite]b :<C-u>Denite buffer<CR>
+    nmap <silent> [denite]n :<C-u>Denite file<CR>
+    nmap <silent> [denite]g :<C-u>Denite grep<CR>
+    nmap <silent> [denite]l :<C-u>Denite line<CR>
+    nmap <silent> [denite]m :<C-u>Denite file_mru<CR> <silent> <C-u><C-y> :<C-u>Denite neoyank<CR>
+    nmap <silent> [denite]f :<C-u>Denite file/rec<CR>
+    nmap <silent> [denite]d :<C-u>Denite directory_rec<CR>
+    nmap <silent> [denite]h :<C-u>Denite help -default-action=tabopen<CR>
+
+    nmap <silent> [deniteProject]b :<C-u>DeniteProject buffer<CR>
+    nmap <silent> [deniteProject]n :<C-u>DeniteProject file<CR>
+    nmap <silent> [deniteProject]g :<C-u>DeniteProject grep<CR>
+    nmap <silent> [deniteProject]m :<C-u>DeniteProject file_mru<CR> <silent> <C-u><C-y> :<C-u>Denite neoyank<CR>
+    nmap <silent> [deniteProject]f :<C-u>DeniteProject file/rec<CR>
+    nmap <silent> [deniteProject]d :<C-u>DeniteProject directory_rec<CR>
+'''
+
+[[plugins]]
+repo = 'chemzqm/denite-git'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_source = 'denite.nvim'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = 'denite.nvim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+on_i = 1
+hook_source = '''
+    imap <C-k> <Plug>(neosnippet_expand_or_jump)
+    smap <C-k> <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k> <Plug>(neosnippet_expand_target)
+    if has('conceal')
+      set conceallevel=2 concealcursor=niv
+    endif
+    let g:neosnippet#enable_snipmate_compatibility = 1
+    let g:neosnippet#enable_completed_snippet = 1
+    let g:neosnippet#expand_word_boundary = 1
+    let g:neosnippet#enable_completed_snippet = 1
+'''
+hook_add = '''
+    let g:neosnippet#snippets_directory = "$XDG_CONFIG_HOME/nvim/autoload/snippets/"
+'''
+on_ft = ['snippet']
+depends = ['neosnippet-snippets']
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
+on_event = ['BufEnter']
+hook_add = '''
+    nmap <F8> :TagbarToggle<CR>
+'''
+
+# [[plugins]]
+# repo = 'lervag/vimtex'
+# on_ft = ['tex']
+# hook_add = '''
+#     let g:vimtex_compiler_progname = 'nvr'
+#     let g:vimtex_compiler_latexmk = {
+#                \ 'background': 1,
+#                \ 'continuous': 1,
+#                \ 'options': []}
+#     let g:vimtex_view_general_viewer = 'evince'
+#     let g:vimtex_view_general_options = '-r @line @pdf @tex'
+# '''
+# hook_source = '''
+#     call deoplete#custom#var('omni', 'input_patterns', {
+#                \ 'tex': g:vimtex#re#deoplete
+#                \ })
+# '''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+# [[plugins]]
+# repo = 'mattn/emmet-vim'
+# on_ft = ['html', 'blade', 'vue', 'xml']
+
+[[plugins]]
+repo = 'Shougo/neco-vim'
+on_ft = ['vim', 'toml']
+on_source = ['deoplete.nvim']
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+on_event = ['BufEnter']
+hook_add = '''
+    " Start interactive EasyAlign in visual mode (e.g. vipga)
+    xmap ga <Plug>(EasyAlign)
+    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+    nmap ga <Plug>(EasyAlign)
+'''
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_i = 1
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+on_ft = ['toml', 'md', 'tex']
+depends = ['context_filetype.vim']
+
+[[plugins]]
+repo = 'wellle/tmux-complete.vim'
+on_ft = 'tmux'
+hook_add = '''
+    let g:tmuxcomplete#trigger = ""
+'''
+
+[[plugins]]
+repo = 'arwtyxouymz/fcc.nvim'
+on_event = ['BufEnter']
+hook_add = '''
+    let g:fcc#catkin_ws = $CATKIN_WS
+    let g:fcc#nest_num = 5
+    nmap <leader>cp :FindCompileCommands<CR>
+'''
