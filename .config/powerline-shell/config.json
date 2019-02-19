@@ -1,0 +1,14 @@
+{
+    "segments": [
+        "virtual_env",
+        "username",
+        "ssh",
+        "cwd",
+        "git",
+        "read_only",
+        "jobs",
+        "newline",
+        "root"
+    ],
+    "theme": "default"
+}

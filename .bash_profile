@@ -30,12 +30,7 @@ alias cb="catkin build && source ~/work/PFN/catkin_ws/devel/setup.bash"
 # alias cs="cd ~/work/examples/ros/ws_moveit/src"
 # alias cb="catkin build && source ~/work/examples/ros/ws_moveit/devel/setup.bash"
 
-#################### caffe #########################
-export CAFFE_ROOT=$HOME/work/caffe
-export PYCAFFE_ROOT=$CAFFE_ROOT/python
-# export PYTHONPATH=$PYCAFFE_ROOT:${PYTHONPATH}
-# export PATH=$CAFFE_ROOT/build/tools:$PYCAFFE_ROOT:${PATH}
-
+#################### Powerline #########################
 _update_ps1()
 {
     PS1=$(powerline-shell $?)
@@ -44,11 +39,6 @@ _update_ps1()
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
-
-
-##################### Powerline ##############################
-export powerline_root=$HOME/.local/lib/python2.7/site-packages
-powerline-daemon -q
 
 ##################### percol ########################
 #========history search=======
