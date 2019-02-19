@@ -64,6 +64,8 @@ echo $PASSWORD | sudo -S sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(l
 echo $PASSWORD | sudo -S apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 echo $PASSWORD | sudo -S apt update && sudo apt install ros-kinetic-desktop-full
 echo $PASSWORD | sudo rosdep init && rosdep update
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+echo $PASSWORD | sudo -S apt update && sudo apt install -y python-catkin-tools
 
 ############################################
 # ccls
@@ -107,3 +109,9 @@ $HOME/Tools/cmake/bin/cmake -H. -BRelease -DCMAKE_CXX_COMPILER=/usr/lib/llvm-6.0
 $HOME/Tools/cmake/bin/cmake --build Release
 cd Release
 make install
+
+
+############################################
+# powerline-shell
+############################################
+pip install powerline-shell
