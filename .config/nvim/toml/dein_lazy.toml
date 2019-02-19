@@ -79,23 +79,23 @@ hook_add = '''
     nmap <F8> :TagbarToggle<CR>
 '''
 
-# [[plugins]]
-# repo = 'lervag/vimtex'
-# on_ft = ['tex']
-# hook_add = '''
-#     let g:vimtex_compiler_progname = 'nvr'
-#     let g:vimtex_compiler_latexmk = {
-#                \ 'background': 1,
-#                \ 'continuous': 1,
-#                \ 'options': []}
-#     let g:vimtex_view_general_viewer = 'evince'
-#     let g:vimtex_view_general_options = '-r @line @pdf @tex'
-# '''
-# hook_source = '''
-#     call deoplete#custom#var('omni', 'input_patterns', {
-#                \ 'tex': g:vimtex#re#deoplete
-#                \ })
-# '''
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = ['tex']
+hook_add = '''
+    let g:vimtex_compiler_progname = 'nvr'
+    let g:vimtex_compiler_latexmk = {
+               \ 'background': 1,
+               \ 'continuous': 1,
+               \ 'options': []}
+    let g:vimtex_view_general_viewer = 'evince'
+    let g:vimtex_view_general_options = '-r @line @pdf @tex'
+'''
+hook_source = '''
+    call deoplete#custom#var('omni', 'input_patterns', {
+               \ 'tex': g:vimtex#re#deoplete
+               \ })
+'''
 
 [[plugins]]
 repo = 'cespare/vim-toml'
