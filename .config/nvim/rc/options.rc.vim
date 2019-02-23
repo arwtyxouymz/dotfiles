@@ -55,7 +55,8 @@ set splitright
 set keywordprg=:help
 " True Colorを使用
 set termguicolors
-
+" コマンド入力を2行に(echodoc用)
+set cmdheight=2
 
 " Reload init.vim
 command! Reload source ~/.config/nvim/init.vim
