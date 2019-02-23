@@ -4,8 +4,6 @@ export PATH=$HOME/.local/bin:$PATH
 
 export XDG_CONFIG_HOME=$HOME/.config
 
-alias vi="nvim"
-alias vim="nvim"
 
 #################### CUDA & CUDNN ####################
 export CUDA_PATH=/usr/local/cuda
@@ -14,16 +12,16 @@ export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
 
 #################### ROS ####################
 
-source /opt/ros/kinetic/setup.bash
-source $HOME/work/PFN/catkin_ws/devel/setup.bash
-export CATKIN_WS=$HOME/work/PFN/catkin_ws
-alias cs="cd ~/work/PFN/catkin_ws/src"
-alias cb="catkin build && source ~/work/PFN/catkin_ws/devel/setup.bash"
+# source /opt/ros/kinetic/setup.bash
+# source $HOME/work/PFN/catkin_ws/devel/setup.bash
+# export CATKIN_WS=$HOME/work/PFN/catkin_ws
+# alias cs="cd ~/work/PFN/catkin_ws/src"
+# alias cb="catkin build && source ~/work/PFN/catkin_ws/devel/setup.bash"
 
-# source $HOME/work/lab/catkin_ws/devel/setup.bash
-# export CATKIN_WS=$HOME/work/lab/catkin_ws
-# alias cs="cd ~/work/lab/catkin_ws/src"
-# alias cb="catkin build && source ~/work/lab/catkin_ws/devel/setup.bash"
+source $HOME/work/lab/catkin_ws/devel/setup.bash
+export CATKIN_WS=$HOME/work/lab/catkin_ws
+alias cs="cd ~/work/lab/catkin_ws/src"
+alias cb="catkin build && source ~/work/lab/catkin_ws/devel/setup.bash"
 
 # source $HOME/work/examples/ros/ws_moveit/devel/setup.bash
 # export CATKIN_WS=$HOME/work/examples/ros/ws_moveit
@@ -59,7 +57,7 @@ cdls()
 {
     \cd "$@" && ls -a
 }
-alias cd="cdls"
+
 if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
   source "${VIRTUAL_ENV}/bin/activate"
 fi
@@ -74,3 +72,18 @@ fi
 
 ##################### vimtex ############################
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+
+
+##################### alias ############################
+alias vi="nvim"
+alias vim="nvim"
+alias cd="cdls"
+alias apud="sudo apt update"
+alias apug="sudo apt upgrade"
+alias apl="apt list --upgradable"
+alias shutdown="sudo shutdown -h now"
+alias reboot="sudo reboot"
+
+alias ga="git add "
+alias ga.="git add ."
+alias gc="git commit -m "
