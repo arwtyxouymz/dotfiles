@@ -183,3 +183,6 @@ hook_add = '''
                \ |   silent! execute 'normal! "_da>'
                \ | endif
 '''
+
+[[plugins]]
+repo = 'tpope/vim-surround'
