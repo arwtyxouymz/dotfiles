@@ -12,16 +12,16 @@ export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
 
 #################### ROS ####################
 
-# source /opt/ros/kinetic/setup.bash
-# source $HOME/work/PFN/catkin_ws/devel/setup.bash
-# export CATKIN_WS=$HOME/work/PFN/catkin_ws
-# alias cs="cd ~/work/PFN/catkin_ws/src"
-# alias cb="catkin build && source ~/work/PFN/catkin_ws/devel/setup.bash"
+source /opt/ros/kinetic/setup.bash
+source $HOME/work/PFN/catkin_ws/devel/setup.bash
+export CATKIN_WS=$HOME/work/PFN/catkin_ws
+alias cs="cd ~/work/PFN/catkin_ws/src"
+alias cb="catkin build && source ~/work/PFN/catkin_ws/devel/setup.bash"
 
-source $HOME/work/lab/catkin_ws/devel/setup.bash
-export CATKIN_WS=$HOME/work/lab/catkin_ws
-alias cs="cd ~/work/lab/catkin_ws/src"
-alias cb="catkin build && source ~/work/lab/catkin_ws/devel/setup.bash"
+# source $HOME/work/lab/catkin_ws/devel/setup.bash
+# export CATKIN_WS=$HOME/work/lab/catkin_ws
+# alias cs="cd ~/work/lab/catkin_ws/src"
+# alias cb="catkin build && source ~/work/lab/catkin_ws/devel/setup.bash"
 
 # source $HOME/work/examples/ros/ws_moveit/devel/setup.bash
 # export CATKIN_WS=$HOME/work/examples/ros/ws_moveit
@@ -86,4 +86,9 @@ alias reboot="sudo reboot"
 
 alias ga="git add "
 alias ga.="git add ."
-alias gc="git commit -m "
+alias gc="git commit"
+alias gcm="git commit -m "
+alias gmend="git commit --amend"
+alias gs="git status"
+alias gd="git diff"
+alias gp="git push "
