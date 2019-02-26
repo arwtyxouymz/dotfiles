@@ -161,9 +161,35 @@ hook_add = '''
     source $XDG_CONFIG_HOME/nvim/rc/plugins/LanguageClient-neovim.rc.vim
     nnoremap <F5> :call LanguageClient_contextMenu()<CR>
     " Or map each action separately
+    " シンボルのドキュメントを軽く見れる
     nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-    nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-    nnoremap <silent> <leader>rw :call LanguageClient#textDocument_rename()<CR>
+    " シンボルの定義/実装を行き来できる
+    nnoremap <silent> <M-j> :call LanguageClient#textDocument_definition()<CR>
+    " シンボルの参照先を見つけられる
+    nnoremap <silent> <M-r> :call LanguageClient#textDocument_references({'includeDeclaration': v:false})<CR>
+    " documentHighlight => 謎
+    augroup LanguageClient_config
+        autocmd!
+        autocmd BufEnter * let b:Plugin_LanguageClient_started = 0
+        autocmd User LanguageClientStarted setl signcolumn=yes
+        autocmd User LanguageClientStarted let b:Plugin_LanguageClient_started = 1
+        autocmd User LanguageClientStopped setl signcolumn=auto
+        autocmd User LanguageClientStopped let b:Plugin_LanguageClient_started = 0
+        autocmd CursorMoved * if b:Plugin_LanguageClient_started | sil call LanguageClient#textDocument_documentHighlight() | endif
+    augroup END
+    " 次の同階層ドキュメントシンボル
+    nnoremap <silent> xk :call LanguageClient#findLocations({'method':'$ccls/navigate','direction':'L'})<cr>
+    " 前の同階層ドキュメントシンボル
+    nnoremap <silent> xj :call LanguageClient#findLocations({'method':'$ccls/navigate','direction':'R'})<cr>
+    " 最初の子階層ドキュメントシンボル
+    nnoremap <silent> xh :call LanguageClient#findLocations({'method':'$ccls/navigate','direction':'D'})<cr>
+    " 親階層のドキュメントシンボル
+    nnoremap <silent> xu :call LanguageClient#findLocations({'method':'$ccls/navigate','direction':'U'})<cr>
+    " フォーマット
+    function! C_init()
+        setl formatexpr=LanguageClient#textDocument_rangeFormatting()
+    endf
+    autocmd FileType c,cpp,cuda,objc :call C_init()
 '''
 
 [[plugins]]
