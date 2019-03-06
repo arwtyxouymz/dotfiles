@@ -135,6 +135,8 @@ hook_add = '''
                    \ defx#do_action('print')
         nnoremap <silent><buffer><expr> cd
                    \ defx#do_action('change_vim_cwd')
+        nnoremap <silent><buffer><expr> o
+                    \ defx#do_action('open_or_close_tree')
     endfunction
 '''
 
