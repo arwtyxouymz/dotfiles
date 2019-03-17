@@ -124,10 +124,11 @@ hook_add = '''
 repo = 'cohama/lexima.vim'
 on_i = 1
 
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-on_ft = ['toml', 'md', 'tex']
-depends = ['context_filetype.vim']
+# [[plugins]]
+# repo = 'osyo-manga/vim-precious'
+# # on_ft = ['toml', 'md', 'tex']
+# on_ft = ['toml', 'md']
+# depends = ['context_filetype.vim']
 
 [[plugins]]
 repo = 'wellle/tmux-complete.vim'

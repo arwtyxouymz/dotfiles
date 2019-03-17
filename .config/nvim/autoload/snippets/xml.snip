@@ -1,0 +1,50 @@
+
+snippet     node
+abbr        node snippet
+options     head
+	<node pkg="${1}" type="${2}" name="${3}" output="screen" />
+	${0:TARGET}
+
+snippet     node2
+abbr        node snippet
+options     head
+	<node pkg="${1}" type="${2}" name="${3}" output="screen">
+	  ${0:TARGET}
+	</node>
+
+snippet     include
+abbr        include launch file
+options     head
+	<include file="${1}" />
+	${0:TARGET}
+
+snippet     include2
+abbr        include launch file
+options     head
+	<include file="${1}">
+	  ${0:TARGET}
+	</include>
+
+snippet     arg_default
+abbr        default argument snippet
+options     head
+	<arg name="${1}" default="${2}" />
+	${0:TARGET}
+
+snippet     arg_value
+abbr        value argument snippet
+options     head
+	<arg name="${1}" value="${2}" />
+	${0:TARGET}
+
+snippet     param
+abbr        param snippet
+options     head
+	<param name="${1}" value="${2}" />
+	${0:TARGET}
+
+snippet     rosparam
+abbr        rosparam snippet
+options     head
+	<rosparam file="${1}" command="${2}" />
+	${0:TARGET}
