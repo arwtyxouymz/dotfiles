@@ -49,12 +49,14 @@ echo $PASSWORD | sudo -S pkill -SIGHUP dockerd
 # tmux
 ############################################
 echo -e '\e[32mInstall tmux\e[0m'
-echo $PASSWORD | sudo -S apt install -y tmux
+echo $PASSWORD | sudo -S apt install -y tmux ncurses-term
+
 
 ############################################
 # Ricty for Powerline font
 ############################################
 echo -e '\e[32mCopy Ritcy for Powerline font to Fonts directory\e[0m'
+echo $PASSWORD | sudo -S apt install -y fonts-powerline
 
 
 ############################################
