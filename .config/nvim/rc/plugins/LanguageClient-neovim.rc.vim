@@ -7,11 +7,15 @@ let g:LanguageClient_serverCommands = {
     \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'python': ['pyls'],
+    \ 'sh': [$HOME . '/.yaml/bin/bash-language-server'],
+    \ 'yaml': [$HOME . '/.yaml/bin/yaml-language-server'],
 \ }
 
 let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_settingsPath = $XDG_CONFIG_HOME . '/nvim/autoload/settings.json'
 let g:LanguageClient_hasSnippetSupport = 0
+let g:LanguageClient_hoverPreview = "Never"
 
 let g:LanguageClient_diagnosticsDisplay = {
     \     1: {

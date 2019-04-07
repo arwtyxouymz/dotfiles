@@ -1,5 +1,18 @@
 {
-    "initializationOptions": {
-        "cacheDirectory": "/tmp/ccls"
+    "ccl": {
+        "initializationOptions": {
+            "cacheDirectory": "/tmp/ccls"
+        }
+    },
+    "pyls": {
+        "configurationSources": ["flake8"],
+        "plugins": {
+            "pyflakes": {
+                "enabled": true
+            },
+            "pydocstyle": {
+                "enabled": true
+            }
+        }
     }
 }

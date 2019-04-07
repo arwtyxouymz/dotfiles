@@ -1,3 +1,12 @@
+# cmake completion
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-clang'
+on_ft = ['cmake']
+hook_add = '''
+    let g:deoplete#sources#clang#libclang_path="/usr/local/llvm-7.0/lib/libclang.so"
+    let g:deoplete#sources#clang#clang_header="/usr/local/llvm-7.0/lib/clang"
+'''
+
 # moving header and source
 [[plugins]]
 repo = 'vim-scripts/a.vim'

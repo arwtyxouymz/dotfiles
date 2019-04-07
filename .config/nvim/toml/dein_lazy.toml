@@ -145,3 +145,7 @@ hook_add = '''
     let g:fcc#nest_num = 5
     nmap <leader>cp :FindCompileCommands<CR>
 '''
+
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-docker'
+on_ft = ['Dockerfile']

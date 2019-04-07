@@ -57,6 +57,8 @@ set keywordprg=:help
 set termguicolors
 " コマンド入力を2行に(echodoc用)
 set cmdheight=2
+" コマンドラインモードの補完
+set wildoptions+=pum
 
 " Reload init.vim
 command! Reload source ~/.config/nvim/init.vim
