@@ -1,42 +1,140 @@
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-on_i = 1
-hook_add = 'let g:deoplete#enable_at_startup = 1'
-hook_source = '''
-    source $XDG_CONFIG_HOME/nvim/rc/plugins/deoplete.rc.vim
-'''
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# depends = 'context_filetype.vim'
+# on_event='InsertEnter'
+# hook_source = '''
+#     source $XDG_CONFIG_HOME/nvim/rc/plugins/deoplete.rc.vim
+#     call deoplete#enable()
+# '''
 
 [[plugins]]
 repo = 'Shougo/echodoc.vim'
 on_event = 'CompleteDone'
 hook_source = '''
-    let g:echodoc#type = 'echo'
+    let g:echodoc#type = 'virtual'
     call echodoc#enable()
 '''
 
 [[plugins]]
+repo = 'Shougo/defx.nvim'
+hook_add = '''
+    nnoremap <silent><leader>f :<C-u>Defx -listed -resume -buffer-name=tab'tabpagegenr()'<CR>
+'''
+hook_source = '''
+    call defx#custom#column('mark', {
+        \ 'readonly_icon': '✗',
+        \ 'selected_icon': '✓'
+        \ })
+    call defx#custom#column('icon', {
+        \ 'directory_icon': '▸',
+        \ 'opened_icon': '▾',
+        \ 'root_icon': ' '
+        \ })
+'''
+
+[plugins.ftplugin]
+defx = '''
+    " Define mappings
+    nnoremap <silent><buffer><expr> <CR>
+               \ defx#do_action('open')
+    nnoremap <silent><buffer><expr> c
+               \ defx#do_action('copy')
+    nnoremap <silent><buffer><expr> m
+               \ defx#do_action('move')
+    nnoremap <silent><buffer><expr> p
+               \ defx#do_action('paste')
+    nnoremap <silent><buffer><expr> l
+               \ defx#do_action('open')
+    nnoremap <silent><buffer><expr> E
+               \ defx#do_action('open', 'vsplit')
+    nnoremap <silent><buffer><expr> P
+               \ defx#do_action('open', 'pedit')
+    nnoremap <silent><buffer><expr> K
+               \ defx#do_action('new_directory')
+    nnoremap <silent><buffer><expr> N
+               \ defx#do_action('new_file')
+    nnoremap <silent><buffer><expr> M
+               \ defx#do_action('new_multiple_files')
+    nnoremap <silent><buffer><expr> C
+               \ defx#do_action('toggle_columns',
+               \                'mark:filename:type:size:time')
+    nnoremap <silent><buffer><expr> S
+               \ defx#do_action('toggle_sort', 'time')
+    nnoremap <silent><buffer><expr> d
+               \ defx#do_action('remove')
+    nnoremap <silent><buffer><expr> r
+               \ defx#do_action('rename')
+    nnoremap <silent><buffer><expr> !
+               \ defx#do_action('execute_command')
+    nnoremap <silent><buffer><expr> x
+               \ defx#do_action('execute_system')
+    nnoremap <silent><buffer><expr> yy
+               \ defx#do_action('yank_path')
+    nnoremap <silent><buffer><expr> .
+               \ defx#do_action('toggle_ignored_files')
+    nnoremap <silent><buffer><expr> ;
+               \ defx#do_action('repeat')
+    nnoremap <silent><buffer><expr> h
+               \ defx#do_action('cd', ['..'])
+    nnoremap <silent><buffer><expr> ~
+               \ defx#do_action('cd')
+    nnoremap <silent><buffer><expr> q
+               \ defx#do_action('quit')
+    nnoremap <silent><buffer><expr> <Space>
+               \ defx#do_action('toggle_select') . 'j'
+    nnoremap <silent><buffer><expr> *
+               \ defx#do_action('toggle_select_all')
+    nnoremap <silent><buffer><expr> j
+               \ line('.') == line('$') ? 'gg' : 'j'
+    nnoremap <silent><buffer><expr> k
+               \ line('.') == 1 ? 'G' : 'k'
+    nnoremap <silent><buffer><expr> <C-l>
+               \ defx#do_action('redraw')
+    nnoremap <silent><buffer><expr> <C-g>
+               \ defx#do_action('print')
+    nnoremap <silent><buffer><expr> cd
+               \ defx#do_action('change_vim_cwd')
+    nnoremap <silent><buffer><expr> o
+                \ defx#do_action('open_or_close_tree')
+'''
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
+on_cmd = 'Denite'
 hook_source = 'source $XDG_CONFIG_HOME/nvim/rc/plugins/denite.rc.vim'
 hook_add = '''
+    nnoremap [denite] <Nop>
     nmap <Space> [denite]
     nmap <Space>p [deniteProject]
 
-    nmap <silent> [denite]b :<C-u>Denite buffer<CR>
-    nmap <silent> [denite]n :<C-u>Denite file<CR>
-    nmap <silent> [denite]g :<C-u>Denite grep<CR>
-    nmap <silent> [denite]l :<C-u>Denite line<CR>
-    nmap <silent> [denite]m :<C-u>Denite file_mru<CR> <silent> <C-u><C-y> :<C-u>Denite neoyank<CR>
-    nmap <silent> [denite]f :<C-u>Denite file/rec<CR>
-    nmap <silent> [denite]d :<C-u>Denite directory_rec<CR>
-    nmap <silent> [denite]h :<C-u>Denite help -default-action=tabopen<CR>
-
-    nmap <silent> [deniteProject]b :<C-u>DeniteProject buffer<CR>
-    nmap <silent> [deniteProject]n :<C-u>DeniteProject file<CR>
-    nmap <silent> [deniteProject]g :<C-u>DeniteProject grep<CR>
-    nmap <silent> [deniteProject]m :<C-u>DeniteProject file_mru<CR> <silent> <C-u><C-y> :<C-u>Denite neoyank<CR>
-    nmap <silent> [deniteProject]f :<C-u>DeniteProject file/rec<CR>
-    nmap <silent> [deniteProject]d :<C-u>DeniteProject directory_rec<CR>
+    nmap <silent> [denite]b :<C-u>Denite buffer -start-filter -split=floating<CR>
+    nmap <silent> [denite]c :<C-u>Denite command -start-filter -split=floating<CR>
+    nmap <silent> [denite]g :<C-u>Denite -no-empty grep -start-filter -split=floating<CR>
+    nmap <silent> [denite]l :<C-u>Denite line -start-filter -split=floating<CR>
+    nmap <silent> [denite]f :<C-u>Denite file/rec -start-filter -split=floating<CR>
+    nmap <silent> [denite]d :<C-u>Denite directory_rec -start-filter -split=floating<CR>
+    nmap <silent> [denite]h :<C-u>Denite help -start-filter -split=floating<CR>
+   
+    autocmd FileType denite call s:denite_my_settings()
+    autocmd FileType denite-filter call s:denite_filter_my_settings()
+    function! s:denite_my_settings() abort
+        nnoremap <silent><buffer><expr> <CR>
+        \ denite#do_map('do_action')
+        nnoremap <silent><buffer><expr> d
+        \ denite#do_map('do_action', 'delete')
+        nnoremap <silent><buffer><expr> p
+        \ denite#do_map('do_action', 'preview')
+        nnoremap <silent><buffer><expr> q
+        \ denite#do_map('quit')
+        nnoremap <silent><buffer><expr> i
+        \ denite#do_map('open_filter_buffer')
+        nnoremap <silent><buffer><expr> <Space>
+        \ denite#do_map('toggle_select').'j'
+    endfunction
+    function! s:denite_filter_my_settings() abort
+        imap <silent><buffer> <C-c> <Plug>(denite_filter_quit)
+        imap <silent><buffer> jj <Plug>(denite_filter_quit)
+    endfunction
 '''
 
 [[plugins]]
@@ -50,6 +148,14 @@ on_source = 'denite.nvim'
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 on_source = 'denite.nvim'
+
+[[plugins]]
+repo = 'neoclide/coc-denite'
+on_source = 'denite.nvim'
+hook_add = '''
+    nmap <silent> [denite]o :<C-u>Denite coc-command -start-filter -split=floating<CR>
+    nmap <silent> [denite]t :<C-u>Denite coc-symbols -start-filter -split=floating<CR>
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -79,23 +185,23 @@ hook_add = '''
     nmap <F8> :TagbarToggle<CR>
 '''
 
-[[plugins]]
-repo = 'lervag/vimtex'
-on_ft = ['tex']
-hook_add = '''
-    let g:vimtex_compiler_progname = 'nvr'
-    let g:vimtex_compiler_latexmk = {
-               \ 'background': 1,
-               \ 'continuous': 1,
-               \ 'options': []}
-    let g:vimtex_view_general_viewer = 'evince'
-    let g:vimtex_view_general_options = '-r @line @pdf @tex'
-'''
-hook_source = '''
-    call deoplete#custom#var('omni', 'input_patterns', {
-               \ 'tex': g:vimtex#re#deoplete
-               \ })
-'''
+#[[plugins]]
+#repo = 'lervag/vimtex'
+#on_ft = ['tex']
+#hook_add = '''
+#    let g:vimtex_compiler_progname = 'nvr'
+#    let g:vimtex_compiler_latexmk = {
+#               \ 'background': 1,
+#               \ 'continuous': 1,
+#               \ 'options': []}
+#    let g:vimtex_view_general_viewer = 'evince'
+#    let g:vimtex_view_general_options = '-r @line @pdf @tex'
+#'''
+#hook_source = '''
+#    call deoplete#custom#var('omni', 'input_patterns', {
+#               \ 'tex': g:vimtex#re#deoplete
+#               \ })
+#'''
 
 [[plugins]]
 repo = 'cespare/vim-toml'

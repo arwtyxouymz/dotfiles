@@ -1,0 +1,142 @@
+{
+    "suggest.noselect": true,
+    "suggest.autoTrigger": "always",
+    "suggest.acceptSuggestionOnCommitCharacter": true,
+    "suggest.floatEnable": true,
+    "suggest.echodocSupport": true,
+    "suggest.snippetIndicator": "►",
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "ℹ",
+    "diagnostic.hintSign": "➤",
+    "diagnostic.virtualText": false,
+    "languageserver":{
+        // MarkDown,vim,erbのLSP
+        "efm": {
+            "command": "efm-langserver",
+            "args": [],
+            "filetypes": ["vim", "eruby", "markdown"]
+        },
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        },
+        "MPLS": {
+            "command": "dotnet",
+            "args": ["exec", "$HOME/Tools/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer.dll"],
+            "filetypes": ["python"],
+            "trace.server": "verbose",
+            "initializationOptions": {
+                "interpreter": {
+                    "properties": {
+                        "InterpreterPath": "/home/ryutaro/.pyenv/shims/python",
+                        "DatabasePath": "/home/ryutaro/Tools/python-language-server/output",
+                        "Version": "2.7.15"
+                    }
+                },
+                "searchPaths": [
+                    "/home/ryutaro/.pyenv/versions/system/lib/python2.7/site-packages"
+                ],
+                "testEnvironment": false,
+                "analysisUpdates": true,
+                "traceLogging": true,
+                "asyncStartup": true
+            }
+        },
+        "python": {
+            "command": "python",
+            "args": ["-mpyls", "-vv", "--log-file", "/tmp/lsp_python.log"],
+            "trace.server": "verbose",
+            "filetypes": ["python"],
+            "settings": {
+                "pyls": {
+                    "enable": true,
+                    "trace": {
+                        "server": "verbose"
+                    },
+                    "commandPath": "",
+                    "configurationSources": [
+                        "pycodestyle"
+                    ],
+                    "plugins": {
+                        "jedi_completion": {
+                            "enabled": false
+                        },
+                        "jedi_hover": {
+                            "enabled": true
+                        },
+                        "jedi_references": {
+                            "enabled": true
+                        },
+                        "jedi_signature_help": {
+                            "enabled": true
+                        },
+                        "jedi_symbols": {
+                            "enabled": true,
+                            "all_scopes": true
+                        },
+                        "mccabe": {
+                            "enabled": true,
+                            "threshold": 15
+                        },
+                        "preload": {
+                            "enabled": true
+                        },
+                        "pycodestyle": {
+                            "enabled": true
+                        },
+                        "pydocstyle": {
+                            "enabled": false,
+                            "match": "(?!test_).*\\.py",
+                            "matchDir": "[^\\.].*"
+                        },
+                        "pyflakes": {
+                            "enabled": true
+                        },
+                        "rope_completion": {
+                            "enabled": true
+                        },
+                        "yapf": {
+                            "enabled": true
+                        }
+                    }
+                }
+            }
+        },
+        "dockerfile": {
+            "command": "docker-langserver",
+            "filetypes": ["dockerfile"],
+            "args": ["--stdio"]
+        },
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        },
+        "latex": {
+            "command": "/home/ryutaro/Tools/texlab/target/release/texlab",
+            "ignoredRootPaths": ["~"],
+            "filetypes": ["tex", "bib", "plaintex", "context"]
+        },
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod", ".vim/", ".git/"],
+            "filetypes": ["go"]
+        }
+    },
+    "latex.build.args": [
+        "-pv",
+        "-pdfdvi",
+        "-verbose",
+        "-interaction=nonstopmode"
+    ],
+    "latex.build.onSave": true,
+    "latex.lint.onChange": true
+}

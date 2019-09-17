@@ -1,13 +1,16 @@
 " not stop completion $ & /
 set hidden
 set signcolumn=yes
-let g:LanguageClient_hoverPreview = "Never"
+let g:LanguageClient_useFloatingHover = 1
+let g:LanguageClient_hoverPreview = "Hover"
+
 let g:LanguageClient_serverCommands = {
     \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'python': ['pyls'],
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'sh': [$HOME . '/.yaml/bin/bash-language-server'],
     \ 'yaml': [$HOME . '/.yaml/bin/yaml-language-server'],
 \ }

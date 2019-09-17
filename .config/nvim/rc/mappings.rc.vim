@@ -58,4 +58,3 @@ nmap <C-w><down> <C-w>-
 
 " Terminal mode
 tnoremap <silent> jj <C-\><C-n>
-nnoremap <C-t> :terminal<CR>

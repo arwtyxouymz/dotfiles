@@ -1,5 +1,9 @@
 " 行番号を表示
 set number
+" カーソル表示
+set cursorline
+" 行番号相対表示
+set relativenumber
 " 不可視文字の可視化
 set list
 " ターミナルのタイトルをセットする
@@ -45,7 +49,7 @@ set laststatus=2
 " buffer移動で保存しなくても怒られない
 set hidden
 " 補完の色
-hi Pmenu guifg=white guibg=grey
+" hi Pmenu guifg=white guibg=grey
 "hi PmenuSel guifg=white guibg=1
 " completeoptは下に開く
 set splitbelow

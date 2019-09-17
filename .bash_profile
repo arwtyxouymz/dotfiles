@@ -1,7 +1,4 @@
-export PATH=/usr/local/llvm-7.0/bin:$PATH
-# export PYTHONPATH=/usr/lib/llvm-6.0/lib/python2.7/site-packages:$PYTHONPATH
 export PATH=$HOME/.local/bin:$PATH
-
 export XDG_CONFIG_HOME=$HOME/.config
 
 
@@ -10,47 +7,39 @@ export CUDA_PATH=/usr/local/cuda
 export PATH=$CUDA_PATH/bin:$PATH
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
 
-#################### ROS ####################
-
-source /opt/ros/melodic/setup.bash
-export CATKIN_WS=$HOME/work/lab/catkin_ws
-#source $CATKIN_WS/devel/setup.bash
-
-#################### Powerline #########################
-_update_ps1()
-{
-    PS1=$(powerline-shell $?)
-}
-
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
-
+#################### Utils #########################
 cdls()
 {
-    \cd "$@" && ls -a
+    \cd "$@" && lsd -a
 }
 
-#if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
-#  source "${VIRTUAL_ENV}/bin/activate"
-#fi
+wifi_update() {
+  printf "Password: "
+  read -s PASSWORD
+  echo
+  cd ~/Drivers/backport-iwlwifi
+  echo $PASSWORD | sudo -S make clean
+  echo $PASSWORD | sudo -S make defconfig-iwlwifi-public
+  echo $PASSWORD | sudo -S make -j8
+  echo $PASSWORD | sudo -S make install
+}
 
-##################### pyenv ############################
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
-
-##################### vimtex ############################
-#export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
-
+##################### Rust ############################
+export PATH="$HOME/.cargo/bin:$PATH"
 
 ##################### alias ############################
+alias sb="source ~/.bashrc"
 alias vi="nvim"
 alias vim="nvim"
+alias ls="lsd"
+alias l="lsd -l"
+alias la="lsd -a"
+alias lla="lsd -la"
+alias lt="lsd --tree"
 alias cd="cdls"
+alias cdw="cd ~/work"
+alias cdd="cd ~/dotfiles/"
+alias cdn="cd ~/dotfiles/.config/nvim"
 alias apud="sudo apt update"
 alias apug="sudo apt upgrade"
 alias apl="apt list --upgradable"
@@ -68,3 +57,6 @@ alias gp="git push "
 alias cs="cd $CATKIN_WS/src"
 alias cb="catkin build"
 alias ss="source $CATKIN_WS/devel/setup.bash"
+
+alias dc="docker-compose"
+alias sudo="sudo -E "

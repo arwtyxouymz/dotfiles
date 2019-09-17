@@ -24,21 +24,12 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', [
             \ 'img/', 'fonts/', '*~', '*.exe', '*.bak',
             \ '.DS_Store', '*.pyc', '*.class', 'tags'
             \ ])
+call denite#custom#source('file/rec', 'matchers',
+      \ ['matcher/fuzzy', 'matcher/project_files'])
+call denite#custom#source('line', 'matchers',
+      \ ['matcher/fuzzy', 'matcher/project_files'])
 
 call denite#custom#action('help', 'tabopen',
             \ { context -> denite#do_action(context, 'tabopen', context['targets']) })
 
-let s:menus = {}
-let s:menus.conf = { 'description': 'configuration' }
-let s:menus.conf.file_candidates = [
-            \ ['bash', '~/.bash_profile'],
-            \ ['fish', '~/.config/fish/config.fish'],
-            \ ['neovim', '~/.config/nvim/init.vim']
-            \ ]
-let s:menus.commands = { 'description': 'my commands' }
-let s:menus.commands.command_candidates = [
-            \ ['Split the window', 'vnew'],
-            \ ['Open configuration menu', 'Denite menu:conf']
-            \ ]
-
-call denite#custom#var('menu', 'menus', s:menus)
+call denite#custom#source('file,file/rec,file/mru,file/old,file/point', 'converters', ['devicons_denite_converter'])
