@@ -1,41 +1,60 @@
-# Install Command
-
-```sh
-$ curl -L raw.github.com/arwtyxouymz/dotfiles/master/install.sh | bash
-```
-
-or
-
-```sh
-$ wget -L raw.github.com/arwtyxouymz/dotfiles/master/install.sh | bash
-```
-then
-
-```sh
-$ open code-signing.webarchive
-```
-and follow the instructions.
-
-
-after that
-
-```sh
-$ chmod +x $HOME/dotfiles/Setup.sh
-$ sh $HOME/dotfiles//Setup.sh
-```
-
 ## ssh key-gen
-
 ```sh
 $ mkdir -p $HOME/.ssh && cd $HOME/.ssh
 $ ssh-keygen -t rsa
 $ pbcopy < ~/.ssh/id_rsa.pub
 ```
 
-## upgrade neovim module of system python
-```sh
-$ sudo /System/Library/Frameworks/Python.framework/Versions/2.7/bin/python -m easy_install -U neovim
+## Nvidia GPU graphic settings
+
+```bash
+# nouveauの確認
+$ lsmod | grep -i nouveau
+# もしあったら/etc/modprobe.d/blacklist-nouveau.confに以下を追記
+blacklist nouveau
+options nouveau modeset=0
+# その後
+$ sudo update-initramfs -u
+# 再起動
 ```
+Then, install cuda
+```
+# /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia.NVreg_EnableBacklightHandler=1"
+# その後
+$ sudo update-grub
+```
+
+## Keyboard
+
+### caps => ctrl
+```
+# /etc/default/keyboard
+XKBMODEL="pc105"
+XKBLAYOUT="jp"
+XKBVARIANT=""
+XKBOPTIONS="ctrl:nocaps"
+
+BACKSPACE="guess"
+
+```
+### backslash => underscore
+
+```diff
+# /usr/share/X11/xkb/symbols/jp
+-key <AB11> { [ backslash, underscore] };
++key <AB11> { [ underscore, underscore] };
+```
+
+## Touchpad
+
+```bash
+# /etc/modprobe.d/blacklist.conf
+blacklist i2c_hid
+$ depmod -a
+$ update-initramfs -u
+```
+
 
 ## Install cuDNN
 
