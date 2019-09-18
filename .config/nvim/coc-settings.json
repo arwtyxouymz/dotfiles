@@ -121,7 +121,7 @@
             "ignoredRootPaths": ["~"]
         },
         "latex": {
-            "command": "/home/ryutaro/Tools/texlab/target/release/texlab",
+            "command": "texlab",
             "ignoredRootPaths": ["~"],
             "filetypes": ["tex", "bib", "plaintex", "context"]
         },

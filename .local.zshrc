@@ -69,6 +69,7 @@ source $HOME/.cargo/env
 export GOPATH=$HOME/.golang
 export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
+export LC_CTYPE=en_US.UTF-8
 
 ##################### DockUI #########################
 export LC_CTYPE=en_US.UTF-8
