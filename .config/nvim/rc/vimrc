@@ -71,5 +71,4 @@ call s:source_rc('filetype.rc.vim')
 
 "---------------------------------------------------------------------------
 
-colorscheme yowish
 set secure

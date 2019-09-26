@@ -20,11 +20,12 @@ hook_add = '''
 
 [[plugins]]
 repo = 'KabbAmine/yowish.vim'
-hook_source = '''
-    set background=dark
-    let g:yowish = {
-        \ 'comment_italic': 1
-    \ }
+hook_add = '''
+   set background=dark
+   let g:yowish = {
+       \ 'comment_italic': 1
+   \ }
+   colorscheme yowish
 '''
 
 [[plugins]]
@@ -125,11 +126,11 @@ hook_add = '''
     noremap [figitive]p :Gpush origin 
 '''
 
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-hook_add = '''
-    set updatetime=100
-'''
+#[[plugins]]
+#repo = 'airblade/vim-gitgutter'
+#hook_add = '''
+#    set updatetime=100
+#'''
 
 [[plugins]]
 repo = 'shougo/context_filetype.vim'
@@ -145,7 +146,9 @@ repo = 'neoclide/coc.nvim'
 rev = 'release'
 merge = '0'
 hook_add = '''
-   source $XDG_CONFIG_HOME/nvim/rc/plugins/coc.rc.vim
+    source $XDG_CONFIG_HOME/nvim/rc/plugins/coc.rc.vim
+'''
+hook_source = '''
 '''
 
 # [[plugins]]
