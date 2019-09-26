@@ -21,9 +21,11 @@ hook_add = '''
 [[plugins]]
 repo = 'KabbAmine/yowish.vim'
 hook_add = '''
-   let g:yowish = {
+    set background=dark
+    let g:yowish = {
        \ 'comment_italic': 1
-   \ }
+    \ }
+    silent! colorscheme yowish
 '''
 
 [[plugins]]

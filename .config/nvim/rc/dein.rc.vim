@@ -38,7 +38,3 @@ if !has('vim_starting') && dein#check_install()
     " Installation Check
     call dein#install()
 endif
-
-
-set background=dark
-colorscheme yowish
