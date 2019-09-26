@@ -3,7 +3,12 @@
 "
 
 let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3.7'
+
+if executable("python3.7")
+    let g:python3_host_prog = '/usr/bin/python3.7'
+else
+    let g:python3_host_prog = '/usr/bin/python3'
+endif
 
 if exists('&inccommand')
   set inccommand=nosplit
