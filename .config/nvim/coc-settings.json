@@ -29,9 +29,16 @@
         },
         "python": {
             "command": "python",
-            "args": ["-mpyls", "-vv", "--log-file", "/tmp/lsp_python.log"],
+            "args": [
+                "-mpyls",
+                "-vv",
+                "--log-file",
+                "/tmp/lsp_python.log"
+            ],
             "trace.server": "verbose",
-            "filetypes": ["python"],
+            "filetypes": [
+                "python"
+            ],
             "settings": {
                 "pyls": {
                     "enable": true,
@@ -40,7 +47,7 @@
                     },
                     "commandPath": "",
                     "configurationSources": [
-                        "pycodestyle"
+                        "flake8"
                     ],
                     "plugins": {
                         "jedi_completion": {
@@ -67,7 +74,7 @@
                             "enabled": true
                         },
                         "pycodestyle": {
-                            "enabled": true
+                            "enabled": false
                         },
                         "pydocstyle": {
                             "enabled": false,
@@ -75,7 +82,7 @@
                             "matchDir": "[^\\.].*"
                         },
                         "pyflakes": {
-                            "enabled": true
+                            "enabled": false
                         },
                         "rope_completion": {
                             "enabled": true
@@ -116,5 +123,10 @@
         "-interaction=nonstopmode"
     ],
     "latex.build.onSave": true,
-    "latex.lint.onChange": true
+    "latex.lint.onChange": true,
+    "python.jediEnabled": false,
+    "python.linting.pylintEnabled": false,
+    "python.linting.pep8Enabled": false,
+    "python.linting.pydocstyleEnabled": false,
+    "python.linting.flake8Enabled": true
 }

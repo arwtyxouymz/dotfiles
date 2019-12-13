@@ -66,3 +66,6 @@ set wildoptions+=pum
 
 " Reload init.vim
 command! Reload source ~/.config/nvim/init.vim
+
+set background=dark
+silent! colorscheme yowish

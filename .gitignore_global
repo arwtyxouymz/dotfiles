@@ -5,3 +5,4 @@ build
 .vscode
 *.pyc
 node_modules
+.vim

@@ -31,9 +31,9 @@ export PATH=$CUDA_PATH/bin:$PATH
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
 
 #################### ROS ####################
-# source /opt/ros/melodic/setup.zsh
+source /opt/ros/melodic/setup.zsh
 export CATKIN_WS=$HOME/work/catkin_ws
-# source $CATKIN_WS/devel/setup.zsh
+source $CATKIN_WS/devel/setup.zsh
 
 #################### Powerline #########################
 # powerline-daemon -q
@@ -91,6 +91,8 @@ alias lla="lsd -la"
 alias lt="lsd --tree"
 alias cd="cdls"
 alias cdw="cd ~/work"
+alias cdr="cd ~/research"
+alias cdf="cd ~/research/src/fip"
 alias cdd="cd ~/dotfiles/"
 alias cdn="cd ~/dotfiles/.config/nvim"
 alias apud="sudo apt update"
