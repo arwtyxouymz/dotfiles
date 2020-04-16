@@ -11,122 +11,15 @@
     "diagnostic.hintSign": "➤",
     "diagnostic.virtualText": false,
     "languageserver":{
-        // MarkDown,vim,erbのLSP
-        "efm": {
-            "command": "efm-langserver",
-            "args": [],
-            "filetypes": ["vim", "eruby", "markdown"]
-        },
-        "ccls": {
-            "command": "ccls",
-            "filetypes": ["c", "cpp", "objc", "objcpp"],
-            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-            "initializationOptions": {
-                "cache": {
-                    "directory": "/tmp/ccls"
-                }
-            }
-        },
-        "python": {
-            "command": "python",
-            "args": [
-                "-mpyls",
-                "-vv",
-                "--log-file",
-                "/tmp/lsp_python.log"
-            ],
-            "trace.server": "verbose",
-            "filetypes": [
-                "python"
-            ],
-            "settings": {
-                "pyls": {
-                    "enable": true,
-                    "trace": {
-                        "server": "verbose"
-                    },
-                    "commandPath": "",
-                    "configurationSources": [
-                        "flake8"
-                    ],
-                    "plugins": {
-                        "jedi_completion": {
-                            "enabled": false
-                        },
-                        "jedi_hover": {
-                            "enabled": true
-                        },
-                        "jedi_references": {
-                            "enabled": true
-                        },
-                        "jedi_signature_help": {
-                            "enabled": true
-                        },
-                        "jedi_symbols": {
-                            "enabled": true,
-                            "all_scopes": true
-                        },
-                        "mccabe": {
-                            "enabled": true,
-                            "threshold": 15
-                        },
-                        "preload": {
-                            "enabled": true
-                        },
-                        "pycodestyle": {
-                            "enabled": false
-                        },
-                        "pydocstyle": {
-                            "enabled": false,
-                            "match": "(?!test_).*\\.py",
-                            "matchDir": "[^\\.].*"
-                        },
-                        "pyflakes": {
-                            "enabled": false
-                        },
-                        "rope_completion": {
-                            "enabled": true
-                        },
-                        "yapf": {
-                            "enabled": true
-                        }
-                    }
-                }
-            }
-        },
-        "dockerfile": {
-            "command": "docker-langserver",
-            "filetypes": ["dockerfile"],
-            "args": ["--stdio"]
-        },
-        "bash": {
-            "command": "bash-language-server",
-            "args": ["start"],
-            "filetypes": ["sh"],
-            "ignoredRootPaths": ["~"]
-        },
-        "latex": {
-            "command": "texlab",
-            "ignoredRootPaths": ["~"],
-            "filetypes": ["tex", "bib", "plaintex", "context"]
-        },
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod", ".vim/", ".git/"],
-            "filetypes": ["go"]
-        }
     },
-    "latex.build.args": [
-        "-pv",
-        "-pdfdvi",
-        "-verbose",
-        "-interaction=nonstopmode"
+    "tsserver.enableJavascript": true,
+    "eslint.filetypes": [
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "typescript.tsx"
     ],
-    "latex.build.onSave": true,
-    "latex.lint.onChange": true,
     "python.jediEnabled": false,
-    "python.linting.pylintEnabled": false,
-    "python.linting.pep8Enabled": false,
-    "python.linting.pydocstyleEnabled": false,
-    "python.linting.flake8Enabled": true
+    "python.envFile": "${workspaceFolder}/.vim"
 }

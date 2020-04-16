@@ -23,7 +23,7 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
-let g:tex_flavor = "latex"
+
 
 " highlight link CocErrorHighlight CocErrorSign
 " highlight link CocWarningHighlight CocWarningSign
@@ -45,7 +45,7 @@ endfunction
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -129,3 +129,11 @@ nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" ================================================
+" Each LSP
+" ================================================
+let g:vim_markdown_fenced_languages = [
+            \ "vim",
+            \ "help",
+            \ ]

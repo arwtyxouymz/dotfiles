@@ -1,20 +1,3 @@
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# depends = 'context_filetype.vim'
-# on_event='InsertEnter'
-# hook_source = '''
-#     source $XDG_CONFIG_HOME/nvim/rc/plugins/deoplete.rc.vim
-#     call deoplete#enable()
-# '''
-
-[[plugins]]
-repo = 'Shougo/echodoc.vim'
-on_event = 'CompleteDone'
-hook_source = '''
-    let g:echodoc#type = 'virtual'
-    call echodoc#enable()
-'''
-
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
@@ -31,7 +14,6 @@ hook_source = '''
         \ 'root_icon': ' '
         \ })
 '''
-
 [plugins.ftplugin]
 defx = '''
     " Define mappings
@@ -101,7 +83,7 @@ defx = '''
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 on_cmd = 'Denite'
-hook_source = 'source $XDG_CONFIG_HOME/nvim/rc/plugins/denite.rc.vim'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/plugins/denite.rc.vim'
 hook_add = '''
     nnoremap [denite] <Nop>
     nmap <Space> [denite]
@@ -138,23 +120,21 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'chemzqm/denite-git'
-on_source = ['denite.nvim']
-
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-on_source = 'denite.nvim'
-
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-on_source = 'denite.nvim'
-
-[[plugins]]
 repo = 'neoclide/coc-denite'
 on_source = 'denite.nvim'
 hook_add = '''
     nmap <silent> [denite]o :<C-u>Denite coc-command -start-filter -split=floating<CR>
     nmap <silent> [denite]t :<C-u>Denite coc-symbols -start-filter -split=floating<CR>
+'''
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+on_event = ['BufEnter']
+hook_add = '''
+    " Start interactive EasyAlign in visual mode (e.g. vipga)
+    xmap ga <Plug>(EasyAlign)
+    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+    nmap ga <Plug>(EasyAlign)
 '''
 
 [[plugins]]
@@ -171,87 +151,49 @@ hook_source = '''
     let g:neosnippet#enable_completed_snippet = 1
     let g:neosnippet#expand_word_boundary = 1
     let g:neosnippet#enable_completed_snippet = 1
-'''
-hook_add = '''
-    let g:neosnippet#snippets_directory = "$XDG_CONFIG_HOME/nvim/autoload/snippets/"
+    let g:neosnippet#snippets_directory = $XDG_CONFIG_HOME . '/nvim/snippets'
 '''
 on_ft = ['snippet']
 depends = ['neosnippet-snippets']
 
 [[plugins]]
-repo = 'majutsushi/tagbar'
-on_event = ['BufEnter']
-hook_add = '''
-    nmap <F8> :TagbarToggle<CR>
-'''
-
-#[[plugins]]
-#repo = 'lervag/vimtex'
-#on_ft = ['tex']
-#hook_add = '''
-#    let g:vimtex_compiler_progname = 'nvr'
-#    let g:vimtex_compiler_latexmk = {
-#               \ 'background': 1,
-#               \ 'continuous': 1,
-#               \ 'options': []}
-#    let g:vimtex_view_general_viewer = 'evince'
-#    let g:vimtex_view_general_options = '-r @line @pdf @tex'
-#'''
-#hook_source = '''
-#    call deoplete#custom#var('omni', 'input_patterns', {
-#               \ 'tex': g:vimtex#re#deoplete
-#               \ })
-#'''
-
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = ['toml']
-
-# [[plugins]]
-# repo = 'mattn/emmet-vim'
-# on_ft = ['html', 'blade', 'vue', 'xml']
-
-[[plugins]]
-repo = 'Shougo/neco-vim'
-on_ft = ['vim', 'toml']
-on_source = ['deoplete.nvim']
-
-[[plugins]]
-repo = 'junegunn/vim-easy-align'
-on_event = ['BufEnter']
-hook_add = '''
-    " Start interactive EasyAlign in visual mode (e.g. vipga)
-    xmap ga <Plug>(EasyAlign)
-    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-    nmap ga <Plug>(EasyAlign)
-'''
-
-[[plugins]]
 repo = 'cohama/lexima.vim'
 on_i = 1
 
-# [[plugins]]
-# repo = 'osyo-manga/vim-precious'
-# # on_ft = ['toml', 'md', 'tex']
-# on_ft = ['toml', 'md']
-# depends = ['context_filetype.vim']
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ["markdown", "pandoc.markdown", "rmd"]
+build = 'sh -c "cd app & yarn install"'
 
 [[plugins]]
-repo = 'wellle/tmux-complete.vim'
-on_ft = 'tmux'
+repo = 'ajorgensen/vim-markdown-toc'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'mattn/vim-sonictemplate'
+on_cmd = ['Template']
 hook_add = '''
-    let g:tmuxcomplete#trigger = ""
+    let g:sonictemplate_vim_template_dir = ["~/.config/nvim/template"]
 '''
 
 [[plugins]]
-repo = 'arwtyxouymz/fcc.nvim'
-on_event = ['BufEnter']
+repo = 'rust-lang/rust.vim'
+on_ft = ['rust']
 hook_add = '''
-    let g:fcc#catkin_ws = $CATKIN_WS
-    let g:fcc#nest_num = 5
-    nmap <leader>cp :FindCompileCommands<CR>
+    let g:rustfmt_autosave = 1
 '''
 
 [[plugins]]
-repo = 'deoplete-plugins/deoplete-docker'
-on_ft = ['Dockerfile']
+repo = 'rhysd/rust-doc.vim'
+on_ft = ['rust']
+hook_add = '''
+    let g:rust_doc#define_map_K = 0
+    augroup vimrc-rust
+        autocmd!
+        autocmd FileType rust nnoremap <buffer><silent><leader>k :<C-u>DeniteCursorWord rust/doc -no-empty -immediately<CR>
+        autocmd FileType rust vnoremap <buffer><silent><leader>k :<C-u>DeniteCursorWord rust/doc -no-empty -immediately<CR>
+    augroup END
+'''
+hook_source = '''
+    nmap <silent> [denite]k :<C-u>Denite rust/doc -start-filter -split=floating<CR>
+'''
