@@ -14,14 +14,15 @@ brew cask install alt-tab
 brew cask install google-chrome
 
 # commands
+brew install git
 brew install bat
 brew install exa
-brew install hexyl
 brew install fd
 brew install ripgrep
 brew install procs
 brew tap cjbassi/ytop
 brew install ytop
+brew install hexyl
 
 # languages
 brew install node
