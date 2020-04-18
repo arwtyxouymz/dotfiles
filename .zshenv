@@ -45,6 +45,9 @@ setopt magic_equal_subst
 # カッコの対応を自動で補完
 setopt auto_param_keys
 
+# 大文字入力をした時以外は大文字小文字を区別しないで補完する
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
+
 #################################################
 # ENVs
 #################################################
