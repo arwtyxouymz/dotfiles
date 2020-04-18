@@ -5,6 +5,7 @@ brew cask upgrade
 
 # shell
 brew install zsh
+brew install fzf
 brew install starship
 
 # GUI tools
