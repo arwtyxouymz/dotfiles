@@ -30,5 +30,9 @@ brew install yarn
 brew install go
 brew install pyenv pyenv-virtualenv
 
+# Others
+brew tap homebrew/cask-fonts
+brew cask install font-hack-nerd-font
+
 # Finally
 brew cleanup

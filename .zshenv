@@ -1,5 +1,17 @@
 eval "$(starship init zsh)"
 
+# Options
+setopt share_history
+setopt histignorealldups
+setopt correct
+
+autoload -Uz colors
+colors
+
+autoload -Uz cominit
+compinit
+
+# PATHs
 export XDG_CONFIG_HOME=$HOME/.config
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
@@ -30,6 +42,7 @@ alias find="fd"
 alias grep="rg"
 alias ps="procs"
 alias top="ytop"
+alias hex="hexyl"
 alias cd="cdls"
 
 # Some useful alias
