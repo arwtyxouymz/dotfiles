@@ -1,22 +1,4 @@
 [[plugins]]
-repo = 'Shougo/dein.vim'
-
-[[plugins]]
-repo = 'w0ng/vim-hybrid'
-hook_add = '''
-    set background=dark
-'''
-
-[[plugins]]
-repo = 'sheerun/vim-wombat-scheme'
-
-[[plugins]]
-repo = 'sheerun/vim-polyglot'
-hook_add = '''
-    let g:polyglot_disabled = ['jsx']
-'''
-
-[[plugins]]
 repo = 'tyru/caw.vim'
 hook_add = '''
     " 行の最初の文字の前にコメント文字をトグル
@@ -28,117 +10,97 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
-hook_add = '''
-    " タブラインの表示
-    let g:airline#extensions#tabline#enabled = 1
-    " （タブが一個の場合）バッファのリストをタブラインに表示する機能をオフ
-    let g:airline#extensions#tabline#show_buffers = 0
-    " 0でそのタブで開いてるウィンドウ数、1で左のタブから連番
-    let g:airline#extensions#tabline#tab_nr_type = 1
-    " パワーラインフォントの使用
-    let g:airline_powerline_fonts = 1
-    " aleの表示
-    let g:airline#extensions#ale#enabled = 1
-    " Do not collapse the status line while having multiple windows
-    let g:airline_inactive_collapse = 0
-    " tagbarの表示
-    let g:airline#extensions#tagbar#enabled = 1
-    " virtualenvを有効
-    let g:airline#extensions#virtualenv#enabled = 1
-'''
-depends = ['vim-airline_themes']
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-
-[[plugins]]
-repo = 'shougo/neosnippet-snippets'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-hook_add = '''
-    nmap [figitive] <nop>
-    map <leader>g [figitive]
-    noremap <silent> [figitive]s :<c-u>Gstatus<cr>
-    noremap <silent> [figitive]d :<c-u>Gdiff<cr>
-    noremap <silent> [figitive]r :<c-u>Gread<cr>
-    noremap <silent> [figitive]b :<c-u>Gblame<cr>
-    noremap <silent> [figitive]l :<c-u>Glog<cr>
-    noremap [figitive]c :Gcommit -m 
-    noremap [figitive]p :Gpush origin 
-'''
-
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-hook_add = '''
-    set updatetime=100
-'''
-
-[[plugins]]
-repo = 'shougo/context_filetype.vim'
-
-[[plugins]]
 repo = 'yggdroot/indentline'
 hook_add = '''
     set list lcs=tab:\|\
 '''
 
 [[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-    " シンボルカラムを表示したままにする
-    let g:ale_sign_column_always = 1
-    " 保存時に整形してくれる
-    let g:ale_fix_on_save = 1
-    " 補完してくれる
-    let g:ale_completion_enabled = 1
-    " エラー行に表示するマーク
-    let g:ale_sign_error = '⨉'
-    let g:ale_sign_warning = '⚠'
-    " エラー行にカーソルをあわせた際に表示されるメッセージフォーマット
-    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-    let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+repo = 'w0ng/vim-hybrid'
 
-    let g:ale_linters = {
-        \   'php' : ['phpcs'],
-        \   'javascript': ['eslint'],
-        \   'python': ['flake8'],
-        \   'c' : [],
-        \   'cpp' : [],
-    \}
-    let g:ale_php_phpcs_executable = '/Users/ryutaro/.config/composer/vendor/bin/phpcs'
-    let g:ale_php_phpcs_standard = 'PSR2'
-    let g:ale_php_phpcs_global = 1
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merge = '0'
+hook_add = '''
+    source $XDG_CONFIG_HOME/nvim/plugins/coc.rc.vim
+'''
+hook_source = '''
 '''
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-build = ['./install.sh']
-rev = 'next'
+repo = 'sheerun/vim-polyglot'
 hook_add = '''
-    source $XDG_CONFIG_HOME/nvim/rc/plugins/LanguageClient-neovim.rc.vim
-    nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-    " Or map each action separately
-    nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-    nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-    nnoremap <silent> <leader>rw :call LanguageClient#textDocument_rename()<CR>
+    let g:polyglot_disabled = ['jsx', 'latex', 'tsx']
 '''
 
 [[plugins]]
-repo = 'thinca/vim-template'
+repo = 'itchyny/lightline.vim'
 hook_add = '''
-    let g:template_basedir = '~/.config/nvim/autoload'
-    let g:template_free_pattern = 'template'
-    " テンプレート中に含まれる文字を置き換える
-    autocmd MyAutoCmd User plugin-template-loaded call s:template_keywords()
-    function! s:template_keywords()
-        silent! %s/<+DATE+>/\=strftime('%Y-%m-%d %T')/g
-        silent! %s/<+FILENAME+>/\=fnamemodify(expand('%:r'), ":t:r")/g
-    endfunction
-    " テンプレート中に含まれる'<+CURSOR+>'にカーソルを移動
-    autocmd MyAutoCmd User plugin-template-loaded
-    \   if search('<+CURSOR+>')
-    \ |   silent! execute 'normal! "_da>'
-    \ | endif
+    set noshowmode
+    let g:lightline = {
+        \ 'separator': { 'left': '', 'right': '' },
+        \ 'subseparator': { 'left': '', 'right': '' },
+        \ }
+
 '''
+
+[[plugins]]
+repo = 'mengelbrecht/lightline-bufferline'
+depends = 'lightline.vim'
+hook_add = '''
+    set showtabline=2
+    let g:lightline#bufferline#show_number = 2
+    let g:lightline#bufferline#shorten_path = 1
+    let g:lightline#bufferline#unnamed = '[No Name]'
+    let g:lightline#bufferline#enable_devicons = 1
+
+    let g:lightline.tabline = {'left': [['buffers']], 'right': [['close']]}
+    let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+    let g:lightline.component_type = {'buffers': 'tabsel'}
+    nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+    nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+    nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+    nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+    nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+    nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+    nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+    nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+    nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+    nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+'''
+
+[[plugins]]
+repo = 'shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+hook_add = '''
+    set helplang=ja,en
+'''
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'kana/vim-submode'
+hook_add = '''
+    call submode#enter_with('bufmove', 'n', '', '<C-w>>', '<C-w>>')
+    call submode#enter_with('bufmove', 'n', '', '<C-w><', '<C-w><')
+    call submode#enter_with('bufmove', 'n', '', '<C-w>+', '<C-w>+')
+    call submode#enter_with('bufmove', 'n', '', '<C-w>-', '<C-w>-')
+    call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+    call submode#map('bufmove', 'n', '', '<', '<C-w><')
+    call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+    call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+'''
+
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
+
+[[plugins]]
+repo = 'deris/vim-shot-f'
+

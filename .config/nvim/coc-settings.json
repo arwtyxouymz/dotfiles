@@ -1,0 +1,25 @@
+{
+    "suggest.noselect": true,
+    "suggest.autoTrigger": "always",
+    "suggest.acceptSuggestionOnCommitCharacter": true,
+    "suggest.floatEnable": true,
+    "suggest.echodocSupport": true,
+    "suggest.snippetIndicator": "►",
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "ℹ",
+    "diagnostic.hintSign": "➤",
+    "diagnostic.virtualText": false,
+    "languageserver":{
+    },
+    "tsserver.enableJavascript": true,
+    "eslint.filetypes": [
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "typescript.tsx"
+    ],
+    "python.jediEnabled": false,
+    "python.envFile": "${workspaceFolder}/.vim"
+}
