@@ -1,0 +1,8 @@
+compile_commands.json
+build
+.python-version
+.ccls-cache
+.vscode
+*.pyc
+node_modules
+.vim/
