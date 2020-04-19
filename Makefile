@@ -13,7 +13,7 @@ help:
 	@echo "make test         #=> Test dotfiles and init scripts"
 	@echo "make update       #=> Fetch changes for this repo"
 	@echo "make install      #=> Run make update, deploy, and init"
-	@echo "make clean        #=> Remove the dotfiles and this repo"
+	@echo "make clean        #=> Remove the dotfiles symlinks"
 
 list:
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
@@ -27,10 +27,10 @@ deploy:
 	@$(foreach val, $(CONFIG_DIRS), ln -snfv $(abspath $(val)) $(HOME)/$(val);)
 
 init:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/init/init.sh
 
 test:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/test/test.sh
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/test/test.sh
 
 update:
 	git pull origin master
@@ -41,4 +41,3 @@ install: update deploy init
 clean:
 	@echo "Remove dotfiles in your home directory ....."
 	@-$(foreach val, $(DOTFILES), rm -vrf $(HOME)/$(val);)
-	-rm -rf $(DOTPATH)
