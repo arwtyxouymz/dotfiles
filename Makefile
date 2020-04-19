@@ -1,7 +1,8 @@
-DOTPATH    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
-CANDIDATES := $(wildcard .??*) config
-EXCLUSIONS := .DS_Store .git .github
-DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
+DOTPATH        := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
+DOT_CANDIDATES := $(wildcard .??*)
+EXCLUSIONS     := .DS_Store .git .gitignore .github .config
+DOTFILES       := $(filter-out $(EXCLUSIONS), $(DOT_CANDIDATES))
+CONFIG_DIRS    := $(wildcard .config/*)
 
 all: install
 
@@ -16,6 +17,7 @@ help:
 
 list:
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
+	@$(foreach val, $(CONFIG_DIRS), /bin/ls -dF $(val);)
 
 deploy:
 	@echo 'Copyright (c) 2019-2020 arwtyxouymz All Rights Reserved.'
