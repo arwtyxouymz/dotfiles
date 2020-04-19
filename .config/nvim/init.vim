@@ -148,7 +148,7 @@ set cmdheight=2
 " コマンドラインモードの補完
 set wildoptions+=pum
 
-set sh=fish
+set sh=zsh
 
 " Reload init.vim
 command! Reload source ~/.config/nvim/init.vim
