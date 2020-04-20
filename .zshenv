@@ -61,6 +61,7 @@ export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
 export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 
