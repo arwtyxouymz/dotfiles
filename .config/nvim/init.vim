@@ -149,6 +149,8 @@ set cmdheight=2
 set wildoptions+=pum
 
 set sh=zsh
+set spell
+set spelllang=en_us,cjk
 
 " Reload init.vim
 command! Reload source ~/.config/nvim/init.vim
