@@ -74,6 +74,8 @@ export RUST_BACKTRACE=1
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)";
     eval "$(pyenv virtualenv-init -)";
+else
+    echo "pyenv and pyenv-virtualenv didn't found!"
 fi
 
 eval "$(starship init zsh)"
