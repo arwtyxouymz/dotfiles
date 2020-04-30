@@ -11,6 +11,12 @@
     "diagnostic.hintSign": "➤",
     "diagnostic.virtualText": false,
     "languageserver":{
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        }
     },
     "tsserver.enableJavascript": true,
     "eslint.filetypes": [
