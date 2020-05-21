@@ -3,7 +3,6 @@
 	email = taross0524.ss@gmail.com
 [core]
 	editor = nvim -c \"set fenc=utf-8\"
-	excludesfile = /home/ryutaro/.gitignore_global
 [alias]
 	tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\" -n 10
     co = "!f() { args=$@; if [ -z \"$args\" ]; then branch=$(git branch --all | grep -v HEAD | fzf --preview 'echo {} | cut -c 3- | xargs git log --color=always' | cut -c 3-); git checkout $(echo $branch | sed 's#remotes/[^/]*/##'); else git checkout $args; fi }; f"
