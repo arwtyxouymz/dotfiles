@@ -1,3 +1,89 @@
+snippet BinarySearch
+    #[doc = " Self implemented version of lower_bound/upper_bound in c++"]
+    #[doc = " This is from https://github.com/hatoo/competitive-rust-snippets/blob/master/src/binary_search.rs"]
+    pub trait BinarySearch<T> {
+        fn lower_bound(&self, x: &T) -> usize;
+        fn upper_bound(&self, x: &T) -> usize;
+    }
+    impl<T: Ord> BinarySearch<T> for [T] {
+        #[doc = " Greater than or equal to"]
+        fn lower_bound(&self, x: &T) -> usize {
+            let mut low = 0;
+            let mut high = self.len();
+            while low != high {
+                let mid = (low + high) / 2;
+                match self[mid].cmp(&x) {
+                    Ordering::Less => low = mid + 1,
+                    Ordering::Greater | Ordering::Equal => high = mid,
+                }
+            }
+            low
+        }
+        #[doc = " Greater than"]
+        fn upper_bound(&self, x: &T) -> usize {
+            let mut low = 0;
+            let mut high = self.len();
+            while low != high {
+                let mid = (low + high) / 2;
+                match self[mid].cmp(&x) {
+                    Ordering::Less | Ordering::Equal => low = mid + 1,
+                    Ordering::Greater => high = mid,
+                }
+            }
+            low
+        }
+    }
+
+snippet BitSet
+    #[doc = " This is from https://github.com/hatoo/competitive-rust-snippets/blob/master/src/bitset.rs"]
+    const TRUE: &'static bool = &true;
+    const FALSE: &'static bool = &false;
+    #[derive(Clone, Debug)]
+    #[doc = " Efficient bool collection"]
+    pub struct BitSet {
+        buf: Vec<u64>,
+        size: usize,
+    }
+    impl BitSet {
+        pub fn new(size: usize) -> BitSet {
+            BitSet {
+                buf: vec![0; (size + 63) / 64],
+                size: size,
+            }
+        }
+        pub fn set(&mut self, i: usize, b: bool) {
+            assert!(i < self.size);
+            if b {
+                self.buf[i >> 6] |= 1 << (i & 63);
+            } else {
+                self.buf[i >> 6] |= !(1 << (i & 63));
+            }
+        }
+        pub fn count_ones(&self) -> u32 {
+            self.buf.iter().map(|x| x.count_ones()).sum()
+        }
+        fn chomp(&mut self) {
+            let r = self.size & 63;
+            if r != 0 {
+                if let Some(x) = self.buf.last_mut() {
+                    let d = 64 - r;
+                    *x = (*x << d) >> d;
+                }
+            }
+        }
+    }
+    impl std::ops::Index<usize> for BitSet {}
+    impl std::ops::ShlAssign<usize> for BitSet {}
+    impl std::ops::Shl<usize> for BitSet {}
+    impl std::ops::ShrAssign<usize> for BitSet {}
+    impl std::ops::Shr<usize> for BitSet {}
+    impl std::ops::BitAndAssign<&'a BitSet> for BitSet {}
+    impl std::ops::BitAnd<&'a BitSet> for BitSet {}
+    impl std::ops::BitOrAssign<&'a BitSet> for BitSet {}
+    impl std::ops::BitOr<&'a BitSet> for BitSet {}
+    impl std::ops::BitXorAssign<&'a BitSet> for BitSet {}
+    impl std::ops::BitXor<&'a BitSet> for BitSet {}
+
 snippet LexicalPermutation
     #[doc = " Ported from [bluss/permutohedron](https://github.com/bluss/permutohedron)"]
     pub trait LexicalPermutation {
@@ -51,6 +137,48 @@ snippet LexicalPermutation
             }
             self.swap(i - 1, j);
             true
+        }
+    }
+
+snippet UFT
+    struct UnionFindTree {
+        parent: Vec<usize>,
+        rank: Vec<usize>,
+    }
+    impl UnionFindTree {
+        fn new(n: usize) -> UnionFindTree {
+            UnionFindTree {
+                parent: (0..n).collect(),
+                rank: vec![0; n],
+            }
+        }
+        fn root(&mut self, x: usize) -> usize {
+            if self.parent[x] == x {
+                x
+            } else {
+                let p = self.parent[x];
+                let pp = self.root(p);
+                self.parent[x] = pp;
+                pp
+            }
+        }
+        fn merge(&mut self, x: usize, y: usize) {
+            let x = self.root(x);
+            let y = self.root(y);
+            if x == y {
+                return;
+            }
+            if self.rank[x] < self.rank[y] {
+                self.parent[x] = y;
+            } else {
+                self.parent[y] = x;
+                if self.rank[x] == self.rank[y] {
+                    self.rank[x] += 1;
+                }
+            }
+        }
+        fn same(&mut self, x: usize, y: usize) -> bool {
+            self.root(x) == self.root(y)
         }
     }
 

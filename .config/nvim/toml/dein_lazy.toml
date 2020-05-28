@@ -176,12 +176,12 @@ hook_add = '''
     let g:sonictemplate_vim_template_dir = ["~/.config/nvim/template"]
 '''
 
-[[plugins]]
-repo = 'rust-lang/rust.vim'
-on_ft = ['rust']
-hook_add = '''
-    let g:rustfmt_autosave = 1
-'''
+# [[plugins]]
+# repo = 'rust-lang/rust.vim'
+# on_ft = ['rust']
+# hook_add = '''
+#     let g:rustfmt_autosave = 0
+# '''
 
 [[plugins]]
 repo = 'rhysd/rust-doc.vim'
@@ -197,3 +197,7 @@ hook_add = '''
 hook_source = '''
     nmap <silent> [denite]k :<C-u>Denite rust/doc -start-filter -split=floating<CR>
 '''
+
+[[plugins]]
+repo = 'jackguo380/vim-lsp-cxx-highlight'
+on_ft = ['c', 'cpp']
