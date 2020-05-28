@@ -30,6 +30,7 @@ brew install git-delta
 # languages
 brew install node
 brew install yarn
+brew install deno
 brew install go
 brew install pyenv pyenv-virtualenv
 
