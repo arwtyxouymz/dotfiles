@@ -104,3 +104,9 @@ repo = 'lambdalisue/gina.vim'
 [[plugins]]
 repo = 'deris/vim-shot-f'
 
+[[plugins]]
+repo = 'majutsushi/tagbar'
+hook_add = '''
+    nmap <F8> :TagbarToggle<CR>
+'''
+

@@ -61,6 +61,7 @@ export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
 export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 
@@ -73,6 +74,8 @@ export RUST_BACKTRACE=1
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)";
     eval "$(pyenv virtualenv-init -)";
+else
+    echo "pyenv and pyenv-virtualenv didn't found!"
 fi
 
 eval "$(starship init zsh)"

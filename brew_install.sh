@@ -7,6 +7,7 @@ brew cask upgrade
 brew install zsh
 brew install fzf
 brew install starship
+brew install git
 
 # GUI tools
 brew cask install alfred
@@ -24,6 +25,7 @@ brew install procs
 brew tap cjbassi/ytop
 brew install ytop
 brew install hexyl
+brew install git-delta
 
 # languages
 brew install node
