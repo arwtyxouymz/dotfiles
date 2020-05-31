@@ -14,6 +14,7 @@ brew cask install alfred
 brew cask install iterm2
 brew cask install alt-tab
 brew cask install google-chrome
+brew cask install notion
 
 # commands
 brew install git
