@@ -10,6 +10,7 @@
     "diagnostic.infoSign": "ℹ",
     "diagnostic.hintSign": "➤",
     "diagnostic.virtualText": false,
+    "coc.preferences.formatOnSaveFiletypes": ["rust"],
     "languageserver":{
         "ccls": {
             "command": "ccls",
@@ -72,5 +73,8 @@
         "typescript.tsx"
     ],
     "python.jediEnabled": false,
-    "python.envFile": "${workspaceFolder}/.vim"
+    "python.envFile": "${workspaceFolder}/.vim",
+    "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+    "rust-analyzer.procMacro.enable": true,
+    "rust-analyzer.updates.channel": "nightly"
 }

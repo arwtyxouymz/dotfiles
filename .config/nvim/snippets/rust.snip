@@ -2,35 +2,28 @@ snippet BinarySearch
     #[doc = " Self implemented version of lower_bound/upper_bound in c++"]
     #[doc = " This is from https://github.com/hatoo/competitive-rust-snippets/blob/master/src/binary_search.rs"]
     pub trait BinarySearch<T> {
-        fn lower_bound(&self, x: &T) -> usize;
-        fn upper_bound(&self, x: &T) -> usize;
+        fn my_binary_search(&self, x: &T) -> usize;
+        fn is_ok(&self, index: usize, x: &T) -> bool;
     }
     impl<T: Ord> BinarySearch<T> for [T] {
-        #[doc = " Greater than or equal to"]
-        fn lower_bound(&self, x: &T) -> usize {
-            let mut low = 0;
-            let mut high = self.len();
-            while low != high {
-                let mid = (low + high) / 2;
-                match self[mid].cmp(&x) {
-                    Ordering::Less => low = mid + 1,
-                    Ordering::Greater | Ordering::Equal => high = mid,
+        fn my_binary_search(&self, x: &T) -> usize {
+            let mut ng = -1;
+            let mut ok = self.len() as isize;
+            while (ok - ng).abs() > 1 {
+                let mid = (ok + ng) / 2;
+                if self.is_ok(mid as usize, x) {
+                    ok = mid;
+                } else {
+                    ng = mid;
                 }
             }
-            low
+            ok as usize
         }
-        #[doc = " Greater than"]
-        fn upper_bound(&self, x: &T) -> usize {
-            let mut low = 0;
-            let mut high = self.len();
-            while low != high {
-                let mid = (low + high) / 2;
-                match self[mid].cmp(&x) {
-                    Ordering::Less | Ordering::Equal => low = mid + 1,
-                    Ordering::Greater => high = mid,
-                }
+        fn is_ok(&self, index: usize, x: &T) -> bool {
+            match self[index].cmp(x) {
+                Ordering::Less => false,
+                Ordering::Equal | Ordering::Greater => true,
             }
-            low
         }
     }
 

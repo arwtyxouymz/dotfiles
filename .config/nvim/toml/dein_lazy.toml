@@ -176,28 +176,6 @@ hook_add = '''
     let g:sonictemplate_vim_template_dir = ["~/.config/nvim/template"]
 '''
 
-# [[plugins]]
-# repo = 'rust-lang/rust.vim'
-# on_ft = ['rust']
-# hook_add = '''
-#     let g:rustfmt_autosave = 0
-# '''
-
-[[plugins]]
-repo = 'rhysd/rust-doc.vim'
-on_ft = ['rust']
-hook_add = '''
-    let g:rust_doc#define_map_K = 0
-    augroup vimrc-rust
-        autocmd!
-        autocmd FileType rust nnoremap <buffer><silent><leader>k :<C-u>DeniteCursorWord rust/doc -no-empty -immediately<CR>
-        autocmd FileType rust vnoremap <buffer><silent><leader>k :<C-u>DeniteCursorWord rust/doc -no-empty -immediately<CR>
-    augroup END
-'''
-hook_source = '''
-    nmap <silent> [denite]k :<C-u>Denite rust/doc -start-filter -split=floating<CR>
-'''
-
 [[plugins]]
 repo = 'jackguo380/vim-lsp-cxx-highlight'
 on_ft = ['c', 'cpp']
@@ -205,3 +183,11 @@ on_ft = ['c', 'cpp']
 [[plugins]]
 repo = 'kristijanhusak/vim-carbon-now-sh'
 on_cmd = 'CarbonNowSh'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html']
+hook_add = '''
+    let g:user_emmet_install_global = 0
+    autocmd FileType html,css EmmetInstall
+'''

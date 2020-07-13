@@ -110,3 +110,6 @@ hook_add = '''
     nmap <F8> :TagbarToggle<CR>
 '''
 
+[[plugins]]
+repo = 'tpope/vim-surround'
+
