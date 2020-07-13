@@ -183,4 +183,8 @@ command! -nargs=* VT vsplit | terminal <args>
 set background=dark
 colorscheme hybrid
 
+augroup mygroup
+  autocmd BufNewFile,BufRead *.html.tjn set filetype=html
+augroup end
+
 highlight Comment cterm=italic gui=italic

@@ -64,6 +64,7 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
+export PATH=$HOME/.poetry/bin:$PATH
 
 export PYENV_ROOT="$HOME/.pyenv"
 export RUST_BACKTRACE=1
@@ -117,12 +118,14 @@ alias cdn="cd ~/dotfiles/.config/nvim"
 
 alias ga="git add "
 alias ga.="git add ."
+alias gb="git branch"
 alias gc="git commit"
 alias gcm="git commit -m "
 alias gmend="git commit --amend"
 alias gs="git status"
 alias gd="git diff"
 alias gp="git push "
+alias gsw="git switch"
 
 alias dc="docker-compose"
 alias sudo="sudo -E "

@@ -16,7 +16,6 @@ hook_source = '''
 '''
 [plugins.ftplugin]
 defx = '''
-    " Define mappings
     nnoremap <silent><buffer><expr> <CR>
                \ defx#do_action('open')
     nnoremap <silent><buffer><expr> c
@@ -164,6 +163,9 @@ on_i = 1
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = ["markdown", "pandoc.markdown", "rmd"]
 build = 'sh -c "cd app & yarn install"'
+hook_add = '''
+    let g:mkdp_auto_close = 0
+'''
 
 [[plugins]]
 repo = 'ajorgensen/vim-markdown-toc'
@@ -190,4 +192,16 @@ on_ft = ['html']
 hook_add = '''
     let g:user_emmet_install_global = 0
     autocmd FileType html,css EmmetInstall
+'''
+
+[[plugins]]
+repo = 'jackguo380/vim-lsp-cxx-highlight'
+on_ft = ['c', 'cpp']
+
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+depends = ['coc.nvim', 'lightline.vim']
+hook_add = '''
+    nmap <silent> <F8> :<C-u>Vista coc<CR>
+    let g:vista_sidebar_width = 40
 '''

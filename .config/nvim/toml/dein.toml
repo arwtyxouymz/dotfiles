@@ -39,9 +39,21 @@ repo = 'itchyny/lightline.vim'
 hook_add = '''
     set noshowmode
     let g:lightline = {
+        \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ],
+        \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+        \             [ 'vista' ],
+        \           ]
+        \ },
+        \ 'component_function': {
+        \   'vista': 'NearestMethodOrFunction',
+        \ },
         \ 'separator': { 'left': '', 'right': '' },
         \ 'subseparator': { 'left': '', 'right': '' },
         \ }
+    function! NearestMethodOrFunction() abort
+        return get(b:, 'vista_nearest_method_or_function', '')
+    endfunction
 
 '''
 
@@ -105,11 +117,4 @@ repo = 'lambdalisue/gina.vim'
 repo = 'deris/vim-shot-f'
 
 [[plugins]]
-repo = 'majutsushi/tagbar'
-hook_add = '''
-    nmap <F8> :TagbarToggle<CR>
-'''
-
-[[plugins]]
 repo = 'tpope/vim-surround'
-

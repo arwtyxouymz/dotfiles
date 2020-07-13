@@ -1,0 +1,4 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/ryutaro.matsumoto/work/sl-inquiry/scripts/RCHK2210_second_raizin'
+let g:netrw_dirhist_1='/Users/ryutaro.matsumoto/work/sl-inquiry/crontabs'
