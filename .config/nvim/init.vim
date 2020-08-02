@@ -178,10 +178,11 @@ if has('nvim')
     autocmd TermOpen term://* startinsert
 endif
 command! -nargs=* ST split | terminal <args>
+command! -nargs=* ST5 5split | terminal <args>
 command! -nargs=* VT vsplit | terminal <args>
 
 set background=dark
-colorscheme hybrid
+colorscheme ayu
 
 augroup mygroup
   autocmd BufNewFile,BufRead *.html.tjn set filetype=html
