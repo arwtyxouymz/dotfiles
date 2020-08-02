@@ -19,6 +19,14 @@ hook_add = '''
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
+repo = 'ayu-theme/ayu-vim'
+hook_add = '''
+    let ayucolor='dark'
+    let g:indentLine_showFirstIndentLevel = 1
+    let g:indentLine_setColors = 0
+'''
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 merge = '0'
