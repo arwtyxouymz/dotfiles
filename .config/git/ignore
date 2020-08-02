@@ -6,3 +6,5 @@ build
 *.pyc
 node_modules
 .vim/
+jsconfig.json
+tsconfig.json

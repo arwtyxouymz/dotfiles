@@ -64,7 +64,7 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
-export PATH=$HOME/.poetry/bin:$PATH
+export PATH=$HOME/tools/flutter/bin:$PATH
 
 export PYENV_ROOT="$HOME/.pyenv"
 export RUST_BACKTRACE=1

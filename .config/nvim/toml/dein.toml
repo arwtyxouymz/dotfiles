@@ -98,6 +98,13 @@ hook_add = '''
 repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
+repo = 'kristijanhusak/defx-icons'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+
+
+[[plugins]]
 repo = 'kana/vim-submode'
 hook_add = '''
     call submode#enter_with('bufmove', 'n', '', '<C-w>>', '<C-w>>')

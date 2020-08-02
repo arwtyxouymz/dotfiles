@@ -1,31 +1,48 @@
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
-    nnoremap <silent><leader>f :<C-u>Defx -listed -resume -buffer-name=tab'tabpagegenr()'<CR>
+    nnoremap <silent><leader>f :<C-u>Defx<CR>
 '''
 hook_source = '''
     call defx#custom#column('mark', {
         \ 'readonly_icon': '✗',
         \ 'selected_icon': '✓'
         \ })
-    call defx#custom#column('icon', {
-        \ 'directory_icon': '▸',
-        \ 'opened_icon': '▾',
-        \ 'root_icon': ' '
+    call defx#custom#option('_', {
+        \ 'winwidth': 40,
+        \ 'direction': 'topleft',
+        \ 'show_ignored_files': 1,
+        \ 'split': 'vertical',
+        \ 'columns': 'indent:git:icons:filename:mark',
+        \ 'toggle': 1,
+        \ 'resume': 1,
+        \ })
+    call defx#custom#column('git', 'indicators', {
+        \ 'Modified'  : '✹',
+        \ 'Staged'    : '✚',
+        \ 'Untracked' : '✭',
+        \ 'Renamed'   : '➜',
+        \ 'Unmerged'  : '═',
+        \ 'Ignored'   : '☒',
+        \ 'Deleted'   : '✖',
+        \ 'Unknown'   : '?'
         \ })
 '''
+hook_post_source = '''
+'''
+
 [plugins.ftplugin]
 defx = '''
     nnoremap <silent><buffer><expr> <CR>
-               \ defx#do_action('open')
+               \ defx#do_action('drop')
     nnoremap <silent><buffer><expr> c
                \ defx#do_action('copy')
     nnoremap <silent><buffer><expr> m
                \ defx#do_action('move')
     nnoremap <silent><buffer><expr> p
-               \ defx#do_action('paste')
+               \ defx#do_action('preview')
     nnoremap <silent><buffer><expr> l
-               \ defx#do_action('open')
+               \ defx#do_action('drop')
     nnoremap <silent><buffer><expr> E
                \ defx#do_action('open', 'vsplit')
     nnoremap <silent><buffer><expr> P
@@ -69,8 +86,6 @@ defx = '''
                \ line('.') == line('$') ? 'gg' : 'j'
     nnoremap <silent><buffer><expr> k
                \ line('.') == 1 ? 'G' : 'k'
-    nnoremap <silent><buffer><expr> <C-l>
-               \ defx#do_action('redraw')
     nnoremap <silent><buffer><expr> <C-g>
                \ defx#do_action('print')
     nnoremap <silent><buffer><expr> cd
