@@ -133,3 +133,10 @@ repo = 'deris/vim-shot-f'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+    map <Leader>s <Plug>(easymotion-prefix)
+'''
+

@@ -177,8 +177,7 @@ tnoremap jj <C-\><C-n>
 if has('nvim')
     autocmd TermOpen term://* startinsert
 endif
-command! -nargs=* ST split | terminal <args>
-command! -nargs=* ST5 5split | terminal <args>
+command! -nargs=* ST 10split | terminal <args>
 command! -nargs=* VT vsplit | terminal <args>
 
 set background=dark

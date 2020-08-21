@@ -84,5 +84,7 @@
   "python.envFile": "${workspaceFolder}/.vim",
   "rust-analyzer.cargo.loadOutDirsFromCheck": true,
   "rust-analyzer.procMacro.enable": true,
-  "rust-analyzer.updates.channel": "nightly"
+  "rust-analyzer.updates.channel": "nightly",
+  "prettier.singleQuote": true,
+  "css.lint.unknownAtRules": "ignore"
 }
