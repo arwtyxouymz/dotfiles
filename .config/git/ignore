@@ -6,3 +6,7 @@ build
 *.pyc
 node_modules
 .vim/
+jsconfig.json
+.env
+pyrightconfig.json
+typings/

@@ -12,7 +12,6 @@
   "diagnostic.virtualText": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "rust",
-    "javascript",
     "typescript",
     "json",
     "javascriptreact",
@@ -69,13 +68,15 @@
     "terraform": {
       "command": "terraform-lsp",
       "filetypes": ["terraform"],
-      "initializationOptions": {}
+      "initializationOptions": {},
+      "settings": {}
     },
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod"],
       "disableWorkspaceFolders": true,
-      "filetypes": ["go"]
+      "filetypes": ["go"],
+      "initializationOptions": {}
     }
   },
   "tsserver.log": "verbose",
