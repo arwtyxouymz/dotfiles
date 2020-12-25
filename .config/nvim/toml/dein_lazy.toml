@@ -203,10 +203,9 @@ on_cmd = 'CarbonNowSh'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'vue', 'javascriptreact', 'typescriptreact']
+on_ft = ['html', 'vue', 'javascriptreact', 'typescriptreact', 'markdown']
 hook_add = '''
-    let g:user_emmet_install_global = 0
-    autocmd FileType html,css EmmetInstall
+    let g:user_emmet_install_global = 1
 '''
 
 [[plugins]]

@@ -12,7 +12,6 @@
   "diagnostic.virtualText": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "rust",
-    "javascript",
     "typescript",
     "json",
     "javascriptreact",
@@ -22,8 +21,19 @@
   "languageserver": {
     "ccls": {
       "command": "ccls",
-      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": [".ccls-root", "compile_commands.json", ".vim/", ".git/"],
+      "filetypes": [
+        "c",
+        "cpp",
+        "cuda",
+        "objc",
+        "objcpp"
+      ],
+      "rootPatterns": [
+        ".ccls-root",
+        "compile_commands.json",
+        ".vim/",
+        ".git/"
+      ],
       "initializationOptions": {
         "cache": {
           "directory": ".ccls-cache"
@@ -52,24 +62,45 @@
     },
     "bash": {
       "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
+      "args": [
+        "start"
+      ],
+      "filetypes": [
+        "sh"
+      ],
+      "ignoredRootPaths": [
+        "~"
+      ]
     },
     "sql": {
       "command": "sql-language-server",
-      "args": ["up", "--method", "stdio"],
-      "filetypes": ["sql", "mysql"]
+      "args": [
+        "up",
+        "--method",
+        "stdio"
+      ],
+      "filetypes": [
+        "sql",
+        "mysql"
+      ]
     },
     "dockerfile": {
       "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
+      "filetypes": [
+        "dockerfile"
+      ],
+      "args": [
+        "--stdio"
+      ]
     },
     "terraform": {
       "command": "terraform-lsp",
-      "filetypes": ["terraform"],
-      "initializationOptions": {}
+      "filetypes": [
+        "tf",
+        "terraform"
+      ],
+      "initializationOptions": {},
+      "settings": {}
     }
   },
   "tsserver.log": "verbose",

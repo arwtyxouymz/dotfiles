@@ -186,6 +186,7 @@ colorscheme ayu
 
 augroup mygroup
   autocmd BufNewFile,BufRead *.html.tjn set filetype=html
+  autocmd BufNewFile,BufRead *.js.tjn set filetype=javascript
 augroup end
 
 highlight Comment cterm=italic gui=italic

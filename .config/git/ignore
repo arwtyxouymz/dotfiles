@@ -7,4 +7,6 @@ build
 node_modules
 .vim/
 jsconfig.json
-tsconfig.json
+.env
+pyrightconfig.json
+typings/
