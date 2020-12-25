@@ -180,11 +180,8 @@ on_ft = ["markdown", "pandoc.markdown", "rmd"]
 build = 'sh -c "cd app & yarn install"'
 hook_add = '''
     let g:mkdp_auto_close = 0
+    let g:mkdp_markdown_css = $XDG_CONFIG_HOME . '/nvim/plugins/markdown.css'
 '''
-
-[[plugins]]
-repo = 'ajorgensen/vim-markdown-toc'
-on_ft = ['markdown']
 
 [[plugins]]
 repo = 'mattn/vim-sonictemplate'
@@ -205,8 +202,6 @@ on_cmd = 'CarbonNowSh'
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'vue', 'javascriptreact', 'typescriptreact']
 hook_add = '''
-    let g:user_emmet_install_global = 0
-    autocmd FileType html,css EmmetInstall
 '''
 
 [[plugins]]
@@ -220,3 +215,16 @@ hook_add = '''
     nmap <silent> <F8> :<C-u>Vista coc<CR>
     let g:vista_sidebar_width = 40
 '''
+
+[[plugins]]
+repo = 'yuezk/vim-js'
+on_ft = ['javascript', 'javascriptreact']
+
+[[plugins]]
+repo = 'HerringtonDarkholme/yats.vim'
+on_ft = ['typescript', 'typescriptreact']
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+on_ft = ['javascriptreact', 'typescriptreact']
+depends = ['vim-js', 'yats.vim']

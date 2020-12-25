@@ -39,7 +39,7 @@ hook_source = '''
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 hook_add = '''
-    let g:polyglot_disabled = ['jsx', 'latex', 'tsx']
+    let g:polyglot_disabled = ['jsx', 'latex', 'tsx', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact']
 '''
 
 [[plugins]]
@@ -140,3 +140,8 @@ hook_add = '''
     map <Leader>s <Plug>(easymotion-prefix)
 '''
 
+[[plugins]]
+repo = 'mg979/vim-visual-multi'
+
+[[plugins]]
+repo = 'pantharshit00/vim-prisma'
