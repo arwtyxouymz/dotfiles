@@ -45,6 +45,28 @@ setopt correct
 setopt magic_equal_subst
 # カッコの対応を自動で補完
 setopt auto_param_keys
+# For M1 Mac
+typeset -U path PATH
+export ARCH=`uname -m`
+path=(
+    /opt/homebrew/bin(N-/)
+    /usr/local/bin(N-/)
+    $path
+)
+if [[ "${(L)$( uname -s )}" == darwin ]] && (( $+commands[arch] )); then
+    alias brew="arch -arch x86_64 /usr/local/bin/brew"
+    alias x64='exec arch -arch x86_64 "$SHELL"'
+    alias a64='exec arch -arch arm64e "$SHELL"'
+    switch-arch() {
+    if  [[ "$(uname -m)" == arm64 ]]; then
+        x64
+    elif [[ "$(uname -m)" == x86_64 ]]; then
+        a64
+    fi
+    exec arch -arch $arch "$SHELL"
+}
+fi
+setopt magic_equal_subst
 
 #################################################
 # Styles
@@ -61,8 +83,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/tools/flutter/bin:$PATH
@@ -71,6 +91,10 @@ export PATH=/usr/local/opt/openjdk/bin:$PATH
 export PATH=/usr/local/opt/mysql-client/bin:$PATH
 export PATH=$PATH:/Users/ryutaro.matsumoto/Library/Android/sdk/platform-tools
 export PATH=/usr/local/opt/openjdk/bin:$PATH
+#export PATH=$HOME/go/bin:$PATH
+#export PATH=$HOME/tools/flutter/bin:$PATH
+
+export PYENV_ROOT="$HOME/.pyenv"
 export RUST_BACKTRACE=1
 
 export CPPFLAGS="-I/usr/local/opt/openjdk/include"

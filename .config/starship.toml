@@ -8,3 +8,19 @@ style = "blue"
 [kubernetes.context_aliases]
 "docker-desktop" = ""
 "(?P<instance>[\\w-]+)-Ryutaro Matsumoto-.*" = "$instance"
+
+[custom.arch]
+command = "echo $ARCH"
+style = "bold fg:99"
+when = '[ -n "$ARCH" ]'
+symbol = "on"
+format = "[$symbol]() [$output]($style)"
+shell = ["zsh", "-f"]
+
+# [custom.x86_64]
+# command = "echo x86_64"
+# style = "bold green"
+# when = '[[ "$ARCH" == x86_64 ]]'
+# symbol = "on"
+# format = "[$symbol]() [$output]($style)"
+# # shell = ["zsh", "--no-rcs"]
