@@ -37,7 +37,7 @@ brew install pyenv pyenv-virtualenv
 
 # Others
 brew tap homebrew/cask-fonts
-brew cask install font-hack-nerd-font
+brew cask install font-fira-code-nerd-font
 
 # Finally
 brew cleanup
