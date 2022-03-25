@@ -67,16 +67,18 @@
     },
     "terraform": {
       "command": "terraform-lsp",
-      "filetypes": ["terraform"],
+      "filetypes": ["tf", "terraform"],
       "initializationOptions": {},
       "settings": {}
     },
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "disableWorkspaceFolders": true,
-      "filetypes": ["go"],
-      "initializationOptions": {}
+    "graphql": {
+      "command": "graphql-lsp",
+      "args": ["server", "-m", "stream"],
+      "filetypes": ["graphql", "typescript"]
+    },
+    "flux": {
+      "command": "flux-lsp",
+      "filetypes": ["flux"]
     }
   },
   "tsserver.log": "verbose",
@@ -93,5 +95,8 @@
   "rust-analyzer.procMacro.enable": true,
   "rust-analyzer.updates.channel": "nightly",
   "prettier.singleQuote": true,
-  "css.lint.unknownAtRules": "ignore"
+  "python.analysis.useLibraryCodeForTypes": true,
+  "yaml.schemas": {
+    "kubernetes": "/*.yml"
+  }
 }

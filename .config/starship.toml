@@ -1,0 +1,10 @@
+add_newline = true
+right_format = "$kubernetes"
+
+[kubernetes]
+disabled = false
+format = '[$symbol$context( \($namespace\))]($style)'
+style = "blue"
+[kubernetes.context_aliases]
+"docker-desktop" = ""
+"(?P<instance>[\\w-]+)-Ryutaro Matsumoto-.*" = "$instance"

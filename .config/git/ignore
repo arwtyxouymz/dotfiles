@@ -2,7 +2,7 @@ compile_commands.json
 build
 .python-version
 .ccls-cache
-.vscode
+.vscode/*
 *.pyc
 node_modules
 .vim/

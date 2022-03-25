@@ -2,11 +2,11 @@
 repo = 'tyru/caw.vim'
 hook_add = '''
     " 行の最初の文字の前にコメント文字をトグル
-    nmap <Leader>, <Plug>(caw:hatpos:toggle)
-    vmap <Leader>, <Plug>(caw:hatpos:toggle)
-    " 行頭にコメントをトグル
-    nmap <Leader>c<leader> <Plug>(caw:hatpos:comment)
-    vmap <Leader>c<leader> <Plug>(caw:hatpos:comment)
+    nmap <Leader><Leader> <Plug>(caw:hatpos:toggle)
+    vmap <Leader><Leader> <Plug>(caw:hatpos:toggle)
+    " 行頭にコメントを挿入
+    nmap <Leader>g<leader> <Plug>(caw:hatpos:comment)
+    vmap <Leader>g<leader> <Plug>(caw:hatpos:comment)
 '''
 
 [[plugins]]
@@ -16,15 +16,21 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
-
-[[plugins]]
-repo = 'ayu-theme/ayu-vim'
+repo = 'rakr/vim-one'
 hook_add = '''
-    let ayucolor='dark'
-    let g:indentLine_showFirstIndentLevel = 1
-    let g:indentLine_setColors = 0
+    let g:one_allow_italics = 1
 '''
+
+# [[plugins]]
+# repo = 'w0ng/vim-hybrid'
+# 
+# [[plugins]]
+# repo = 'ayu-theme/ayu-vim'
+# hook_add = '''
+#     let ayucolor='dark'
+#     let g:indentLine_showFirstIndentLevel = 1
+#     let g:indentLine_setColors = 0
+# '''
 
 
 [[plugins]]
@@ -119,6 +125,9 @@ repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
+hook_add = '''
+    let g:defx_icons_column_length = 2
+'''
 
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
@@ -139,12 +148,18 @@ hook_add = '''
 
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
+hook_add = '''
+    set diffopt+=vertical
+'''
 
 [[plugins]]
 repo = 'deris/vim-shot-f'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
@@ -157,3 +172,21 @@ repo = 'mg979/vim-visual-multi'
 
 [[plugins]]
 repo = 'pantharshit00/vim-prisma'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'ianks/vim-tsx'
+
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+
+[[plugins]]
+repo = 'towolf/vim-helm'
+
+[[plugins]]
+repo = 'martinda/Jenkinsfile-vim-syntax'

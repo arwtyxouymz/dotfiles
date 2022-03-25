@@ -1,9 +1,9 @@
 [user]
-	name = Ryutaro Matsumoto
-	email = taross0524.ss@gmail.com
+	name = ryutaro.matsumoto
+	email = ryutaro.matsumoto@rakuten.com
 [core]
     editor = nvim -c \"set fenc=utf-8\"
-    pager  = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+    pager  = delta
 [alias]
 	tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\" -n 30
     co = "!f() { args=$@; if [ -z \"$args\" ]; then branch=$(git branch --all | grep -v HEAD | fzf --preview 'echo {} | cut -c 3- | xargs git log --color=always' | cut -c 3-); git checkout $(echo $branch | sed 's#remotes/[^/]*/##'); else git checkout $args; fi }; f"
@@ -28,3 +28,5 @@
 	templatedir = ~/.git-templates/git-secrets
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main

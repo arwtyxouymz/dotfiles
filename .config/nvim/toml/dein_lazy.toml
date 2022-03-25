@@ -11,9 +11,10 @@ hook_source = '''
     call defx#custom#option('_', {
         \ 'winwidth': 40,
         \ 'direction': 'topleft',
-        \ 'show_ignored_files': 1,
+        \ 'ignored_files': '__pycache__',
+        \ 'show_ignored_files': 0,
         \ 'split': 'vertical',
-        \ 'columns': 'indent:git:icons:filename:mark',
+        \ 'columns': 'indent:git:indent:icons:filename:mark',
         \ 'toggle': 1,
         \ 'resume': 1,
         \ })
@@ -112,7 +113,6 @@ hook_add = '''
     nmap <silent> [denite]h :<C-u>Denite help -start-filter -split=floating<CR>
    
     autocmd FileType denite call s:denite_my_settings()
-    autocmd FileType denite-filter call s:denite_filter_my_settings()
     function! s:denite_my_settings() abort
         nnoremap <silent><buffer><expr> <CR>
         \ denite#do_map('do_action')
@@ -127,11 +127,12 @@ hook_add = '''
         nnoremap <silent><buffer><expr> <Space>
         \ denite#do_map('toggle_select').'j'
     endfunction
-    function! s:denite_filter_my_settings() abort
-        imap <silent><buffer> <C-c> <Plug>(denite_filter_quit)
-        imap <silent><buffer> jj <Plug>(denite_filter_quit)
-    endfunction
 '''
+    # autocmd FileType denite-filter call s:denite_filter_my_settings()
+    # function! s:denite_filter_my_settings() abort
+    #     imap <silent><buffer> <C-c> <Plug>(denite_filter_quit)
+    #     imap <silent><buffer> jj <Plug>(denite_filter_quit)
+    # endfunction
 
 [[plugins]]
 repo = 'neoclide/coc-denite'
@@ -140,6 +141,10 @@ hook_add = '''
     nmap <silent> [denite]o :<C-u>Denite coc-command -start-filter -split=floating<CR>
     nmap <silent> [denite]t :<C-u>Denite coc-symbols -start-filter -split=floating<CR>
 '''
+
+[[plugins]]
+repo = 'delphinus/vim-denite-node-modules'
+on_source = 'denite.nvim'
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
@@ -152,7 +157,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet'
+repo = 'Shougo/neosnippet.vim'
 on_i = 1
 hook_source = '''
     imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -181,6 +186,9 @@ build = 'sh -c "cd app & yarn install"'
 hook_add = '''
     let g:mkdp_auto_close = 0
     let g:mkdp_markdown_css = $XDG_CONFIG_HOME . '/nvim/plugins/markdown.css'
+    let g:mkdp_preview_options = {
+        \ 'uml': {}
+    \ }
 '''
 
 [[plugins]]
@@ -206,10 +214,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'jackguo380/vim-lsp-cxx-highlight'
-on_ft = ['c', 'cpp']
-
-[[plugins]]
 repo = 'liuchengxu/vista.vim'
 depends = ['coc.nvim', 'lightline.vim']
 hook_add = '''
@@ -229,3 +233,15 @@ on_ft = ['typescript', 'typescriptreact']
 repo = 'maxmellon/vim-jsx-pretty'
 on_ft = ['javascriptreact', 'typescriptreact']
 depends = ['vim-js', 'yats.vim']
+
+[[plugins]]
+repo = 'numirias/semshi'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'mtdl9/vim-log-highlighting'
+on_ft = ['log']
+
+[[plugins]]
+repo = 'gianarb/vim-flux'
+on_ft = ['flux']

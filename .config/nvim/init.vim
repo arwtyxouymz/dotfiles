@@ -55,6 +55,7 @@ if dein#load_state(s:cache_dir . "/dein")
   call dein#add('~/.config/.cache/dein/repos/github.com/Shougo/dein.vim')
   call dein#load_toml(s:dein_toml, {"lazy": 0})
   call dein#load_toml(s:dein_lazy_toml, {"lazy": 1})
+  call dein#local('~/work/denite-npm', {"lazy": 1, "on_source": "denite.nvim"})
 
   if !has('nvim')
   endif
@@ -178,14 +179,19 @@ if has('nvim')
     autocmd TermOpen term://* startinsert
 endif
 command! -nargs=* ST 10split | terminal <args>
+command! -nargs=* ST5 5split | terminal <args>
 command! -nargs=* VT vsplit | terminal <args>
 
 set background=dark
-colorscheme ayu
+colorscheme one
 
 augroup mygroup
   autocmd BufNewFile,BufRead *.html.tjn set filetype=html
   autocmd BufNewFile,BufRead *.js.tjn set filetype=javascript
+  " autocmd BufNewFile,BufRead *.tsx,*.jsx setlocal filetype=typescriptreact
+  " au BufNewFile,BufRead *.ts setlocal filetype=typescript
+  autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+  autocmd BufRead,BufNewFile *.flux set filetype=flux
 augroup end
 
 highlight Comment cterm=italic gui=italic

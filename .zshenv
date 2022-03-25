@@ -23,6 +23,7 @@ zplug load
 #################################################
 autoload -Uz colors && colors
 autoload -Uz compinit && compinit
+autoload -Uz bashcompinit && bashcompinit
 
 # 補完候補がない場合にビープ音を鳴らさない
 setopt no_beep
@@ -65,33 +66,46 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/tools/flutter/bin:$PATH
-
-export PYENV_ROOT="$HOME/.pyenv"
+export PATH=/usr/local/Cellar/postgresql@9.6/9.6.21/bin:$PATH
+export PATH=/usr/local/opt/openjdk/bin:$PATH
+export PATH=/usr/local/opt/mysql-client/bin:$PATH
+export PATH=$PATH:/Users/ryutaro.matsumoto/Library/Android/sdk/platform-tools
+export PATH=/usr/local/opt/openjdk/bin:$PATH
 export RUST_BACKTRACE=1
 
-#################################################
-# Initialization
-#################################################
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)";
-    eval "$(pyenv virtualenv-init -)";
-else
-    echo "pyenv and pyenv-virtualenv didn't found!"
-fi
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
-eval "$(starship init zsh)"
+#################################################
+# Complete
+#################################################
+complete -C '/usr/local/bin/aws_completer' aws
 
 #################################################
 # Functions
 #################################################
-cdls()
+function cdls()
 {
-    \cd "$@" && exa -a
+    \cd "$@" && lsd -a
 }
 
-copy()
+function copy()
 {
     \cat "$@" | pbcopy
+}
+
+function staas()
+{
+    cluster=$1
+    case ${cluster} in
+        jpe2b) endpoint="https://jpe2b-1000-staas.r-local.net/" ;;
+        euc1a) endpoint="https://euc1a-1000-staas.r-local.net/" ;;
+        usw1a) endpoint="https://usw1a-1000-staas.r-local.net/" ;;
+        *)
+            echo "Invalid cluster"
+            return 1
+            ;;
+    esac
+    aws --endpoint-url ${endpoint} s3 ${@:2}
 }
 
 #################################################
@@ -100,7 +114,7 @@ copy()
 alias vi="nvim"
 alias vim="nvim"
 alias cat="bat"
-alias ls="exa"
+alias ls="lsd"
 alias find="fd"
 alias grep="rg"
 alias ps="procs"
@@ -132,5 +146,7 @@ alias gd="git diff"
 alias gp="git push "
 alias gsw="git switch"
 
-alias dc="docker-compose"
+alias dc="docker compose"
 alias sudo="sudo -E "
+alias k="kubectl"
+. "$HOME/.cargo/env"
