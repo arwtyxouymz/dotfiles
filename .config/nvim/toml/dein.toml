@@ -4,9 +4,9 @@ hook_add = '''
     " 行の最初の文字の前にコメント文字をトグル
     nmap <Leader><Leader> <Plug>(caw:hatpos:toggle)
     vmap <Leader><Leader> <Plug>(caw:hatpos:toggle)
-    " 行頭にコメントを挿入
-    nmap <Leader>g<leader> <Plug>(caw:hatpos:comment)
-    vmap <Leader>g<leader> <Plug>(caw:hatpos:comment)
+    " 行頭にコメントをトグル
+    nmap <Leader>g<Leader> <Plug>(caw:hatpos:comment)
+    vmap <Leader>g<Leader> <Plug>(caw:hatpos:comment)
 '''
 
 [[plugins]]
@@ -18,7 +18,10 @@ hook_add = '''
 [[plugins]]
 repo = 'rakr/vim-one'
 hook_add = '''
+    let g:airline_theme='one'
     let g:one_allow_italics = 1
+    set background=dark
+    colorscheme one
 '''
 
 # [[plugins]]
@@ -28,8 +31,11 @@ hook_add = '''
 # repo = 'ayu-theme/ayu-vim'
 # hook_add = '''
 #     let ayucolor='dark'
-#     let g:indentLine_showFirstIndentLevel = 1
-#     let g:indentLine_setColors = 0
+#     let g:indentline_showfirstindentlevel = 1
+#     let g:indentline_setcolors = 0
+# 
+#     set background=dark
+#     autocmd VimEnter * nested colorscheme ayu
 # '''
 
 
@@ -41,12 +47,6 @@ hook_add = '''
     source $XDG_CONFIG_HOME/nvim/plugins/coc.rc.vim
 '''
 hook_source = '''
-'''
-
-[[plugins]]
-repo = 'sheerun/vim-polyglot'
-hook_add = '''
-    let g:polyglot_disabled = ['jsx', 'latex', 'tsx', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact']
 '''
 
 [[plugins]]
@@ -112,7 +112,11 @@ hook_add = '''
 repo = 'shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'shougo/context_filetype.vim'
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
@@ -173,20 +177,12 @@ repo = 'mg979/vim-visual-multi'
 [[plugins]]
 repo = 'pantharshit00/vim-prisma'
 
+# syntaxes
+[[plugins]]
+repo = 'cespare/vim-toml'
+
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
-repo = 'leafgarland/typescript-vim'
-
-[[plugins]]
-repo = 'ianks/vim-tsx'
-
-[[plugins]]
 repo = 'aklt/plantuml-syntax'
-
-[[plugins]]
-repo = 'towolf/vim-helm'
-
-[[plugins]]
-repo = 'martinda/Jenkinsfile-vim-syntax'

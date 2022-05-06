@@ -1,7 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
 
-const {{_name_}}: React.FC = () => {
+export interface {{_name_}}Props {
+  {{_cursor_}}
+}
+
+const {{_name_}}: React.FC<{{_name_}}Props> = ({}) => {
   return <div></div>
 }
 

@@ -1,0 +1,44 @@
+/* in: false -> true の初期状態 */
+{{_input_:prefix}}Enter {
+
+}
+
+/* in: false -> true の変化中 */
+{{_input_:prefix}}EnterActive {
+
+}
+
+/* in: false -> true の変化後 */
+{{_input_:prefix}}EnterDone {
+
+}
+
+/* in: true -> false の初期状態*/
+{{_input_:prefix}}Exit {
+
+}
+
+/* in: true -> false の変化中*/
+{{_input_:prefix}}ExitActive {
+
+}
+
+/* in: true -> false の変化後*/
+{{_input_:prefix}}ExitDone {
+
+}
+
+/* マウント開始状態 */
+{{_input_:prefix}}Appear {
+
+}
+
+/* マウント中 */
+{{_input_:prefix}}AppearActive {
+
+}
+
+/* マウント完了後 */
+{{_input_:prefix}}AppearDone {
+
+}

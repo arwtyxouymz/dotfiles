@@ -1,5 +1,5 @@
 {
-  "suggest.noselect": true,
+  "suggest.noselect": false,
   "suggest.autoTrigger": "always",
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.floatEnable": true,
@@ -12,11 +12,15 @@
   "diagnostic.virtualText": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "rust",
+    "go",
     "typescript",
     "json",
     "javascriptreact",
     "typescriptreact",
-    "typescript.tsx"
+    "css",
+    "scss",
+    "sass",
+    "python"
   ],
   "languageserver": {
     "ccls": {
@@ -82,19 +86,8 @@
     }
   },
   "tsserver.log": "verbose",
-  "eslint.filetypes": [
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact",
-    "typescript.tsx"
-  ],
-  "python.jediEnabled": false,
-  "python.envFile": "${workspaceFolder}/.vim",
-  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
-  "rust-analyzer.procMacro.enable": true,
-  "rust-analyzer.updates.channel": "nightly",
   "prettier.singleQuote": true,
+  "python.formatting.provider": "black",
   "python.analysis.useLibraryCodeForTypes": true,
   "yaml.schemas": {
     "kubernetes": "/*.yml"

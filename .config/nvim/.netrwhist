@@ -1,5 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/Users/arwtyxouymz/work/python/simple-api/docker'
+let g:netrw_dirhist_7='/Users/arwtyxouymz/dotfiles/.config/nvim/template'
+let g:netrw_dirhist_6='/Users/arwtyxouymz/work/ficton/ficton-server/src/infrastructures/dynamoose'
+let g:netrw_dirhist_5='/Users/arwtyxouymz/dotfiles/.config/alacritty'
+let g:netrw_dirhist_4='/Users/arwtyxouymz/work/nextjs/project-template/public'
 let g:netrw_dirhist_3='/Users/ryutaro/work/graphql-tutorial/hackernews-api'
 let g:netrw_dirhist_2='/Users/ryutaro.matsumoto/work/sl-inquiry/scripts/RCHK2210_second_raizin'
 let g:netrw_dirhist_1='/Users/ryutaro.matsumoto/work/sl-inquiry/crontabs'

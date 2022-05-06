@@ -1,0 +1,23 @@
+{
+  "configurations": {
+    "launch current file": {
+      "adapter": "debugpy",
+      "configuration": {
+        "name": "Python: current file",
+        "type": "python",
+        "request": "launch",
+        "cwd": "${fileDirname}",
+        "program": "${file}",
+        "args": [],
+        "stopOnEntry": true,
+        "externalConsole": true
+      },
+      "breakpoints": {
+        "exception": {
+          "raised": "N",
+          "uncaught": "Y"
+        }
+      }
+    }
+  }
+}
