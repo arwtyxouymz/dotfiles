@@ -5,16 +5,20 @@ language message C
 let g:mapleader = ','
 let s:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
 
+" =================================================
 " Plugins
+" =================================================
 call plug#begin()
 
 "" Denops
 Plug 'vim-denops/denops.vim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 Plug 'liuchengxu/vista.vim'
 
 Plug 'lambdalisue/fern.vim'
@@ -35,8 +39,19 @@ Plug 'rakr/vim-one'
 
 Plug 'ryanoasis/vim-devicons'
 
+Plug 'RRethy/vim-illuminate'
+Plug 'folke/todo-comments.nvim'
+Plug 'goolord/alpha-nvim'
+Plug 'yggdroot/indentline'
+Plug 'deris/vim-shot-f'
+
+Plug 'terrortylor/nvim-comment'
+
 call plug#end()
 
+" =================================================
+" General
+" =================================================
 " 行番号を表示
 set number
 " カーソル表示
@@ -133,6 +148,10 @@ command! -nargs=* ST5 5split | terminal <args>
 command! -nargs=* VT vsplit | terminal <args>
 
 " =================================================
+" alpha
+" =================================================
+
+" =================================================
 " coc.nvim
 " =================================================
 set encoding=utf-8
@@ -143,6 +162,21 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 set signcolumn=number
+
+let g:coc_global_extensions = [
+    \ 'coc-fzf-preview',
+    \ 'coc-json',
+    \ 'coc-tsserver',
+    \ 'coc-eslint',
+    \ 'coc-prettier',
+    \ 'coc-snippets',
+    \ 'coc-tailwindcss',
+    \ 'coc-rust-analyzer',
+    \ 'coc-docker',
+    \ 'coc-sh',
+    \ 'coc-toml',
+    \ 'coc-yaml',
+\]
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -342,6 +376,55 @@ let g:vista_sidebar_width = 40
 " Ctrl+nでファイルツリーを表示/非表示する
 nnoremap <Space>f :Fern . -reveal=% -drawer -toggle -width=40<CR>
 let g:fern#renderer = "nerdfont"
+
+" =================================================
+" Indent line
+" =================================================
+set list lcs=tab:\|\
+
+" =================================================
+" Lua Configurations
+" =================================================
+lua<<EOF
+-- ======================
+-- alpha
+-- ======================
+require('alpha').setup(require('alpha.themes.startify').config)
+
+-- ======================
+-- nvim-treesitter
+-- ======================
+require('nvim-treesitter.configs').setup {
+    ensure_installed = {
+        "vim",
+        "lua",
+        "bash",
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "tsx",
+        "svelte",
+        "rust",
+        "go",
+        "python",
+        "json",
+        "toml",
+        "yaml",
+    },
+    highlight = {
+        enable = true
+    }
+}
+
+-- ======================
+-- nvim-comment
+-- ======================
+require('nvim_comment').setup({
+    line_mapping = "<leader>cl",
+    operator_mapping = "<leader>c"
+})
+EOF
 
 " =================================================
 " Vim-One
