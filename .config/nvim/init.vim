@@ -176,6 +176,7 @@ let g:coc_global_extensions = [
     \ 'coc-sh',
     \ 'coc-toml',
     \ 'coc-yaml',
+    \ 'coc-lists',
 \]
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -330,10 +331,18 @@ nnoremap <silent> [fzf-p]g;    :<C-u>CocCommand fzf-preview.Changes<CR>
 nnoremap <silent> [fzf-p]/     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
 nnoremap <silent> [fzf-p]*     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
 nnoremap          [fzf-p]gr    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+nnoremap          [fzf-p]g.    :<C-u>CocCommand fzf-preview.ProjectGrep .<CR>
 xnoremap          [fzf-p]gr    "sy:CocCommand   fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
 nnoremap <silent> [fzf-p]t     :<C-u>CocCommand fzf-preview.BufferTags<CR>
 nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
 nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
+nnoremap <silent> [fzf-p]h     :<C-u>CocCommand fzf-preview.GrepHelp<Space>
+
+nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
+nnoremap <silent> [fzf-p]rf    :<C-u>CocCommand fzf-preview.CocReferences<CR>
+nnoremap <silent> [fzf-p]d     :<C-u>CocCommand fzf-preview.CocDefinition<CR>
+nnoremap <silent> [fzf-p]t     :<C-u>CocCommand fzf-preview.CocTypeDefinition<CR>
+nnoremap <silent> [fzf-p]o     :<C-u>CocCommand fzf-preview.CocOutline --add-fzf-arg=--exact --add-fzf-arg=--no-sort<CR>
 
 " =================================================
 " lightline
@@ -376,6 +385,7 @@ let g:vista_sidebar_width = 40
 " Ctrl+nでファイルツリーを表示/非表示する
 nnoremap <Space>f :Fern . -reveal=% -drawer -toggle -width=40<CR>
 let g:fern#renderer = "nerdfont"
+let g:fern#default_hidden = 1
 
 " =================================================
 " Indent line
