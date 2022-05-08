@@ -13,7 +13,9 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "rust",
     "go",
+    "javascript",
     "typescript",
+    "html",
     "json",
     "javascriptreact",
     "typescriptreact",
@@ -53,24 +55,9 @@
         }
       }
     },
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
-    },
-    "sql": {
-      "command": "sql-language-server",
-      "args": ["up", "--method", "stdio"],
-      "filetypes": ["sql", "mysql"]
-    },
-    "dockerfile": {
-      "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
-    },
     "terraform": {
-      "command": "terraform-lsp",
+      "command": "terraform-ls",
+      "args": ["serve"],
       "filetypes": ["tf", "terraform"],
       "initializationOptions": {},
       "settings": {}

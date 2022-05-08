@@ -23,6 +23,8 @@ Plug 'liuchengxu/vista.vim'
 
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
+Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
 Plug 'SirVer/ultisnips'
@@ -294,21 +296,21 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" " Manage extensions.
+" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" " Show commands.
+" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" " Find symbol of current document.
+" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" " Search workspace symbols.
+" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" " Do default action for next item.
+" nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" " Do default action for previous item.
+" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" " Resume latest coc list.
+" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " =================================================
 " fzf-preview
@@ -317,8 +319,8 @@ let g:fzf_preview_use_dev_icons = 1
 let g:fzf_preview_dev_icon_prefix_string_length = 3
 let g:fzf_preview_dev_icons_limit = 5000
 
-nmap <Leader>f [fzf-p]
-xmap <Leader>f [fzf-p]
+nmap <space> [fzf-p]
+xmap <space> [fzf-p]
 
 nnoremap <silent> [fzf-p]p     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
 nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
@@ -338,7 +340,7 @@ nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
 nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
 nnoremap <silent> [fzf-p]h     :<C-u>CocCommand fzf-preview.GrepHelp<Space>
 
-nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
+nnoremap <silent> [fzf-p]e     :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
 nnoremap <silent> [fzf-p]rf    :<C-u>CocCommand fzf-preview.CocReferences<CR>
 nnoremap <silent> [fzf-p]d     :<C-u>CocCommand fzf-preview.CocDefinition<CR>
 nnoremap <silent> [fzf-p]t     :<C-u>CocCommand fzf-preview.CocTypeDefinition<CR>
@@ -383,9 +385,17 @@ let g:vista_sidebar_width = 40
 " Fern
 " =================================================
 " Ctrl+nでファイルツリーを表示/非表示する
-nnoremap <Space>f :Fern . -reveal=% -drawer -toggle -width=40<CR>
+nnoremap <leader>f :Fern . -reveal=% -drawer -toggle -width=40<CR>
 let g:fern#renderer = "nerdfont"
 let g:fern#default_hidden = 1
+let g:fern_git_status#disable_ignored = 1
+
+" アイコンに色をつける
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
 
 " =================================================
 " Indent line
@@ -415,12 +425,15 @@ require('nvim-treesitter.configs').setup {
         "typescript",
         "tsx",
         "svelte",
+        "graphql",
         "rust",
         "go",
         "python",
         "json",
         "toml",
         "yaml",
+        "hcl",
+        "dockerfile",
     },
     highlight = {
         enable = true
@@ -431,8 +444,8 @@ require('nvim-treesitter.configs').setup {
 -- nvim-comment
 -- ======================
 require('nvim_comment').setup({
-    line_mapping = "<leader>cl",
-    operator_mapping = "<leader>c"
+    line_mapping = "<leader><leader><leader>",
+    operator_mapping = "<leader><leader>"
 })
 EOF
 
