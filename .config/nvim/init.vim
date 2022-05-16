@@ -47,7 +47,9 @@ Plug 'goolord/alpha-nvim'
 Plug 'yggdroot/indentline'
 Plug 'deris/vim-shot-f'
 
+Plug 'nvim-lua/plenary.nvim'
 Plug 'terrortylor/nvim-comment'
+Plug 'folke/todo-comments.nvim'
 
 call plug#end()
 
@@ -447,6 +449,11 @@ require('nvim_comment').setup({
     line_mapping = "<leader><leader><leader>",
     operator_mapping = "<leader><leader>"
 })
+
+-- ======================
+-- todo-comments.nvim
+-- ======================
+require('todo-comments').setup({})
 EOF
 
 " =================================================
