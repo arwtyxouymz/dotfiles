@@ -199,7 +199,7 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 function s:coc_pum_lexima_enter() abort
-    let key = lexima#exand('<CR>', 'i')
+    let key = lexima#expand('<CR>', 'i')
     call coc#on_enter()
     return "\<C-g>u" . key
 endfunction
